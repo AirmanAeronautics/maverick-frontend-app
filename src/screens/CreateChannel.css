@@ -1,0 +1,324 @@
+@import './AllInOneChats.css';
+
+.create-channel-container {
+  position: relative;
+}
+
+.create-channel-header {
+  justify-content: center;
+}
+
+.create-channel-header-content {
+  align-items: center;
+  justify-content: center;
+}
+
+.create-channel-header .header-title {
+  text-align: center;
+}
+
+.create-channel-header .header-subtitle-container {
+  display: none;
+}
+
+.create-channel-header .menu-button {
+  display: none;
+}
+
+.create-channel-header .header-placeholder {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+.create-channel-content {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  padding-bottom: var(--chat-bottom-safe-area);
+}
+
+.create-channel-form-wrapper {
+  width: 382px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 48px;
+  gap: 24px;
+}
+
+.create-channel-avatar-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.create-channel-avatar {
+  width: 164px;
+  height: 164px;
+  border-radius: 82px;
+  position: relative;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 14px 24px rgba(13, 79, 104, 0.25);
+}
+
+.create-channel-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.create-channel-avatar-edit {
+  position: absolute;
+  right: 16px;
+  bottom: 18px;
+  width: 54px;
+  height: 54px;
+  border-radius: 27px;
+  border: 3px solid #ffffff;
+  background: linear-gradient(135deg, #2fb7ff 0%, #168aad 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 12px 20px rgba(22, 138, 173, 0.35);
+}
+
+.create-channel-avatar-edit-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.create-channel-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.create-channel-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-channel-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0a0a0a;
+}
+
+.create-channel-input {
+  min-height: 56px;
+  width: 100%;
+}
+
+.create-channel-input .search-content {
+  min-height: 28px;
+  height: auto;
+}
+
+.create-channel-input-content {
+  width: 100%;
+}
+
+.create-channel-input--textarea {
+  min-height: 112px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.create-channel-input-content--textarea {
+  min-height: 80px;
+}
+
+.create-channel-text-input,
+.create-channel-textarea {
+  width: 100%;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #454950;
+  background: none;
+  border: none;
+  outline: none;
+  resize: none;
+}
+
+.create-channel-textarea {
+  min-height: 76px;
+  line-height: 1.4;
+}
+
+.create-channel-select-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.create-channel-select {
+  padding: 0 20px;
+}
+
+.create-channel-select-trigger {
+  width: 100%;
+  border: none;
+  background: none;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a516a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.create-channel-select-icon {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+  color: #0a516a;
+}
+
+.create-channel-select-menu {
+  border-radius: 18px;
+  border: 1px solid rgba(10, 81, 106, 0.2);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 20px 45px rgba(7, 50, 66, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-channel-select-option {
+  width: 100%;
+  text-align: left;
+  padding: 14px 20px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  color: #0a516a;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.create-channel-select-option:hover {
+  background: rgba(22, 138, 173, 0.08);
+}
+
+.create-channel-select-option--active {
+  color: #168aad;
+  font-weight: 600;
+}
+
+.create-channel-visibility {
+  display: flex;
+  gap: 16px;
+}
+
+.create-channel-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.create-channel-radio input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.create-channel-radio-control {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #168aad;
+  background: rgba(192, 250, 255, 0.35);
+  position: relative;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.create-channel-radio input:checked + .create-channel-radio-control {
+  border-color: #0a516a;
+  background: rgba(22, 138, 173, 0.1);
+}
+
+.create-channel-radio-control::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #168aad;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 200ms ease;
+}
+
+.create-channel-radio input:checked + .create-channel-radio-control::after {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.create-channel-radio-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #0a0a0a;
+}
+
+.create-channel-footer {
+  display: flex;
+  gap: 16px;
+}
+
+.create-channel-btn {
+  flex: 1;
+  height: 56px;
+  border-radius: 28px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.create-channel-btn--ghost {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0a516a;
+  border: 1px solid rgba(22, 138, 173, 0.25);
+}
+
+.create-channel-btn--primary {
+  background: #168aad;
+  color: #ffffff;
+  box-shadow: 0 22px 35px rgba(22, 138, 173, 0.35);
+}
+
+.create-channel-btn:active {
+  transform: translateY(1px);
+}
+
+

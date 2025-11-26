@@ -1,25 +1,20 @@
 import React, { useCallback, useRef, useState } from 'react';
 import './AllInOneChats.css';
 
-// Local image assets
+// Local image assets - using Vite imports for proper processing
 import channelBg from '../assets/channel Bg.png';
-
-// Image assets from Figma
-const imgImage = 'https://www.figma.com/api/mcp/asset/32295c0f-d36f-4da1-a594-bc8e1b9d2d32';
-const imgImage1 = 'https://www.figma.com/api/mcp/asset/aad76d2d-b0da-4c3c-a132-23ebc110011f';
-const imgImage2 = 'https://www.figma.com/api/mcp/asset/3e9b54fa-11d6-4ea9-a97d-abb74125bf5c';
-const imgImage3 = 'https://www.figma.com/api/mcp/asset/cb0a01d9-5ca6-4bf1-8968-73bbc8735ce0';
-const imgImage4 = 'https://www.figma.com/api/mcp/asset/02b0850c-23c5-4b50-a4a7-7857e6ed7ae6';
-const imgImage5 = 'https://www.figma.com/api/mcp/asset/b939ecad-fbe5-4c07-af4e-38b2cfa51051';
-const imgOutline = 'https://www.figma.com/api/mcp/asset/2cbf81d5-af1e-406c-8ac1-18ab97158cee';
-const imgBatteryEnd = 'https://www.figma.com/api/mcp/asset/ab5cdee7-0691-4f7c-947a-465723bf2f95';
-const imgFill = 'https://www.figma.com/api/mcp/asset/41ac1d0d-c06f-42f0-9fbb-f69491130d19';
-const imgPhDotsThreeVertical = 'https://www.figma.com/api/mcp/asset/3fd6b1d8-1854-4926-a727-7c552b5b7d23';
-const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/210acb78-c53a-424d-84fb-a4668cd15385';
-const imgSearch = 'https://www.figma.com/api/mcp/asset/2dd6b37b-3679-466e-8433-2267ff11d6ec';
-const imgWifi = 'https://www.figma.com/api/mcp/asset/9a27aef4-7569-4ad7-a1d0-5c575f675496';
-const imgIconMobileSignal = 'https://www.figma.com/api/mcp/asset/d037c77c-91be-4f2a-8c8b-ea8b89ca2a85';
-const imgFrame1171275563 = 'https://www.figma.com/api/mcp/asset/cf59a2e8-7aa6-43ba-904a-395ecdba7091';
+import avatarArchived from '../assets/avatar-archived.png';
+import avatar1 from '../assets/avatar-1.png';
+import avatar2 from '../assets/avatar-2.png';
+import avatar3 from '../assets/avatar-3.png';
+import avatar4 from '../assets/avatar-4.png';
+import avatar5 from '../assets/avatar-5.png';
+import arrowLeftIcon from '../../Arrow_Left_MD.svg?url';
+import searchIcon from '../../search.svg?url';
+import addIcon from '../../add.svg?url';
+import wifiIcon from '../../Wifi.svg?url';
+import mobileSignalIcon from '../../Mobile Signal.svg?url';
+import statusBarBatteryIcon from '../../_StatusBar-battery.svg?url';
 
 type RectLike = {
   top: number;
@@ -48,23 +43,15 @@ type StatusBarBatteryProps = {
   percentage?: 'False';
 };
 
-const StatusBarBattery = ({ 
-  darkMode = 'False', 
-  charge = '100%', 
-  charging = 'False', 
-  percentage = 'False' 
+const StatusBarBattery = ({
+  darkMode = 'False',
+  charge = '100%',
+  charging = 'False',
+  percentage = 'False',
 }: StatusBarBatteryProps) => {
   return (
     <div className="battery-container">
-      <div className="battery-outline">
-        <img src={imgOutline} alt="" className="battery-outline-image" />
-      </div>
-      <div className="battery-end">
-        <img src={imgBatteryEnd} alt="" className="battery-end-image" />
-      </div>
-      <div className="battery-fill">
-        <img src={imgFill} alt="" className="battery-fill-image" />
-      </div>
+      <img src={statusBarBatteryIcon} alt="Battery level" className="battery-outline-image" />
     </div>
   );
 };
@@ -84,7 +71,7 @@ const CHAT_ITEMS: ChatItem[] = [
     name: 'Archived',
     preview: '',
     time: '',
-    avatarUri: imgImage,
+    avatarUri: avatarArchived,
   },
   {
     id: 'steve1',
@@ -92,7 +79,7 @@ const CHAT_ITEMS: ChatItem[] = [
     preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
     time: '04:30 pm',
     unreadCount: 1,
-    avatarUri: imgImage1,
+    avatarUri: avatar1,
   },
   {
     id: 'kavin',
@@ -100,7 +87,7 @@ const CHAT_ITEMS: ChatItem[] = [
     preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
     time: '04:30 pm',
     unreadCount: 1,
-    avatarUri: imgImage2,
+    avatarUri: avatar2,
   },
   {
     id: 'marcus',
@@ -108,7 +95,7 @@ const CHAT_ITEMS: ChatItem[] = [
     preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
     time: '04:30 pm',
     unreadCount: 1,
-    avatarUri: imgImage3,
+    avatarUri: avatar3,
   },
   {
     id: 'landing-legends',
@@ -116,7 +103,7 @@ const CHAT_ITEMS: ChatItem[] = [
     preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
     time: '04:30 pm',
     unreadCount: 1,
-    avatarUri: imgImage4,
+    avatarUri: avatar4,
   },
   {
     id: 'cessna-172',
@@ -124,7 +111,7 @@ const CHAT_ITEMS: ChatItem[] = [
     preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
     time: '04:30 pm',
     unreadCount: 1,
-    avatarUri: imgImage5,
+    avatarUri: avatar5,
   },
   {
     id: 'steve2',
@@ -132,7 +119,7 @@ const CHAT_ITEMS: ChatItem[] = [
     preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
     time: '04:30 pm',
     unreadCount: 1,
-    avatarUri: imgImage1,
+    avatarUri: avatar1,
   },
 ];
 
@@ -286,20 +273,44 @@ const ChatActionPanel = ({ chat, position, onClose, actions }: ChatActionPanelPr
   );
 };
 
-const AllInOneChats = () => {
+const PANEL_ROW_HEIGHT = 44;
+const PANEL_ROW_GAP = 4;
+const PANEL_VERTICAL_PADDING = 12;
+const PANEL_BOTTOM_PADDING = 24;
+const PANEL_CHAT_SPACING = 8;
+
+type AllInOneChatsProps = {
+  onNavigateToChannels?: () => void;
+};
+
+const AllInOneChats = ({ onNavigateToChannels }: AllInOneChatsProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeChat, setActiveChat] = useState<ChatItem | null>(null);
   const [panelPosition, setPanelPosition] = useState<{ top: number } | null>(null);
   const CHAT_LIST_TOP = 265;
 
   const handleLongPress = useCallback((item: ChatItem, rect: RectLike | null) => {
+    if (item.id === 'archived') return;
     const containerRect = readRect(containerRef.current);
     if (!containerRect || !rect) return;
 
-    const rectBottom = rect.top + rect.height;
-    const minTop = CHAT_LIST_TOP + 8;
-    const maxTop = Math.max(containerRect.height - 320, minTop);
-    const relativeTop = Math.min(Math.max(rectBottom - containerRect.top + 12, minTop), maxTop);
+    const panelHeight =
+      ACTION_ITEMS.length * PANEL_ROW_HEIGHT +
+      Math.max(ACTION_ITEMS.length - 1, 0) * PANEL_ROW_GAP +
+      PANEL_VERTICAL_PADDING;
+    const minTop = CHAT_LIST_TOP + PANEL_CHAT_SPACING;
+    const maxTop = Math.max(containerRect.height - panelHeight - PANEL_BOTTOM_PADDING, minTop);
+    const chatTop = rect.top - containerRect.top;
+    const chatBottom = chatTop + rect.height;
+    const desiredTop = chatBottom + PANEL_CHAT_SPACING;
+
+    let absoluteTop = desiredTop;
+    if (desiredTop > maxTop) {
+      const topAbove = chatTop - PANEL_CHAT_SPACING - panelHeight;
+      absoluteTop = Math.max(topAbove, minTop);
+    }
+    absoluteTop = Math.min(Math.max(absoluteTop, minTop), maxTop);
+    const relativeTop = absoluteTop - CHAT_LIST_TOP;
 
     setActiveChat(item);
     setPanelPosition({ top: relativeTop });
@@ -340,8 +351,8 @@ const AllInOneChats = () => {
           </div>
         </div>
         <div className="status-bar-right">
-          <img src={imgIconMobileSignal} alt="Signal" className="status-bar-icon" />
-          <img src={imgWifi} alt="WiFi" className="status-bar-icon" />
+          <img src={mobileSignalIcon} alt="Signal" className="status-bar-icon" />
+          <img src={wifiIcon} alt="WiFi" className="status-bar-icon" />
           <StatusBarBattery />
         </div>
       </div>
@@ -349,7 +360,7 @@ const AllInOneChats = () => {
       {/* Header */}
       <div className="header">
         <button className="back-button">
-          <img src={imgArrowArrowLeftMd} alt="Back" className="back-icon" />
+          <img src={arrowLeftIcon} alt="Back" className="back-icon" />
         </button>
         <div className="header-content">
           <div className="header-text-container">
@@ -359,9 +370,6 @@ const AllInOneChats = () => {
             </div>
           </div>
         </div>
-        <button className="menu-button">
-          <img src={imgPhDotsThreeVertical} alt="Menu" className="menu-icon" />
-        </button>
       </div>
 
       {/* Search Input */}
@@ -369,7 +377,7 @@ const AllInOneChats = () => {
         <div className="search-input-container">
           <div className="search-input">
             <div className="search-content">
-              <img src={imgSearch} alt="Search" className="search-icon" />
+              <img src={searchIcon} alt="Search" className="search-icon" />
               <input
                 type="text"
                 className="search-text-input"
@@ -385,10 +393,9 @@ const AllInOneChats = () => {
         <div className="tab-active">
           <span className="tab-text">Messages</span>
         </div>
-        <button className="tab-inactive">
-          <span className="tab-text">Channels</span>
+        <button className="tab-inactive" onClick={onNavigateToChannels}>
+          <span className="tab-text tab-text--dimmed">Channels</span>
         </button>
-        <div className="tab-indicator" />
       </div>
 
       {/* Chat List */}
@@ -411,7 +418,7 @@ const AllInOneChats = () => {
 
       {/* Floating Action Button */}
       <button className="fab">
-        <img src={imgFrame1171275563} alt="Add" className="fab-icon" />
+        <img src={addIcon} alt="Add" className="fab-icon" />
       </button>
 
       <ChatActionPanel

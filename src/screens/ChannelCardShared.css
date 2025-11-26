@@ -1,0 +1,61 @@
+.channel-card {
+  width: 382px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.channel-card__followers {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 0;
+}
+
+.channel-card__followers-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.channel-card__followers-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #373737;
+  margin: 0;
+}
+
+.channel-card__follow-button {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  min-width: 90px;
+  height: 34px;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  background: rgba(0, 124, 167, 0.9);
+  color: #ffffff;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.2px;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.channel-card__follow-button--active {
+  background: transparent;
+  color: #168aad;
+  border-color: #168aad;
+}
+
+.channel-card__follow-button:focus-visible {
+  outline: 2px solid rgba(0, 124, 167, 0.4);
+  outline-offset: 2px;
+}
+
+

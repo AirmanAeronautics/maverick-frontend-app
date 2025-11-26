@@ -23,10 +23,31 @@ import {
 
 // Import the background image - Vite will handle this
 import chatBackground from '../assets/Chat Bg.png';
-import mapImage from '../../map.png';
+import mapImage from '../assets/map.png';
+import iconSignal from '@/assets/icon-signal.png?url';
+import iconWifi from '@/assets/icon-wifi.png?url';
+import iconBatteryOutline from '@/assets/battery-outline.png?url';
+import iconBatteryEnd from '@/assets/battery-end.png?url';
+import iconBatteryFill from '@/assets/battery-fill.png?url';
+import iconBack from '@/assets/arrow-back.png?url';
+import iconMenu from '@/assets/icon-menu.png?url';
 
 // Use the imported image URL
 const chatBgUrl = chatBackground;
+
+const StatusBarBattery = () => (
+  <div className="battery-container">
+    <div className="battery-outline">
+      <img src={iconBatteryOutline} alt="" className="battery-outline-image" />
+    </div>
+    <div className="battery-end">
+      <img src={iconBatteryEnd} alt="" className="battery-end-image" />
+    </div>
+    <div className="battery-fill">
+      <img src={iconBatteryFill} alt="" className="battery-fill-image" />
+    </div>
+  </div>
+);
 
 // Image assets from Figma
 const imgImage = 'https://www.figma.com/api/mcp/asset/166573e9-968c-4330-8cca-d15e7bd6a074';
@@ -34,12 +55,8 @@ const imgRectangle1 = 'https://www.figma.com/api/mcp/asset/32e10b63-b6d0-4133-bc
 const imgAvatar = 'https://www.figma.com/api/mcp/asset/02204879-0fa7-4d07-a529-d8d70ea06faa';
 const imgRectangle5 = 'https://www.figma.com/api/mcp/asset/08d0ab5a-fee5-4cb8-b761-0b385ff013e2';
 const imgAvatar1 = 'https://www.figma.com/api/mcp/asset/468b3ca7-7e1b-4a4a-a93b-c4049fcd8943';
-const imgPhDotsThreeVertical = 'https://www.figma.com/api/mcp/asset/f6282d6c-70c2-45e0-b53c-af783653ffa9';
-const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/0a37a700-9d60-4529-9ed0-4a3d30e262dc';
 const imgIcSharpPlus = 'https://www.figma.com/api/mcp/asset/7a66548f-9537-4f30-b835-e195d306df29';
 const imgMdiMicrophone = 'https://www.figma.com/api/mcp/asset/5194ef10-81ef-41a3-9bd8-5298a70f8f4a';
-const imgWifi = 'https://www.figma.com/api/mcp/asset/8c290831-5680-4336-bc36-b7560bb4dc53';
-const imgIconMobileSignal = 'https://www.figma.com/api/mcp/asset/cfb203a4-60ed-476c-a701-61ca3f31dc79';
 const imgFrame1171275495 = 'https://www.figma.com/api/mcp/asset/f8663a0d-4c75-4d4b-ae43-2d39d583ad4d';
 const imgEllipse10 = 'https://www.figma.com/api/mcp/asset/607c5eb4-72c9-4521-9801-c423705062ca';
 const imgIncomingCustomPreview = 'https://www.figma.com/api/mcp/asset/3ad3463e-4750-491f-9600-324117e47dd3';
@@ -793,20 +810,16 @@ const ChannelGroupsPrivate = () => {
           <span className="status-bar-time">9:41</span>
         </div>
         <div className="status-bar-right">
-          <img src={imgIconMobileSignal} alt="Signal" className="status-bar-icon" />
-          <img src={imgWifi} alt="WiFi" className="status-bar-icon" />
-          <div className="battery-container">
-            <div className="battery-outline"></div>
-            <div className="battery-fill"></div>
-            <div className="battery-end"></div>
-          </div>
+          <img src={iconSignal} alt="Signal" className="status-bar-icon" />
+          <img src={iconWifi} alt="WiFi" className="status-bar-icon" />
+          <StatusBarBattery />
         </div>
       </div>
 
       {/* Header with blur */}
       <div className="header">
         <button className="back-button">
-          <img src={imgArrowArrowLeftMd} alt="Back" className="back-icon" />
+          <img src={iconBack} alt="Back" className="back-icon" />
         </button>
         <div className="header-content">
           <img src={imgImage} alt="Channel" className="header-avatar" />
@@ -823,7 +836,7 @@ const ChannelGroupsPrivate = () => {
             setIsSettingsOpen(true);
           }}
         >
-          <img src={imgPhDotsThreeVertical} alt="Menu" className="menu-icon" />
+          <img src={iconMenu} alt="Menu" className="menu-icon" />
         </button>
       </div>
 

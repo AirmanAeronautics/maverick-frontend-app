@@ -1,0 +1,37 @@
+@import './ExploreChannel.css';
+
+.explore-channel-full-container .header-title {
+  text-transform: none;
+}
+
+.explore-channel-full-content {
+  position: absolute;
+  top: 212px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.explore-channel-full-list {
+  width: 382px;
+  padding-bottom: var(--chat-bottom-safe-area);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.explore-channel-full-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.explore-channel-full-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+
+

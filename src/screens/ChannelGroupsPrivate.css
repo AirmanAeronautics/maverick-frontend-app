@@ -88,36 +88,53 @@
 
 .battery-container {
   position: relative;
-  width: 27.4px;
+  width: 27.401px;
   height: 13px;
 }
 
 .battery-outline {
   position: absolute;
-  width: 25px;
+  left: 0;
+  right: 2.4px;
+  top: 50%;
+  transform: translateY(-50%);
   height: 13px;
-  border: 1px solid #000000;
-  border-radius: 2px;
 }
 
-.battery-fill {
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 19px;
-  height: 9px;
-  background-color: #000000;
-  border-radius: 1px;
+.battery-outline-image {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .battery-end {
   position: absolute;
   right: 0;
-  top: 4px;
-  width: 1.4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.401px;
   height: 4.22px;
-  background-color: #000000;
-  border-radius: 1px;
+}
+
+.battery-end-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.battery-fill {
+  position: absolute;
+  left: 2px;
+  right: 4.4px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 9px;
+}
+
+.battery-fill-image {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 .header {

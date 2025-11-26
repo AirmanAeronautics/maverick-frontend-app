@@ -1,0 +1,70 @@
+@import './AllInOneChats.css';
+
+.explore-channel-container {
+  position: relative;
+}
+
+.explore-channel-content {
+  position: absolute;
+  top: 212px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.explore-channel-content .chat-list-content {
+  width: 382px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-bottom: var(--chat-bottom-safe-area);
+}
+
+.explore-channel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.explore-channel-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.explore-channel-section-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #0a0a0a;
+  margin: 0;
+}
+
+.explore-channel-section-cta {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #292929;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.explore-channel-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.explore-channel-section + .explore-channel-section {
+  margin-top: 4px;
+}
+
+.channel-card.explore-channel-card {
+  width: 100%;
+}
+
+
