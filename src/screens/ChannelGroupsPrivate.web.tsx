@@ -385,7 +385,11 @@ const SettingsPanel = ({ onClose }: { onClose: () => void }) => {
   );
 };
 
-const ChannelGroupsPrivate = () => {
+type ChannelGroupsPrivateProps = {
+  onBack?: () => void;
+};
+
+const ChannelGroupsPrivate = ({ onBack }: ChannelGroupsPrivateProps) => {
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isPanelMounted, setIsPanelMounted] = useState(false);
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -818,7 +822,11 @@ const ChannelGroupsPrivate = () => {
 
       {/* Header with blur */}
       <div className="header">
-        <button className="back-button">
+        <button
+          className="back-button"
+          type="button"
+          onClick={() => onBack?.()}
+        >
           <img src={iconBack} alt="Back" className="back-icon" />
         </button>
         <div className="header-content">

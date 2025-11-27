@@ -423,8 +423,13 @@
   justify-content: center;
 }
 
+.messages-filter-inline-chips {
+  margin-bottom: 20px;
+}
+
 .chat-list-content {
   width: 382px;
+  padding-top: 16px;
   padding-bottom: calc(var(--chat-bottom-safe-area) + 24px);
 }
 
@@ -541,6 +546,14 @@
   min-width: 0;
 }
 
+.chat-item-name-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
 .chat-item-name {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
@@ -548,7 +561,8 @@
   color: #000000;
   line-height: 21.281px;
   margin: 0;
-  width: 100%;
+  flex: 0 1 auto;
+  min-width: 0;
   white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -591,6 +605,21 @@
   white-space: pre-wrap;
 }
 
+.chat-item-unread-dot {
+  position: absolute;
+  left: 349px;
+  top: 43px;
+  width: 17px;
+  height: 17px;
+  background-color: #00769a;
+  border-radius: 29.167px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
 .chat-item-time-container {
   position: absolute;
   left: 326px;
@@ -609,6 +638,13 @@
   color: #373737;
   line-height: 15px;
   white-space: nowrap;
+}
+
+.chat-item-mute-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 .chat-action-overlay {
@@ -710,6 +746,18 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
+  position: relative;
+}
+
+.chat-action-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 0;
+  height: 0.5px;
+  background-color: #e2ebf0;
+  pointer-events: none;
 }
 
 .chat-action-row--destructive {
@@ -737,3 +785,150 @@
   display: block;
 }
 
+.block-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  z-index: 60;
+}
+
+.block-modal-frame {
+  width: min(85vw, 360px);
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  padding: 28px 24px 24px;
+  text-align: center;
+}
+
+.block-modal-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 4px solid #168aad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.block-modal-icon-slash {
+  width: 44px;
+  height: 6px;
+  background: #168aad;
+  border-radius: 999px;
+  transform: rotate(-45deg);
+  display: block;
+}
+
+.block-modal-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111111;
+  margin: 0 0 12px;
+}
+
+.block-modal-description {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #4a4a4a;
+  margin: 0 auto 20px;
+  line-height: 1.4;
+}
+
+.block-modal-report {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.block-modal-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.block-modal-checkbox input {
+  width: 20px;
+  height: 20px;
+  accent-color: #168aad;
+}
+
+.block-modal-checkbox-help {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  color: #6b6b6b;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.block-modal-cta-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.block-modal-cta {
+  flex: 1;
+  background: transparent;
+  border: 1px solid rgba(22, 138, 173, 0.4);
+  border-radius: 18px;
+  padding: 12px 0;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #168aad;
+  cursor: pointer;
+}
+
+.block-modal-cta--primary {
+  border-color: #168aad;
+  background: rgba(22, 138, 173, 0.1);
+}
+
+.delete-modal-icon {
+  border-color: #168aad;
+}
+
+.delete-modal-icon-image {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
+
+.delete-modal-content {
+  text-align: left;
+  margin: 8px 0 28px;
+}
+
+.delete-modal-checkbox {
+  align-items: flex-start;
+}
+
+.delete-modal-checkbox-label {
+  display: block;
+  line-height: 1.35;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

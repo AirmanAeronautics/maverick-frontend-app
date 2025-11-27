@@ -1,139 +1,41 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   View,
   Text,
   Image,
   ScrollView,
-  TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   StyleSheet,
   Dimensions,
   ImageBackground,
-  GestureResponderEvent,
-  Platform,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import type { ChatItem } from './types';
+
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 const DESIGN_WIDTH = 430;
 const APP_WIDTH = Math.min(screenWidth, DESIGN_WIDTH);
-const CHAT_LIST_TOP = 255;
+const CHAT_CARD_WIDTH = 382;
+const HEADER_TOP = 65;
+const HEADER_HEIGHT = 66;
+const CHAT_LIST_GAP = 36;
+const CHAT_LIST_TOP = HEADER_TOP + HEADER_HEIGHT + CHAT_LIST_GAP;
 
-// Local image assets
 const imgChannelBg = Image.resolveAssetSource(require('../../channel Bg.png')).uri;
-
-// Image assets from Figma
-const imgImage = 'https://www.figma.com/api/mcp/asset/32295c0f-d36f-4da1-a594-bc8e1b9d2d32';
-const imgImage1 = 'https://www.figma.com/api/mcp/asset/aad76d2d-b0da-4c3c-a132-23ebc110011f';
-const imgImage2 = 'https://www.figma.com/api/mcp/asset/3e9b54fa-11d6-4ea9-a97d-abb74125bf5c';
-const imgImage3 = 'https://www.figma.com/api/mcp/asset/cb0a01d9-5ca6-4bf1-8968-73bbc8735ce0';
-const imgImage4 = 'https://www.figma.com/api/mcp/asset/02b0850c-23c5-4b50-a4a7-7857e6ed7ae6';
-const imgImage5 = 'https://www.figma.com/api/mcp/asset/b939ecad-fbe5-4c07-af4e-38b2cfa51051';
+const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/210acb78-c53a-424d-84fb-a4668cd15385';
+const imgIconMobileSignal = 'https://www.figma.com/api/mcp/asset/d037c77c-91be-4f2a-8c8b-ea8b89ca2a85';
+const imgWifi = 'https://www.figma.com/api/mcp/asset/9a27aef4-7569-4ad7-a1d0-5c575f675496';
 const imgOutline = 'https://www.figma.com/api/mcp/asset/2cbf81d5-af1e-406c-8ac1-18ab97158cee';
 const imgBatteryEnd = 'https://www.figma.com/api/mcp/asset/ab5cdee7-0691-4f7c-947a-465723bf2f95';
 const imgFill = 'https://www.figma.com/api/mcp/asset/41ac1d0d-c06f-42f0-9fbb-f69491130d19';
-const imgPhDotsThreeVertical = 'https://www.figma.com/api/mcp/asset/3fd6b1d8-1854-4926-a727-7c552b5b7d23';
-const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/210acb78-c53a-424d-84fb-a4668cd15385';
-const imgSearch = 'https://www.figma.com/api/mcp/asset/2dd6b37b-3679-466e-8433-2267ff11d6ec';
-const imgWifi = 'https://www.figma.com/api/mcp/asset/9a27aef4-7569-4ad7-a1d0-5c575f675496';
-const imgIconMobileSignal = 'https://www.figma.com/api/mcp/asset/d037c77c-91be-4f2a-8c8b-ea8b89ca2a85';
-const imgFrame1171275563 = 'https://www.figma.com/api/mcp/asset/cf59a2e8-7aa6-43ba-904a-395ecdba7091';
 
-type StatusBarBatteryProps = {
-  className?: string;
-  darkMode?: 'False';
-  charge?: '100%';
-  charging?: 'False';
-  percentage?: 'False';
+type ArchiveChatsProps = {
+  archivedChats?: ChatItem[];
+  onBack?: () => void;
+  onUnarchiveChat?: (chatId: string) => void;
+  onDeleteChat?: (chatId: string) => void;
 };
-
-const StatusBarBattery = ({ 
-  darkMode = 'False', 
-  charge = '100%', 
-  charging = 'False', 
-  percentage = 'False' 
-}: StatusBarBatteryProps) => {
-  return (
-    <View style={styles.batteryContainer}>
-      <View style={styles.batteryOutline}>
-        <Image source={{ uri: imgOutline }} style={styles.batteryOutlineImage} />
-      </View>
-      <View style={styles.batteryEnd}>
-        <Image source={{ uri: imgBatteryEnd }} style={styles.batteryEndImage} />
-      </View>
-      <View style={styles.batteryFill}>
-        <Image source={{ uri: imgFill }} style={styles.batteryFillImage} />
-      </View>
-    </View>
-  );
-};
-
-type ChatItem = {
-  id: string;
-  name: string;
-  preview: string;
-  time: string;
-  unreadCount?: number;
-  avatarUri: string;
-};
-
-const CHAT_ITEMS: ChatItem[] = [
-  {
-    id: 'archived',
-    name: 'Archived',
-    preview: '',
-    time: '',
-    avatarUri: imgImage,
-  },
-  {
-    id: 'steve1',
-    name: 'Steve Harrington',
-    preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
-    time: '04:30 pm',
-    unreadCount: 1,
-    avatarUri: imgImage1,
-  },
-  {
-    id: 'kavin',
-    name: 'Kavin ',
-    preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
-    time: '04:30 pm',
-    unreadCount: 1,
-    avatarUri: imgImage2,
-  },
-  {
-    id: 'marcus',
-    name: 'Marcus',
-    preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
-    time: '04:30 pm',
-    unreadCount: 1,
-    avatarUri: imgImage3,
-  },
-  {
-    id: 'landing-legends',
-    name: '#landing-legends',
-    preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
-    time: '04:30 pm',
-    unreadCount: 1,
-    avatarUri: imgImage4,
-  },
-  {
-    id: 'cessna-172',
-    name: '#cessna -172',
-    preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
-    time: '04:30 pm',
-    unreadCount: 1,
-    avatarUri: imgImage5,
-  },
-  {
-    id: 'steve2',
-    name: 'Steve Harrington',
-    preview: 'Morning team — heads up, runway 27L lighting\'s partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.',
-    time: '04:30 pm',
-    unreadCount: 1,
-    avatarUri: imgImage1,
-  },
-];
 
 type ActionItem = {
   id: string;
@@ -141,28 +43,33 @@ type ActionItem = {
   destructive?: boolean;
 };
 
-const STATIC_ACTION_ITEMS: ActionItem[] = [
-  { id: 'archive', label: () => 'Archive' },
-  { id: 'mute', label: () => 'Mute' },
-  { id: 'lock', label: () => 'Lock chat' },
+const ARCHIVE_SECONDARY_ACTIONS: ActionItem[] = [
   { id: 'favourite', label: () => 'Add to Favourites' },
-  {
-    id: 'block',
-    label: context => `Block ${context?.name ?? 'user'}`,
-  },
-  {
-    id: 'delete',
-    label: () => 'Delete chat',
-    destructive: true,
-  },
+  { id: 'block', label: context => `Block ${context?.name ?? 'user'}` },
+  { id: 'delete', label: () => 'Delete chat', destructive: true },
 ];
 
-const buildActionItems = (hasUnreadBadge: boolean): ActionItem[] => [
+const buildArchiveActionItems = (hasUnreadBadge: boolean): ActionItem[] => [
+  { id: 'unarchive', label: () => 'Unarchive' },
   hasUnreadBadge
     ? { id: 'mark-read', label: () => 'Mark as read' }
     : { id: 'mark-unread', label: () => 'Mark as unread' },
-  ...STATIC_ACTION_ITEMS,
+  ...ARCHIVE_SECONDARY_ACTIONS,
 ];
+
+const StatusBarBattery = () => (
+  <View style={styles.batteryContainer}>
+    <View style={styles.batteryOutline}>
+      <Image source={{ uri: imgOutline }} style={styles.batteryOutlineImage} />
+    </View>
+    <View style={styles.batteryEnd}>
+      <Image source={{ uri: imgBatteryEnd }} style={styles.batteryEndImage} />
+    </View>
+    <View style={styles.batteryFill}>
+      <Image source={{ uri: imgFill }} style={styles.batteryFillImage} />
+    </View>
+  </View>
+);
 
 type ChatItemComponentProps = {
   item: ChatItem;
@@ -322,26 +229,64 @@ const ChatActionPanel = ({
   );
 };
 
-type AllInOneChatsProps = {
-  onOpenChat?: (chat: ChatItem) => void;
-  onNavigateToChannels?: () => void;
-};
-
-const AllInOneChats = ({}: AllInOneChatsProps) => {
+const ArchiveChats = ({
+  archivedChats = [],
+  onBack,
+  onUnarchiveChat,
+  onDeleteChat,
+}: ArchiveChatsProps) => {
   const containerRef = useRef<View>(null);
   const [containerTop, setContainerTop] = useState(0);
   const [activeChat, setActiveChat] = useState<ChatItem | null>(null);
   const [panelAnchorY, setPanelAnchorY] = useState(0);
   const [isPanelVisible, setIsPanelVisible] = useState(false);
   const [chatManualUnreadState, setChatManualUnreadState] = useState<Record<string, boolean>>({});
-  const [chatUnreadCounts, setChatUnreadCounts] = useState<Record<string, number>>(() => {
-    return CHAT_ITEMS.reduce<Record<string, number>>((acc, chat) => {
-      if (typeof chat.unreadCount === 'number' && chat.unreadCount > 0) {
-        acc[chat.id] = chat.unreadCount;
-      }
-      return acc;
-    }, {});
-  });
+  const [chatUnreadCounts, setChatUnreadCounts] = useState<Record<string, number>>({});
+
+  useEffect(() => {
+    setChatManualUnreadState(prev => {
+      const next = { ...prev };
+      const ids = new Set(archivedChats.map(chat => chat.id));
+      Object.keys(next).forEach(id => {
+        if (!ids.has(id)) {
+          delete next[id];
+        }
+      });
+      return next;
+    });
+  }, [archivedChats]);
+
+  useEffect(() => {
+    setChatUnreadCounts(prev => {
+      const next: Record<string, number> = { ...prev };
+      const ids = new Set(archivedChats.map(chat => chat.id));
+      Object.keys(next).forEach(id => {
+        if (!ids.has(id)) {
+          delete next[id];
+        }
+      });
+      archivedChats.forEach(chat => {
+        if (typeof chat.unreadCount === 'number' && chat.unreadCount > 0 && !next[chat.id]) {
+          next[chat.id] = chat.unreadCount;
+        }
+      });
+      return next;
+    });
+  }, [archivedChats]);
+
+  const handleContainerLayout = useCallback(() => {
+    containerRef.current?.measureInWindow((_, y) => {
+      setContainerTop(y);
+    });
+  }, []);
+
+  const handleLongPress = useCallback((item: ChatItem, layout?: { top: number; height: number }) => {
+    if (!layout) return;
+    const anchor = layout.top + layout.height + 12;
+    setActiveChat(item);
+    setPanelAnchorY(anchor);
+    setIsPanelVisible(true);
+  }, []);
 
   const markChatAsUnread = useCallback((chatId: string) => {
     setChatManualUnreadState(prev => {
@@ -368,41 +313,31 @@ const AllInOneChats = ({}: AllInOneChatsProps) => {
     });
   }, []);
 
-  const handleContainerLayout = useCallback(() => {
-    containerRef.current?.measureInWindow((_, y) => {
-      setContainerTop(y);
-    });
-  }, []);
-
-  const handleLongPress = useCallback((item: ChatItem, layout?: { top: number; height: number }) => {
-    if (!layout) return;
-    const anchor = layout.top + layout.height + 12;
-    setActiveChat(item);
-    setPanelAnchorY(anchor);
-    setIsPanelVisible(true);
-  }, []);
-
   const handleChatPress = useCallback(
     (item: ChatItem) => {
-      if (isActionMode) return;
+      if (isPanelVisible) return;
       clearChatUnread(item.id);
       clearChatUnreadCount(item.id);
     },
-    [clearChatUnread, clearChatUnreadCount, isActionMode],
+    [clearChatUnread, clearChatUnreadCount, isPanelVisible],
   );
 
   const handleActionSelect = useCallback(
     (actionId: string) => {
       if (!activeChat) return;
-      if (actionId === 'mark-unread') {
+      if (actionId === 'unarchive') {
+        onUnarchiveChat?.(activeChat.id);
+      } else if (actionId === 'mark-unread') {
         clearChatUnreadCount(activeChat.id);
         markChatAsUnread(activeChat.id);
       } else if (actionId === 'mark-read') {
         clearChatUnread(activeChat.id);
         clearChatUnreadCount(activeChat.id);
+      } else if (actionId === 'delete') {
+        onDeleteChat?.(activeChat.id);
       }
     },
-    [activeChat, clearChatUnread, clearChatUnreadCount, markChatAsUnread],
+    [activeChat, clearChatUnread, clearChatUnreadCount, markChatAsUnread, onDeleteChat, onUnarchiveChat],
   );
 
   const closePanel = useCallback(() => {
@@ -412,7 +347,7 @@ const AllInOneChats = ({}: AllInOneChatsProps) => {
 
   const isActionMode = Boolean(isPanelVisible && activeChat);
   const activeChatHasUnreadBadge = activeChat ? Boolean(chatUnreadCounts[activeChat.id]) : false;
-  const actionItems = useMemo(() => buildActionItems(activeChatHasUnreadBadge), [activeChatHasUnreadBadge]);
+  const actionItems = useMemo(() => buildArchiveActionItems(activeChatHasUnreadBadge), [activeChatHasUnreadBadge]);
 
   return (
     <View
@@ -420,16 +355,10 @@ const AllInOneChats = ({}: AllInOneChatsProps) => {
       ref={containerRef}
       onLayout={handleContainerLayout}
     >
-      {/* Background with blur effect */}
-      <ImageBackground
-        source={{ uri: imgChannelBg }}
-        style={styles.backgroundImage}
-        blurRadius={50}
-      >
+      <ImageBackground source={{ uri: imgChannelBg }} style={styles.backgroundImage} blurRadius={50}>
         <View style={styles.backgroundOverlay} />
       </ImageBackground>
 
-      {/* Status Bar */}
       <View style={styles.statusBar}>
         <View style={styles.statusBarLeft}>
           <View style={styles.statusBarTimeContainer}>
@@ -443,83 +372,49 @@ const AllInOneChats = ({}: AllInOneChatsProps) => {
         </View>
       </View>
 
-      {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton} activeOpacity={0.7}>
+        <TouchableOpacity style={styles.backButton} onPress={onBack} activeOpacity={0.7}>
           <Image source={{ uri: imgArrowArrowLeftMd }} style={styles.backIcon} />
         </TouchableOpacity>
-        <View style={styles.headerContent}>
-          <View style={styles.headerTextContainer}>
-            <Text style={styles.headerTitle}>All in One Chats</Text>
-            <View style={styles.headerSubtitleContainer}>
-              <Text style={styles.headerSubtitle}>Join discussion channels</Text>
-            </View>
-          </View>
-        </View>
-        <View style={styles.headerEmojiContainer}>
-          <Text style={styles.headerEmoji}>✈️</Text>
-        </View>
-        <TouchableOpacity style={styles.menuButton} activeOpacity={0.7}>
-          <Image source={{ uri: imgPhDotsThreeVertical }} style={styles.menuIcon} />
-        </TouchableOpacity>
-      </View>
-
-      {/* Search Input */}
-      <View style={styles.searchContainer}>
-        <View style={styles.searchInputContainer}>
-          <View style={styles.searchInput}>
-            <View style={styles.searchContent}>
-              <Image source={{ uri: imgSearch }} style={styles.searchIcon} />
-              <TextInput
-                style={styles.searchTextInput}
-                placeholder="Search for Channels"
-                placeholderTextColor="#454950"
-              />
-            </View>
-          </View>
+        <View style={styles.headerTextContainer}>
+          <Text style={styles.headerTitle}>Archived</Text>
+          <Text style={styles.headerSubtitle}>
+            {archivedChats.length} {archivedChats.length === 1 ? 'chat' : 'chats'}
+          </Text>
         </View>
       </View>
 
-      {/* Tabs */}
-      <View style={styles.tabsContainer}>
-        <View style={styles.tabActive}>
-          <Text style={styles.tabText}>Messages</Text>
-        </View>
-        <TouchableOpacity style={styles.tabInactive} activeOpacity={0.7}>
-          <Text style={styles.tabText}>Channels</Text>
-        </TouchableOpacity>
-        <View style={styles.tabIndicator} />
-      </View>
-
-      {/* Chat List */}
       <ScrollView
-        style={styles.chatList}
-        contentContainerStyle={styles.chatListContent}
+        style={styles.archiveList}
+        contentContainerStyle={styles.archiveListContent}
         showsVerticalScrollIndicator={false}
       >
-        {CHAT_ITEMS.map(item => {
-          const isActive = item.id === activeChat?.id;
-          const displayUnreadCount = chatUnreadCounts[item.id] ?? 0;
-          const hasManualUnread = Boolean(chatManualUnreadState[item.id]);
-          return (
-            <ChatItemComponent
-              key={item.id}
-              item={item}
-              onLongPress={handleLongPress}
-              isActive={isActive}
-              isDimmed={Boolean(isActionMode && !isActive)}
-              onPress={handleChatPress}
-              showManualUnread={!displayUnreadCount && hasManualUnread}
-              unreadCount={displayUnreadCount}
-            />
-          );
-        })}
+        {archivedChats.length === 0 ? (
+          <View style={styles.emptyState}>
+            <Text style={styles.emptyEmoji}>🗂️</Text>
+            <Text style={styles.emptyTitle}>No archived chats yet</Text>
+            <Text style={styles.emptyCopy}>Archive chats to keep your inbox tidy.</Text>
+          </View>
+        ) : (
+          archivedChats.map(item => {
+            const isActive = item.id === activeChat?.id;
+            const displayUnreadCount = chatUnreadCounts[item.id] ?? 0;
+            const hasManualUnread = Boolean(chatManualUnreadState[item.id]);
+            return (
+              <ChatItemComponent
+                key={item.id}
+                item={item}
+                onLongPress={handleLongPress}
+                isActive={isActive}
+                isDimmed={Boolean(isActionMode && !isActive)}
+                onPress={handleChatPress}
+                showManualUnread={!displayUnreadCount && hasManualUnread}
+                unreadCount={displayUnreadCount}
+              />
+            );
+          })
+        )}
       </ScrollView>
-
-      {/* Floating Action Button */}
-      <TouchableOpacity style={styles.fab} activeOpacity={0.8}>
-        <Image source={{ uri: imgFrame1171275563 }} style={styles.fabIcon} />
-      </TouchableOpacity>
 
       <ChatActionPanel
         visible={isPanelVisible}
@@ -545,7 +440,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: DESIGN_WIDTH,
     height: screenHeight,
-    top: screenHeight / 2 - screenHeight / 2,
+    top: 0,
     left: (screenWidth > DESIGN_WIDTH ? DESIGN_WIDTH : screenWidth) / 2 - DESIGN_WIDTH / 2,
   },
   backgroundOverlay: {
@@ -562,7 +457,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingHorizontal: 20,
     paddingTop: 14,
-    backgroundColor: 'transparent',
   },
   statusBarLeft: {
     flexDirection: 'row',
@@ -634,159 +528,48 @@ const styles = StyleSheet.create({
   },
   header: {
     position: 'absolute',
-    top: 55,
+    top: 65,
     left: 0,
     width: APP_WIDTH,
-    height: 66.507,
+    paddingHorizontal: 20,
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 19.93,
-    zIndex: 10,
   },
   backButton: {
-    width: 27.52,
-    height: 27.52,
+    width: 32,
+    height: 32,
     justifyContent: 'center',
     alignItems: 'center',
   },
   backIcon: {
-    width: 27.52,
-    height: 27.52,
-  },
-  headerContent: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: 21,
-    gap: 12,
+    width: 28,
+    height: 28,
   },
   headerTextContainer: {
-    flex: 1,
+    marginLeft: 16,
   },
   headerTitle: {
     fontFamily: 'Helvetica Neue',
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: '500',
     color: '#000000',
-    lineHeight: 22.933,
-    marginBottom: 0,
-  },
-  headerSubtitleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-    marginTop: -1,
   },
   headerSubtitle: {
     fontFamily: 'Helvetica Neue',
     fontSize: 14,
-    fontWeight: '400',
     color: '#424242',
-    lineHeight: 22.933,
+    marginTop: 4,
   },
-  headerEmojiContainer: {
-    position: 'absolute',
-    left: 323,
-    top: 56,
-    transform: [{ rotate: '180deg' }, { scaleY: -1 }],
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  headerEmoji: {
-    fontFamily: 'Helvetica Neue',
-    fontSize: 20,
-    color: '#000000',
-  },
-  menuButton: {
-    width: 27.52,
-    height: 27.52,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 'auto',
-  },
-  menuIcon: {
-    width: 27.52,
-    height: 27.52,
-  },
-  searchContainer: {
-    position: 'absolute',
-    top: 130,
-    left: '50%',
-    transform: [{ translateX: -191 }],
-    width: 382,
-    height: 44,
-  },
-  searchInputContainer: {
+  archiveList: {
     flex: 1,
+    marginTop: CHAT_LIST_TOP,
+    paddingHorizontal: (APP_WIDTH - CHAT_CARD_WIDTH) / 2,
   },
-  searchInput: {
-    height: 44,
-    borderWidth: 3,
-    borderColor: '#FFFFFF',
-    borderRadius: 18,
-    paddingLeft: 25,
-    paddingRight: 94,
-    justifyContent: 'center',
-    backgroundColor: 'transparent',
-  },
-  searchContent: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    height: 20,
-  },
-  searchIcon: {
-    width: 20,
-    height: 20,
-  },
-  searchTextInput: {
-    flex: 1,
-    fontFamily: 'Helvetica Neue',
-    fontSize: 16,
-    fontWeight: '400',
-    color: '#454950',
-    height: 20,
-  },
-  tabsContainer: {
-    position: 'absolute',
-    top: 212,
-    left: 78,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  tabActive: {
-    marginRight: 40,
-  },
-  tabInactive: {
-    marginLeft: 10,
-  },
-  tabText: {
-    fontFamily: 'Helvetica Neue',
-    fontSize: 20,
-    fontWeight: '400',
-    color: '#000000',
-  },
-  tabIndicator: {
-    position: 'absolute',
-    left: 0,
-    top: 14,
-    width: 91,
-    height: 5,
-    backgroundColor: '#00627f',
-    borderRadius: 24,
-  },
-  chatList: {
-    flex: 1,
-    marginTop: 255,
-    paddingHorizontal: 24,
-    alignItems: 'center',
-  },
-  chatListContent: {
-    paddingBottom: 100,
+  archiveListContent: {
+    paddingBottom: 80,
   },
   chatItemContainer: {
-    marginBottom: 8,
+    marginBottom: 12,
     position: 'relative',
   },
   chatItemContainerActive: {
@@ -801,7 +584,7 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   chatItem: {
-    width: 382,
+    width: CHAT_CARD_WIDTH,
     height: 82,
     borderRadius: 18,
     borderWidth: 4,
@@ -809,15 +592,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'relative',
     overflow: 'hidden',
-  },
-  chatItemDimOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    borderRadius: 18,
-    backgroundColor: 'rgba(6, 24, 40, 0.25)',
-    zIndex: 5,
-    ...(Platform.OS === 'web'
-      ? ({ backgroundColor: 'rgba(255, 255, 255, 0.4)', backdropFilter: 'blur(6px)' } as any)
-      : {}),
   },
   chatItemGradient: {
     position: 'absolute',
@@ -840,11 +614,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   chatItemContent: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 10,
-    height: 63,
   },
   chatItemAvatar: {
     width: 48,
@@ -860,15 +632,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '500',
     color: '#000000',
-    lineHeight: 21.281,
   },
   chatItemPreview: {
     fontFamily: 'Helvetica Neue',
     fontSize: 13,
-    fontWeight: '400',
     color: '#373737',
-    lineHeight: 16,
-    width: 212,
   },
   unreadBadge: {
     position: 'absolute',
@@ -880,15 +648,24 @@ const styles = StyleSheet.create({
     borderRadius: 29.167,
     justifyContent: 'center',
     alignItems: 'center',
-    overflow: 'hidden',
   },
   unreadBadgeText: {
     fontFamily: 'Helvetica Neue',
     fontSize: 9.857,
     fontWeight: '500',
     color: '#FFFFFF',
-    textAlign: 'center',
-    lineHeight: 8,
+  },
+  manualUnreadDot: {
+    position: 'absolute',
+    left: 349,
+    top: 43,
+    width: 17,
+    height: 17,
+    backgroundColor: '#00769a',
+    borderRadius: 29.167,
+    justifyContent: 'center',
+    alignItems: 'center',
+    overflow: 'hidden',
   },
   chatItemTimeContainer: {
     position: 'absolute',
@@ -904,32 +681,33 @@ const styles = StyleSheet.create({
     fontSize: 10.041,
     fontWeight: '400',
     color: '#373737',
-    lineHeight: 15,
   },
-  manualUnreadDot: {
-    position: 'absolute',
-    left: 349,
-    top: 43,
-    width: 17,
-    height: 17,
-    backgroundColor: '#00769a',
-    borderRadius: 29.167,
-    justifyContent: 'center',
+  chatItemDimOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    borderRadius: 18,
+    backgroundColor: 'rgba(6, 24, 40, 0.25)',
+    zIndex: 5,
+  },
+  emptyState: {
     alignItems: 'center',
-    overflow: 'hidden',
+    marginTop: 60,
+    gap: 8,
+    paddingHorizontal: 16,
   },
-  fab: {
-    position: 'absolute',
-    left: APP_WIDTH * 0.8 + 4,
-    top: 788,
-    width: 56,
-    height: 56,
-    justifyContent: 'center',
-    alignItems: 'center',
+  emptyEmoji: {
+    fontSize: 72,
   },
-  fabIcon: {
-    width: 56,
-    height: 56,
+  emptyTitle: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 20,
+    fontWeight: '600',
+    color: '#000000',
+  },
+  emptyCopy: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 16,
+    color: '#424242',
+    textAlign: 'center',
   },
   actionPanelLayer: {
     ...StyleSheet.absoluteFillObject,
@@ -978,5 +756,6 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AllInOneChats;
+export default ArchiveChats;
+
 

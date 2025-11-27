@@ -1,0 +1,94 @@
+@import './AllInOneChats.css';
+
+.archive-chats-container {
+  position: relative;
+  width: 430px;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.archive-header {
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 430px;
+  height: 66px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+.archive-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 16px;
+}
+
+.archive-header-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 24px;
+  margin: 0;
+}
+
+.archive-header-count {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #424242;
+  line-height: 20px;
+}
+
+.archive-chat-list {
+  position: absolute;
+  top: 157px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0 24px var(--chat-bottom-safe-area);
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.archive-chat-list-inner {
+  width: 382px;
+  padding-bottom: calc(var(--chat-bottom-safe-area) + 32px);
+}
+
+.archive-empty-state {
+  margin-top: 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  color: #000000;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.archive-empty-emoji {
+  font-size: 80px;
+  line-height: 1;
+}
+
+.archive-empty-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.archive-empty-copy {
+  font-size: 16px;
+  font-weight: 400;
+  color: #424242;
+  margin: 0;
+}
+
+

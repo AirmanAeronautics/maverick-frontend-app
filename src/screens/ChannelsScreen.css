@@ -56,6 +56,18 @@
   box-shadow: 0 8px 22px rgba(10, 124, 167, 0.25);
 }
 
+.channels-screen-pin-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.leave-channel-modal-primary {
+  background: #168aad;
+  color: #ffffff;
+}
+
 .channels-screen-item {
   position: relative;
   width: 382px;

@@ -456,7 +456,11 @@ const ActionMenu = () => (
   </View>
 );
 
-const ChannelGroupsPrivate = () => {
+type ChannelGroupsPrivateProps = {
+  onBack?: () => void;
+};
+
+const ChannelGroupsPrivate = ({ onBack }: ChannelGroupsPrivateProps) => {
   const [isAttachOpen, setAttachOpen] = useState(false);
   const [overlayVisible, setOverlayVisible] = useState(false);
   const [isSettingsOpen, setSettingsOpen] = useState(false);
@@ -807,7 +811,11 @@ const ChannelGroupsPrivate = () => {
 
       {/* Header with blur */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backButton}>
+        <TouchableOpacity
+          style={styles.backButton}
+          activeOpacity={0.7}
+          onPress={() => onBack?.()}
+        >
           <Image source={{ uri: imgArrowArrowLeftMd }} style={styles.backIcon} />
         </TouchableOpacity>
         <View style={styles.headerContent}>

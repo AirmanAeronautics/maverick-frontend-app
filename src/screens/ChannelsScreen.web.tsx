@@ -9,6 +9,8 @@ import addIcon from '../../add.svg?url';
 import wifiIcon from '../../Wifi.svg?url';
 import mobileSignalIcon from '../../Mobile Signal.svg?url';
 import statusBarBatteryIcon from '../../_StatusBar-battery.svg?url';
+import muteNotificationIcon from '../../ep_mute-notification.svg?url';
+import pinIcon from './pin.svg?url';
 import avatarCessna from '../assets/avatar-5.png';
 import avatarDispatch from '../assets/avatar-3.png';
 import avatarFlightOps from '../assets/avatar-2.png';
@@ -184,23 +186,40 @@ type ActionItem = {
   destructive?: boolean;
 };
 
-const CHANNEL_ACTION_ITEMS: ActionItem[] = [
-  { id: 'pin', label: () => 'Pin' },
+const buildChannelActionItems = (hasUnreadBadge: boolean, isMuted: boolean, isPinned: boolean): ActionItem[] => [
+  { id: 'pin', label: () => (isPinned ? 'Unpin' : 'Pin') },
   { id: 'copy-link', label: () => 'Copy Link' },
-  { id: 'mark-unread', label: () => 'Mark as unread' },
-  { id: 'mute', label: () => 'Mute' },
+  hasUnreadBadge
+    ? { id: 'mark-read', label: () => 'Mark as read' }
+    : { id: 'mark-unread', label: () => 'Mark as unread' },
+  { id: 'mute', label: () => (isMuted ? 'Unmute' : 'Mute') },
   { id: 'channel-info', label: () => 'Channel info' },
   { id: 'leave-channel', label: () => 'Leave channel', destructive: true },
 ];
+
+const CHANNEL_ACTION_ITEMS_COUNT = 6;
 
 type ChannelCardProps = {
   item: ChannelItem;
   onLongPress?: (item: ChannelItem, rect: RectLike | null) => void;
   isActive?: boolean;
   isDimmed?: boolean;
+  unreadCount?: number;
+  showManualUnread?: boolean;
+  isMuted?: boolean;
+  isPinned?: boolean;
 };
 
-const ChannelCard = ({ item, onLongPress, isActive, isDimmed }: ChannelCardProps) => {
+const ChannelCard = ({
+  item,
+  onLongPress,
+  isActive,
+  isDimmed,
+  unreadCount = 0,
+  showManualUnread,
+  isMuted,
+  isPinned,
+}: ChannelCardProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const triggerLongPress = useCallback(() => {
@@ -228,15 +247,23 @@ const ChannelCard = ({ item, onLongPress, isActive, isDimmed }: ChannelCardProps
         <div className="channels-screen-item__content">
           <img src={item.avatarUri} alt={item.name} className="channels-screen-item__avatar" />
           <div className="channels-screen-item__text">
-            <p className="channels-screen-item__name">{item.name}</p>
+            <div className="chat-item-name-row">
+              <p className="channels-screen-item__name">{item.name}</p>
+              {isPinned ? <img src={pinIcon} alt="Pinned" className="channels-screen-pin-icon" /> : null}
+              {isMuted ? <img src={muteNotificationIcon} alt="Muted" className="chat-item-mute-icon" /> : null}
+            </div>
             <p className="channels-screen-item__description">{item.description}</p>
           </div>
         </div>
         <div className="channels-screen-item__meta">
           <span className="channels-screen-item__time">{item.time}</span>
         </div>
-        {item.unreadCount ? (
-          <span className="channels-screen-item__badge">{item.unreadCount}</span>
+        {unreadCount > 0 ? (
+          <div className="unread-badge">
+            <span className="unread-badge-text">{unreadCount}</span>
+          </div>
+        ) : showManualUnread ? (
+          <div className="chat-item-unread-dot" />
         ) : null}
       </div>
       {isDimmed ? <div className="chat-item-dim-overlay" /> : null}
@@ -249,9 +276,10 @@ type ChannelActionPanelProps = {
   position: { top: number } | null;
   onClose: () => void;
   actions: ActionItem[];
+  onActionSelect?: (actionId: string) => void;
 };
 
-const ChannelActionPanel = ({ channel, position, onClose, actions }: ChannelActionPanelProps) => {
+const ChannelActionPanel = ({ channel, position, onClose, actions, onActionSelect }: ChannelActionPanelProps) => {
   if (!channel || !position) return null;
 
   return (
@@ -264,9 +292,14 @@ const ChannelActionPanel = ({ channel, position, onClose, actions }: ChannelActi
         {actions.map(action => (
           <button
             key={action.id}
-            className={['chat-action-row', action.destructive ? 'chat-action-row--destructive' : ''].filter(Boolean).join(' ')}
+            className={['chat-action-row', action.destructive ? 'chat-action-row--destructive' : '']
+              .filter(Boolean)
+              .join(' ')}
             type="button"
-            onClick={onClose}
+            onClick={() => {
+              onActionSelect?.(action.id);
+              onClose();
+            }}
           >
             {action.label(channel)}
           </button>
@@ -292,19 +325,60 @@ const ChannelsScreen = ({ onNavigateToMessages }: ChannelsScreenProps) => {
   const [selectedCategory, setSelectedCategory] = useState<ChannelCategory>('General');
   const [activeChannel, setActiveChannel] = useState<ChannelItem | null>(null);
   const [panelPosition, setPanelPosition] = useState<{ top: number } | null>(null);
+  const [channelManualUnreadState, setChannelManualUnreadState] = useState<Record<string, boolean>>({});
+  const [channelUnreadCounts, setChannelUnreadCounts] = useState<Record<string, number>>(() => {
+    return CHANNEL_ITEMS.reduce<Record<string, number>>((acc, channel) => {
+      if (typeof channel.unreadCount === 'number' && channel.unreadCount > 0) {
+        acc[channel.id] = channel.unreadCount;
+      }
+      return acc;
+    }, {});
+  });
+  const [channelMuteState, setChannelMuteState] = useState<Record<string, boolean>>({});
+  const [channelPinnedState, setChannelPinnedState] = useState<Record<string, number>>({});
+  const [pendingLeaveChannel, setPendingLeaveChannel] = useState<ChannelItem | null>(null);
 
-  const visibleChannels = useMemo(
-    () => CHANNEL_ITEMS.filter(channel => channel.category === selectedCategory),
-    [selectedCategory],
-  );
+  const visibleChannels = useMemo(() => {
+    const filtered = CHANNEL_ITEMS.filter(channel => channel.category === selectedCategory);
+    const pinned = filtered
+      .filter(channel => channelPinnedState[channel.id])
+      .sort((a, b) => (channelPinnedState[b.id] ?? 0) - (channelPinnedState[a.id] ?? 0));
+    const unpinned = filtered.filter(channel => !channelPinnedState[channel.id]);
+    return [...pinned, ...unpinned];
+  }, [channelPinnedState, selectedCategory]);
+
+  const markChannelAsUnread = useCallback((channelId: string) => {
+    setChannelManualUnreadState(prev => {
+      if (prev[channelId]) return prev;
+      return { ...prev, [channelId]: true };
+    });
+  }, []);
+
+  const clearChannelManualUnread = useCallback((channelId: string) => {
+    setChannelManualUnreadState(prev => {
+      if (!prev[channelId]) return prev;
+      const updated = { ...prev };
+      delete updated[channelId];
+      return updated;
+    });
+  }, []);
+
+  const clearChannelUnreadCount = useCallback((channelId: string) => {
+    setChannelUnreadCounts(prev => {
+      if (!prev[channelId]) return prev;
+      const updated = { ...prev };
+      delete updated[channelId];
+      return updated;
+    });
+  }, []);
 
   const handleLongPress = useCallback((item: ChannelItem, rect: RectLike | null) => {
     const containerRect = readRect(containerRef.current);
     if (!containerRect || !rect) return;
 
     const panelHeight =
-      CHANNEL_ACTION_ITEMS.length * PANEL_ROW_HEIGHT +
-      Math.max(CHANNEL_ACTION_ITEMS.length - 1, 0) * PANEL_ROW_GAP +
+      CHANNEL_ACTION_ITEMS_COUNT * PANEL_ROW_HEIGHT +
+      Math.max(CHANNEL_ACTION_ITEMS_COUNT - 1, 0) * PANEL_ROW_GAP +
       PANEL_VERTICAL_PADDING;
 
     const minTop = CHAT_LIST_TOP + PANEL_CHANNEL_SPACING;
@@ -331,6 +405,59 @@ const ChannelsScreen = ({ onNavigateToMessages }: ChannelsScreenProps) => {
   }, []);
 
   const isActionMode = Boolean(activeChannel);
+  const activeChannelHasUnreadBadge = activeChannel ? Boolean(channelUnreadCounts[activeChannel.id]) : false;
+  const activeChannelIsMuted = activeChannel ? Boolean(channelMuteState[activeChannel.id]) : false;
+  const activeChannelIsPinned = activeChannel ? Boolean(channelPinnedState[activeChannel.id]) : false;
+  const actionItems = useMemo(
+    () => buildChannelActionItems(activeChannelHasUnreadBadge, activeChannelIsMuted, activeChannelIsPinned),
+    [activeChannelHasUnreadBadge, activeChannelIsMuted, activeChannelIsPinned],
+  );
+
+  const handleActionSelect = useCallback(
+    (actionId: string) => {
+      if (!activeChannel) return;
+      const selectedChannel = activeChannel;
+      if (actionId === 'mark-unread') {
+        clearChannelUnreadCount(selectedChannel.id);
+        markChannelAsUnread(selectedChannel.id);
+      } else if (actionId === 'mark-read') {
+        clearChannelManualUnread(selectedChannel.id);
+        clearChannelUnreadCount(selectedChannel.id);
+      } else if (actionId === 'mute') {
+        setChannelMuteState(prev => {
+          const isMuted = Boolean(prev[selectedChannel.id]);
+          const updated = { ...prev };
+          if (isMuted) {
+            delete updated[selectedChannel.id];
+          } else {
+            updated[selectedChannel.id] = true;
+          }
+          return updated;
+        });
+      } else if (actionId === 'pin') {
+        setChannelPinnedState(prev => {
+          const isPinned = Boolean(prev[selectedChannel.id]);
+          if (isPinned) {
+            const updated = { ...prev };
+            delete updated[selectedChannel.id];
+            return updated;
+          }
+          return { ...prev, [selectedChannel.id]: Date.now() };
+        });
+      } else if (actionId === 'leave-channel') {
+        setPendingLeaveChannel(selectedChannel);
+      }
+    },
+    [activeChannel, clearChannelManualUnread, clearChannelUnreadCount, markChannelAsUnread],
+  );
+
+  const handleCancelLeaveChannel = useCallback(() => {
+    setPendingLeaveChannel(null);
+  }, []);
+
+  const handleConfirmLeaveChannel = useCallback(() => {
+    setPendingLeaveChannel(null);
+  }, []);
 
   return (
     <div
@@ -419,6 +546,10 @@ const ChannelsScreen = ({ onNavigateToMessages }: ChannelsScreenProps) => {
           </div>
           {visibleChannels.map(channel => {
             const isActive = channel.id === activeChannel?.id;
+            const unreadCount = channelUnreadCounts[channel.id] ?? 0;
+            const showManualUnread = !unreadCount && Boolean(channelManualUnreadState[channel.id]);
+            const isMuted = Boolean(channelMuteState[channel.id]);
+            const isPinned = Boolean(channelPinnedState[channel.id]);
             return (
               <ChannelCard
                 key={channel.id}
@@ -426,6 +557,10 @@ const ChannelsScreen = ({ onNavigateToMessages }: ChannelsScreenProps) => {
                 onLongPress={handleLongPress}
                 isActive={isActive}
                 isDimmed={Boolean(isActionMode && !isActive)}
+                unreadCount={unreadCount}
+                showManualUnread={showManualUnread}
+                isMuted={isMuted}
+                isPinned={isPinned}
               />
             );
           })}
@@ -440,8 +575,43 @@ const ChannelsScreen = ({ onNavigateToMessages }: ChannelsScreenProps) => {
         channel={activeChannel}
         position={panelPosition}
         onClose={closeActionPanel}
-        actions={CHANNEL_ACTION_ITEMS}
+        actions={actionItems}
+        onActionSelect={handleActionSelect}
       />
+      {pendingLeaveChannel ? (
+        <div className="block-modal-backdrop">
+          <div
+            className="block-modal-frame"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="leave-channel-modal-title"
+            aria-describedby="leave-channel-modal-description"
+          >
+            <h3 id="leave-channel-modal-title" className="block-modal-title">
+              Are you sure you want to unfollow this channel?
+            </h3>
+            <p id="leave-channel-modal-description" className="block-modal-description">
+              You will stop receiving updates from this channel.
+            </p>
+            <div className="block-modal-cta-row">
+              <button
+                type="button"
+                className="block-modal-cta block-modal-cta--secondary"
+                onClick={handleCancelLeaveChannel}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="block-modal-cta block-modal-cta--primary leave-channel-modal-primary"
+                onClick={handleConfirmLeaveChannel}
+              >
+                Unfollow
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };
