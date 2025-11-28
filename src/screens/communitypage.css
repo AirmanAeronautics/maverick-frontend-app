@@ -1,0 +1,813 @@
+.community-page {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background: white;
+  margin: 0 auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+/* Status Bar */
+.community-page__status-bar {
+  position: absolute;
+  background: white;
+  height: 47px;
+  left: 0;
+  overflow: clip;
+  top: 0;
+  width: 430px;
+}
+
+.status-bar__left {
+  position: absolute;
+  left: calc(50% - 158px);
+  top: 14px;
+  transform: translateX(-50%);
+}
+
+.status-bar__time {
+  position: absolute;
+  height: 21px;
+  left: calc(50% - 158px);
+  border-radius: 24px;
+  top: 14px;
+  transform: translateX(-50%);
+  width: 54px;
+}
+
+.status-bar__time-text {
+  position: absolute;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  height: 20px;
+  line-height: 21px;
+  left: 27px;
+  font-style: normal;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  top: 1px;
+  letter-spacing: -0.32px;
+  transform: translateX(-50%);
+  width: 54px;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.status-bar__right {
+  position: absolute;
+  left: calc(50% + 145.7px);
+  top: 19px;
+  transform: translateX(-50%);
+}
+
+.status-bar__battery {
+  position: absolute;
+  height: 13px;
+  left: calc(50% + 170.7px);
+  top: 19px;
+  transform: translateX(-50%);
+  width: 27.401px;
+}
+
+.status-bar__wifi {
+  position: absolute;
+  height: 11.834px;
+  left: calc(50% + 141.5px);
+  top: 20px;
+  transform: translateX(-50%);
+  width: 17px;
+}
+
+.status-bar__wifi-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.status-bar__signal {
+  position: absolute;
+  height: 12px;
+  left: calc(50% + 116px);
+  top: 20px;
+  transform: translateX(-50%);
+  width: 18px;
+}
+
+.status-bar__signal-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Status Bar Battery */
+.status-bar-battery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.status-bar-battery__outline {
+  position: absolute;
+  height: 13px;
+  left: 0;
+  right: 2.4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.status-bar-battery__outline-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.status-bar-battery__end {
+  position: absolute;
+  height: 4.22px;
+  right: 0;
+  top: calc(50% + 0.61px);
+  transform: translateY(-50%);
+  width: 1.401px;
+}
+
+.status-bar-battery__end-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.status-bar-battery__fill {
+  position: absolute;
+  height: 9px;
+  left: 2px;
+  right: 4.4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.status-bar-battery__fill-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Community at a glance card */
+.community-page__glance-card {
+  position: absolute;
+  border: 1.3px solid #e6e9f0;
+  min-height: 102.99px;
+  left: 50%;
+  border-radius: 11.235px;
+  top: 90px;
+  transform: translateX(-50%);
+  width: 382px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14.7px;
+  box-sizing: border-box;
+}
+
+.glance-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.glance-card__title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  color: #0a0f1f;
+  font-size: 16.853px;
+  line-height: 22.471px;
+  margin: 0;
+  padding: 0;
+}
+
+.glance-card__subtitle {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  color: #585858;
+  font-size: 14.044px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+  margin-top: 4px;
+}
+
+.glance-card__button {
+  background: #0a84ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  cursor: pointer;
+  height: 30px;
+  border-radius: 11.235px;
+  width: 74px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.glance-card__button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  line-height: 14.044px;
+  font-style: normal;
+  font-size: 14.044px;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+/* Stats Cards */
+.community-page__stats {
+  position: absolute;
+  top: 213.51px;
+  left: 24px;
+  display: flex;
+  gap: 8px;
+  width: calc(100% - 48px);
+  max-width: 382px;
+}
+
+.stats-card {
+  position: relative;
+  border: 1.3px solid #e6e9f0;
+  border-style: solid;
+  height: 79px;
+  width: 187px;
+  border-radius: 11.347px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14.77px;
+  box-sizing: border-box;
+}
+
+.stats-card--members {
+  margin-right: 0;
+}
+
+.stats-card--live {
+  margin-left: 0;
+}
+
+.stats-card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.stats-card__label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  line-height: 22.471px;
+  color: #585858;
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.stats-card__value {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  line-height: 22.693px;
+  color: #0a0f1f;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+.stats-card--live .stats-card__value {
+  font-size: 18.573px;
+}
+
+.stats-card__icon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stats-card__icon-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* Action Cards */
+.community-page__actions {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  left: 23px;
+  top: 317px;
+}
+
+.action-card {
+  display: block;
+  border: 0.946px solid #e6e9f0;
+  border-style: solid;
+  height: 101px;
+  position: relative;
+  border-radius: 11.347px;
+  flex-shrink: 0;
+  width: 383px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.action-card--connections {
+  background: linear-gradient(273.63deg, #38C7F9 -2.83%, #3AACFB 29.16%, #3D8FFD 95.44%);
+  border: 0.945545px solid #E6E9F0;
+  border-radius: 11.3465px;
+}
+
+.action-card--messages {
+  background: linear-gradient(92.52deg, #00A775 -30.24%, #00AA77 34.28%, #1CBA8B 98.8%);
+  border: 0.945545px solid #E6E9F0;
+  border-radius: 11.3465px;
+}
+
+.action-card__spacer {
+  position: absolute;
+  border: 0;
+  border-color: #e5e7eb;
+  border-style: solid;
+  height: 14px;
+  left: 16px;
+  top: 12px;
+  width: 68px;
+}
+
+.action-card__arrow {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 342px;
+  width: 24px;
+  height: 24px;
+  top: 41px;
+}
+
+.action-card__arrow-wrapper {
+  flex: none;
+  transform: rotate(180deg) scaleY(-1);
+}
+
+.action-card__arrow-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.action-card__arrow-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.action-card__content {
+  position: absolute;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  left: 24px;
+  top: 25px;
+}
+
+.action-card__icon-wrapper {
+  position: relative;
+}
+
+.action-card__icon {
+  backdrop-filter: blur(75px);
+  border: 2px solid white;
+  border-style: solid;
+  position: relative;
+  border-radius: 10px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+}
+
+.action-card__icon-inner {
+  overflow: clip;
+  position: relative;
+  border-radius: inherit;
+  width: 48px;
+  height: 48px;
+}
+
+.action-card__icon-group {
+  position: absolute;
+  left: calc(50% - 0.5px);
+  overflow: clip;
+  width: 23px;
+  height: 23px;
+  top: calc(50% + 0.5px);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.action-card__icon-group-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.action-card__icon-message {
+  position: absolute;
+  left: calc(50% - 0.5px);
+  width: 23px;
+  height: 23px;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.action-card__icon-message-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.action-card__icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: 
+    inset 29.816px 29.816px 4.969px -34.785px rgba(255, 255, 255, 0.5),
+    inset 19.877px 19.877px 9.939px -38px #b3b3b3,
+    inset -19.877px -19.877px 9.939px -19.877px #b3b3b3,
+    inset 0px 0px 0px 9.939px #999999,
+    inset 0px 0px 218.65px 0px rgba(242, 242, 242, 0.5);
+}
+
+.action-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  line-height: 22.471px;
+  font-style: normal;
+  position: relative;
+  flex-shrink: 0;
+  color: white;
+  width: 172px;
+  white-space: pre-wrap;
+}
+
+.action-card__text:last-child {
+  align-items: flex-start;
+  width: 226px;
+}
+
+.action-card__title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  position: relative;
+  flex-shrink: 0;
+  font-size: 18px;
+  width: 100%;
+  margin: 0;
+}
+
+.action-card__subtitle {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  position: relative;
+  flex-shrink: 0;
+  font-size: 16px;
+  width: 100%;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+/* Action Buttons */
+.community-page__action-buttons {
+  position: absolute;
+  top: 559px;
+  left: 24px;
+  display: flex;
+  gap: 8px;
+  width: calc(100% - 48px);
+  max-width: 382px;
+}
+
+.action-button {
+  position: relative;
+  border: 0;
+  border-color: #e5e7eb;
+  border-style: solid;
+  height: 53px;
+  width: 185px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.action-button--primary {
+  background: #0a84ff;
+  margin-right: 0;
+}
+
+.action-button--secondary {
+  display: flex;
+  border: 1.3px solid #e6e9f0;
+  border-style: solid;
+  margin-left: 0;
+  text-decoration: none;
+  cursor: pointer;
+  background: white;
+}
+
+.action-button__content {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.action-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.action-button__icon-group {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.action-button__icon-group-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.action-button__icon-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.action-button__icon-secondary-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.action-button__text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  line-height: 15px;
+  font-style: normal;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: white;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.action-button__text-secondary {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  line-height: 15px;
+  font-style: normal;
+  flex-shrink: 0;
+  font-size: 14px;
+  color: black;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* Recent Messages */
+.community-page__recent-messages {
+  position: absolute;
+  border: 1.3px solid #e6e9f0;
+  border-style: solid;
+  height: 321.142px;
+  left: 50%;
+  border-radius: 11.235px;
+  top: 641px;
+  transform: translateX(-50%);
+  width: 382px;
+}
+
+.recent-messages__header {
+  position: absolute;
+  border: 0;
+  border-color: #e5e7eb;
+  border-style: solid;
+  height: 25.279px;
+  left: 14.62px;
+  top: 14.62px;
+  width: 350.167px;
+}
+
+.recent-messages__title-wrapper {
+  position: absolute;
+  border: 0;
+  border-color: #e5e7eb;
+  border-style: solid;
+  height: 25.279px;
+  left: 0;
+  top: 0;
+  width: 150.155px;
+}
+
+.recent-messages__title {
+  position: absolute;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  line-height: 25.279px;
+  left: 0.08px;
+  font-style: normal;
+  color: #0a0f1f;
+  font-size: 16px;
+  top: 0.08px;
+  margin: 0;
+}
+
+.recent-messages__subtitle {
+  position: absolute;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  line-height: 22.471px;
+  left: 14.62px;
+  font-style: normal;
+  color: #585858;
+  font-size: 14px;
+  top: 48.13px;
+  margin: 0;
+}
+
+.recent-message-item {
+  position: absolute;
+  display: block;
+  border: 1.3px solid #e6e9f0;
+  border-style: solid;
+  cursor: pointer;
+  height: 65.539px;
+  left: 14.62px;
+  border-radius: 11.235px;
+  width: 350.167px;
+  text-decoration: none;
+}
+
+.recent-message-item:nth-of-type(1) {
+  top: 79.84px;
+}
+
+.recent-message-item:nth-of-type(2) {
+  top: 156.61px;
+  cursor: default;
+}
+
+.recent-message-item--last {
+  border-width: 0.936px;
+  top: 238.39px;
+  cursor: default;
+}
+
+.recent-message-item__content {
+  position: absolute;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  left: 10.78px;
+  top: 10.87px;
+}
+
+.recent-message-item:nth-of-type(2) .recent-message-item__content {
+  top: 11.1px;
+}
+
+.recent-message-item__avatar {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.recent-message-item__avatar-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.recent-message-item__text {
+  border: 0;
+  border-color: #e5e7eb;
+  border-style: solid;
+  height: 41.196px;
+  position: relative;
+  flex-shrink: 0;
+  width: 174.308px;
+}
+
+.recent-message-item__text--frame {
+  left: 59.92px;
+  top: 11.24px;
+  width: 166.277px;
+}
+
+.recent-message-item__name {
+  position: absolute;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  line-height: 22.471px;
+  left: 0;
+  font-style: normal;
+  color: #0a0f1f;
+  font-size: 14.044px;
+  top: 0;
+  margin: 0;
+}
+
+.recent-message-item__name--frame {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-variation-settings: 'wdth' 100;
+}
+
+.recent-message-item__time {
+  position: absolute;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-variation-settings: 'wdth' 100;
+  line-height: 18.725px;
+  left: 0;
+  color: #585858;
+  font-size: 13.027px;
+  top: 22.47px;
+  width: 44.663px;
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.recent-message-item__time--frame {
+  color: #8f9bb3;
+  font-size: 13.108px;
+  width: auto;
+}
+
+.recent-message-item__frame {
+  position: absolute;
+  left: 11.24px;
+  width: 37.451px;
+  height: 37.451px;
+  top: 13.11px;
+}
+
+.recent-message-item__frame-img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+

@@ -37,6 +37,7 @@ type ChannelsScreenEmptyProps = {
   onToggleFollow: (channelId: string) => void;
   onSeeAll: (categoryId: ChannelCategoryId) => void;
   onNavigateToMessages?: () => void;
+  onNavigateToCreate?: () => void;
 };
 
 const ChannelsScreenEmpty = ({
@@ -44,6 +45,7 @@ const ChannelsScreenEmpty = ({
   onToggleFollow,
   onSeeAll,
   onNavigateToMessages,
+  onNavigateToCreate,
 }: ChannelsScreenEmptyProps) => {
   const previewSections = CHANNEL_CATEGORIES.map(category => ({
     id: category.id,
@@ -150,7 +152,7 @@ const ChannelsScreenEmpty = ({
         </div>
       </div>
 
-      <button className="fab" type="button">
+      <button className="fab" type="button" onClick={onNavigateToCreate}>
         <img src={addIcon} alt="New channel" className="fab-icon" />
       </button>
     </div>

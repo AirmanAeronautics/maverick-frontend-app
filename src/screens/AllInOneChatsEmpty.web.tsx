@@ -32,9 +32,10 @@ const StatusBarBattery = ({
 
 type AllInOneChatsEmptyProps = {
   onNavigateToChannels?: () => void;
+  onNavigateToCreate?: () => void;
 };
 
-const AllInOneChatsEmpty = ({ onNavigateToChannels }: AllInOneChatsEmptyProps) => {
+const AllInOneChatsEmpty = ({ onNavigateToChannels, onNavigateToCreate }: AllInOneChatsEmptyProps) => {
   return (
     <div className="all-in-one-chats-container">
       <div className="background-wrapper">
@@ -103,7 +104,7 @@ const AllInOneChatsEmpty = ({ onNavigateToChannels }: AllInOneChatsEmptyProps) =
         </div>
       </div>
 
-      <button className="fab" type="button">
+      <button className="fab" type="button" onClick={onNavigateToCreate}>
         <img src={addIcon} alt="Start chat" className="fab-icon" />
       </button>
     </div>

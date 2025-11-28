@@ -69,8 +69,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 14px 24px rgba(13, 79, 104, 0.25);
+}
+
+.create-channel-avatar-image-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 78px;
+  overflow: hidden;
 }
 
 .create-channel-avatar-image {
@@ -81,13 +88,13 @@
 
 .create-channel-avatar-edit {
   position: absolute;
-  right: 16px;
-  bottom: 18px;
-  width: 54px;
-  height: 54px;
-  border-radius: 27px;
+  right: -4px;
+  bottom: -4px;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
   border: 3px solid #ffffff;
-  background: linear-gradient(135deg, #2fb7ff 0%, #168aad 100%);
+  background: #168aad;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -97,10 +104,9 @@
 }
 
 .create-channel-avatar-edit-icon {
-  width: 28px;
-  height: 28px;
+  width: 13px;
+  height: 13px;
   object-fit: contain;
-  filter: brightness(0) invert(1);
 }
 
 .create-channel-form {
@@ -197,6 +203,7 @@
   justify-content: center;
   align-items: center;
   color: #0a516a;
+  margin-right: -70px;
 }
 
 .create-channel-select-menu {

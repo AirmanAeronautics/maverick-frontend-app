@@ -1,0 +1,269 @@
+@import './AllInOneChats.css';
+
+.create-group-members-container {
+  position: relative;
+}
+
+.create-group-members-header {
+  justify-content: center;
+}
+
+.create-group-members-header-content {
+  align-items: center;
+  justify-content: center;
+}
+
+.create-group-members-header .header-title {
+  text-align: center;
+}
+
+.create-group-members-header .header-subtitle-container {
+  display: none;
+}
+
+.create-group-members-header .menu-button {
+  display: none;
+}
+
+.create-group-members-header .header-placeholder {
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+.create-group-members-content {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+  padding-bottom: var(--chat-bottom-safe-area);
+}
+
+.create-group-members-form-wrapper {
+  width: 382px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 48px;
+  gap: 24px;
+}
+
+.create-group-members-avatar-block {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+.create-group-members-avatar {
+  width: 164px;
+  height: 164px;
+  border-radius: 82px;
+  position: relative;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  box-shadow: 0 14px 24px rgba(13, 79, 104, 0.25);
+}
+
+.create-group-members-avatar-image-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 78px;
+  overflow: hidden;
+}
+
+.create-group-members-avatar-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.create-group-members-avatar-edit {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  border: 3px solid #ffffff;
+  background: #168aad;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 12px 20px rgba(22, 138, 173, 0.35);
+}
+
+.create-group-members-avatar-edit-icon {
+  width: 13px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.create-group-members-selected-members-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.create-group-members-selected-member-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.create-group-members-selected-member-image-container {
+  position: relative;
+}
+
+.create-group-members-selected-member-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 36px;
+  display: block;
+  object-fit: cover;
+}
+
+.create-group-members-selected-member-name {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #000000;
+  text-align: center;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.create-group-members-add-members-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 0;
+  margin-top: 8px;
+}
+
+.create-group-members-add-members-button {
+  padding: 12px 24px;
+  border-radius: 18px;
+  background-color: #168aad;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 12px 20px rgba(22, 138, 173, 0.35);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.create-group-members-add-members-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 24px rgba(22, 138, 173, 0.4);
+}
+
+.create-group-members-add-members-button:active {
+  transform: translateY(0);
+}
+
+.create-group-members-add-members-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  pointer-events: none;
+}
+
+.create-group-members-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.create-group-members-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.create-group-members-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #0a0a0a;
+}
+
+.create-group-members-input {
+  min-height: 56px;
+  width: 100%;
+}
+
+.create-group-members-input .search-content {
+  min-height: 28px;
+  height: auto;
+}
+
+.create-group-members-input-content {
+  width: 100%;
+}
+
+.create-group-members-text-input {
+  width: 100%;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #454950;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.create-group-members-footer {
+  display: flex;
+  gap: 16px;
+}
+
+.create-group-members-btn {
+  flex: 1;
+  height: 56px;
+  border-radius: 28px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.create-group-members-btn--ghost {
+  background: rgba(255, 255, 255, 0.85);
+  color: #0a516a;
+  border: 1px solid rgba(22, 138, 173, 0.25);
+}
+
+.create-group-members-btn--primary {
+  background: #168aad;
+  color: #ffffff;
+  box-shadow: 0 22px 35px rgba(22, 138, 173, 0.35);
+}
+
+.create-group-members-btn:active {
+  transform: translateY(1px);
+}
+

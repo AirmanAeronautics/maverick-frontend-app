@@ -1,0 +1,295 @@
+@import './AllInOneChats.css';
+
+.create-container {
+  position: relative;
+}
+
+.create-header {
+  justify-content: center;
+}
+
+.create-header-content {
+  align-items: center;
+  justify-content: center;
+}
+
+.create-header .header-title {
+  text-align: center;
+}
+
+.create-header .header-subtitle-container {
+  display: none;
+}
+
+.create-header .menu-button {
+  display: none;
+}
+
+.create-header .header-button-placeholder {
+  width: 27.52px;
+  height: 27.52px;
+  display: inline-block;
+}
+
+.create-scroll-view {
+  position: absolute;
+  top: 190px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 24px var(--chat-bottom-safe-area);
+  display: flex;
+  justify-content: center;
+}
+
+.create-scroll-content {
+  width: 382px;
+  padding-top: 16px;
+  padding-bottom: calc(var(--chat-bottom-safe-area) + 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.create-cards-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.create-options-card-container {
+  width: 382px;
+  height: 205px;
+  border-radius: 18px;
+  padding: 12px 16px 12px 24px;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(
+      120% 140% at 80% 0%,
+      rgba(192, 250, 255, 0.35) 0%,
+      rgba(192, 250, 255, 0.15) 45%,
+      rgba(192, 250, 255, 0) 90%
+    ),
+    radial-gradient(
+      82.33% 96.71% at 92.91% 84.74%,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  background-clip: padding-box;
+  position: relative;
+  box-sizing: border-box;
+  isolation: isolate;
+  box-shadow: none;
+}
+
+.create-options-card-container::before,
+.create-options-card-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.create-options-card-container::before {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.create-options-card-container::after {
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.create-option-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 0;
+  min-height: 58px;
+  cursor: pointer;
+  position: relative;
+}
+
+.create-option-icon-container {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #168aad;
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.create-option-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}
+
+.create-option-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 21.281px;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.create-option-divider {
+  height: 0.5px;
+  background-color: rgba(0, 0, 0, 0.1);
+  margin-left: 60px;
+  margin-right: 16px;
+}
+
+.create-connection-list-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.create-connection-list-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+
+.create-connection-card-container {
+  width: 382px;
+  height: 82px;
+  border-radius: 18px;
+  padding: 12px 16px 12px 16px;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(
+      120% 140% at 80% 0%,
+      rgba(192, 250, 255, 0.35) 0%,
+      rgba(192, 250, 255, 0.15) 45%,
+      rgba(192, 250, 255, 0) 90%
+    ),
+    radial-gradient(
+      82.33% 96.71% at 92.91% 84.74%,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+  background-clip: padding-box;
+  position: relative;
+  box-sizing: border-box;
+  isolation: isolate;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+.create-connection-card-container::before,
+.create-connection-card-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.create-connection-card-container::before {
+  border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.create-connection-card-container::after {
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.create-connection-card-content {
+  display: flex;
+  flex: 1 0 0;
+  gap: 12.769px;
+  height: 63px;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  min-width: 0;
+}
+
+.create-connection-card-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.create-connection-card-text-container {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  min-height: 0;
+  min-width: 0;
+}
+
+.create-connection-card-name {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 21.281px;
+  margin: 0;
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: pre-wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.create-connection-card-subtitle {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #373737;
+  line-height: 16px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+

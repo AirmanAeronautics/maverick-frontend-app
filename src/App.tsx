@@ -6,8 +6,12 @@ import AllInOneChatsEmpty from './screens/AllInOneChatsEmpty.web';
 import ExploreChannel from './screens/ExploreChannel.web';
 import ExploreChannelFull from './screens/ExploreChannelFull.web';
 import CreateChannel from './screens/CreateChannel.web';
+import Create from './screens/Create.web';
+import CreateGroup from './screens/CreateGroup.web';
+import CreateGroupMembers from './screens/CreateGroupMembers.web';
 import ChannelGroupsPrivate from './screens/ChannelGroupsPrivate.web';
 import ArchiveChats from './screens/ArchiveChats.web';
+import CommunityPage from './screens/communitypage.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
 import './App.css';
@@ -16,6 +20,70 @@ import avatar2 from './assets/avatar-2.png';
 import avatar3 from './assets/avatar-3.png';
 import avatar4 from './assets/avatar-4.png';
 import avatar5 from './assets/avatar-5.png';
+
+// Contact data for CreateGroupMembers
+const ALL_CONTACTS = [
+  {
+    id: 'steve1',
+    name: 'Steve Harrington',
+    subtitle: 'Pilot',
+    avatarUri: avatar1,
+  },
+  {
+    id: 'kavin',
+    name: 'Kavin',
+    subtitle: 'Flight Instructor',
+    avatarUri: avatar2,
+  },
+  {
+    id: 'marcus',
+    name: 'Marcus',
+    subtitle: 'ATC',
+    avatarUri: avatar3,
+  },
+  {
+    id: 'steve2',
+    name: 'Steve Harrington',
+    subtitle: 'Pilot',
+    avatarUri: avatar1,
+  },
+  {
+    id: 'contact5',
+    name: 'John Doe',
+    subtitle: 'Co-Pilot',
+    avatarUri: avatar4,
+  },
+  {
+    id: 'contact6',
+    name: 'Jane Smith',
+    subtitle: 'Ground Crew',
+    avatarUri: avatar5,
+  },
+  {
+    id: 'contact7',
+    name: 'Mike Johnson',
+    subtitle: 'Air Traffic Controller',
+    avatarUri: avatar2,
+  },
+  {
+    id: 'contact8',
+    name: 'Sarah Williams',
+    subtitle: 'Flight Dispatcher',
+    avatarUri: avatar3,
+  },
+  {
+    id: 'contact9',
+    name: 'David Brown',
+    subtitle: 'Aircraft Mechanic',
+    avatarUri: avatar4,
+  },
+  {
+    id: 'contact10',
+    name: 'Emily Davis',
+    subtitle: 'Ground Operations',
+    avatarUri: avatar5,
+  },
+];
 
 const INITIAL_CHAT_ITEMS: ChatItem[] = [
   {
@@ -85,7 +153,11 @@ type ScreenKey =
   | 'channels-empty'
   | 'messages-empty'
   | 'create-channel'
-  | 'channel-groups-private';
+  | 'create'
+  | 'create-group'
+  | 'create-group-members'
+  | 'channel-groups-private'
+  | 'community';
 
 const VALID_SCREENS: ScreenKey[] = [
   'channels',
@@ -95,16 +167,20 @@ const VALID_SCREENS: ScreenKey[] = [
   'channels-empty',
   'messages-empty',
   'create-channel',
+  'create',
+  'create-group',
+  'create-group-members',
   'channel-groups-private',
   'archive-chats',
+  'community',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
   if (typeof window === 'undefined') {
-    return 'channels';
+    return 'community';
   }
   const hash = window.location.hash.replace('#', '') as ScreenKey;
-  return VALID_SCREENS.includes(hash) ? hash : 'channels';
+  return VALID_SCREENS.includes(hash) ? hash : 'community';
 };
 
 const App = () => {
@@ -113,6 +189,7 @@ const App = () => {
   const [chats, setChats] = useState<ChatItem[]>(() => INITIAL_CHAT_ITEMS);
   const [archivedChats, setArchivedChats] = useState<ChatItem[]>([]);
   const [fullListCategoryId, setFullListCategoryId] = useState<ChannelCategoryId>('popular');
+  const [selectedGroupMembers, setSelectedGroupMembers] = useState<string[]>([]);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -205,13 +282,44 @@ const App = () => {
           onToggleFollow={handleToggleFollow}
           onSeeAll={handleSeeAll}
           onNavigateToMessages={() => navigateTo('messages-empty')}
+          onNavigateToCreate={() => navigateTo('create')}
         />
       ) : activeScreen === 'channels' ? (
-        <ChannelsScreen onNavigateToMessages={() => navigateTo('messages')} />
+        <ChannelsScreen 
+          onNavigateToMessages={() => navigateTo('messages')}
+          onNavigateToCreate={() => navigateTo('create')}
+        />
       ) : activeScreen === 'create-channel' ? (
-        <CreateChannel />
+        <CreateChannel onBack={() => navigateTo('create')} />
+      ) : activeScreen === 'create' ? (
+        <Create
+          onNavigateToCreateChannel={() => navigateTo('create-channel')}
+          onNavigateToCreateGroup={() => navigateTo('create-group')}
+        />
+      ) : activeScreen === 'create-group' ? (
+        <CreateGroup
+          onBack={() => navigateTo('create')}
+          onContinue={selectedIds => {
+            setSelectedGroupMembers(selectedIds);
+            navigateTo('create-group-members');
+          }}
+        />
+      ) : activeScreen === 'create-group-members' ? (
+        <CreateGroupMembers
+          selectedMembers={ALL_CONTACTS.filter(contact => selectedGroupMembers.includes(contact.id))}
+          onBack={() => navigateTo('create-group')}
+          onAddMembers={() => navigateTo('create-group')}
+          onCreate={(groupName) => {
+            console.log('Creating group:', { groupName, members: selectedGroupMembers });
+            // Navigate back to messages after creation
+            navigateTo('messages');
+          }}
+        />
       ) : activeScreen === 'messages-empty' ? (
-        <AllInOneChatsEmpty onNavigateToChannels={() => navigateTo('channels-empty')} />
+        <AllInOneChatsEmpty 
+          onNavigateToChannels={() => navigateTo('channels-empty')}
+          onNavigateToCreate={() => navigateTo('create')}
+        />
       ) : activeScreen === 'archive-chats' ? (
         <ArchiveChats
           archivedChats={archivedChats}
@@ -221,12 +329,15 @@ const App = () => {
         />
       ) : activeScreen === 'channel-groups-private' ? (
         <ChannelGroupsPrivate onBack={() => navigateTo('messages')} />
+      ) : activeScreen === 'community' ? (
+        <CommunityPage />
       ) : (
         <AllInOneChats
           chats={chats}
           archivedChats={archivedChats}
           onArchiveChat={handleArchiveChat}
           onNavigateToChannels={() => navigateTo('channels')}
+          onNavigateToCreate={() => navigateTo('create')}
           onOpenChat={() => navigateTo('channel-groups-private')}
           onNavigateToArchive={() => navigateTo('archive-chats')}
         />

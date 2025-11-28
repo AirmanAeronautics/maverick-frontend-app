@@ -318,9 +318,10 @@ const CHAT_LIST_TOP = 265;
 
 type ChannelsScreenProps = {
   onNavigateToMessages?: () => void;
+  onNavigateToCreate?: () => void;
 };
 
-const ChannelsScreen = ({ onNavigateToMessages }: ChannelsScreenProps) => {
+const ChannelsScreen = ({ onNavigateToMessages, onNavigateToCreate }: ChannelsScreenProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedCategory, setSelectedCategory] = useState<ChannelCategory>('General');
   const [activeChannel, setActiveChannel] = useState<ChannelItem | null>(null);
@@ -567,7 +568,7 @@ const ChannelsScreen = ({ onNavigateToMessages }: ChannelsScreenProps) => {
         </div>
       </div>
 
-      <button className="fab" type="button">
+      <button className="fab" type="button" onClick={onNavigateToCreate}>
         <img src={addIcon} alt="Add Channel" className="fab-icon" />
       </button>
 

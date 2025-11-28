@@ -7,8 +7,8 @@ import backIcon from '../../Arrow_Left_MD.svg?url';
 import signalIcon from '../../Mobile Signal.svg?url';
 import wifiIcon from '../../Wifi.svg?url';
 import batteryIcon from '../../_StatusBar-battery.svg?url';
-import avatarImage from '../assets/avatar-4.png';
-import editIcon from '../assets/icon-fab.png';
+import avatarImage from '../../profile.jpg';
+import editIcon from '../../edit.svg';
 
 const StatusBarBattery = () => (
   <div className="battery-container">
@@ -16,10 +16,14 @@ const StatusBarBattery = () => (
   </div>
 );
 
-const CATEGORY_OPTIONS = ['General', 'Flight School', 'Private'] as const;
+const CATEGORY_OPTIONS = ['General', 'Flight School'] as const;
 type ChannelCategory = (typeof CATEGORY_OPTIONS)[number];
 
-const CreateChannel = () => {
+type CreateChannelProps = {
+  onBack?: () => void;
+};
+
+const CreateChannel = ({ onBack }: CreateChannelProps) => {
   const [channelName, setChannelName] = useState('');
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState<ChannelCategory>('General');
@@ -55,7 +59,7 @@ const CreateChannel = () => {
       </div>
 
       <div className="header create-channel-header">
-        <button className="back-button" type="button">
+        <button className="back-button" type="button" onClick={onBack}>
           <img src={backIcon} alt="Back" className="back-icon" />
         </button>
         <div className="header-content create-channel-header-content">
@@ -70,7 +74,9 @@ const CreateChannel = () => {
         <div className="create-channel-form-wrapper">
           <div className="create-channel-avatar-block">
             <div className="create-channel-avatar">
-              <img src={avatarImage} alt="Channel" className="create-channel-avatar-image" />
+              <div className="create-channel-avatar-image-container">
+                <img src={avatarImage} alt="Channel" className="create-channel-avatar-image" />
+              </div>
               <button className="create-channel-avatar-edit" type="button">
                 <img src={editIcon} alt="Edit avatar" className="create-channel-avatar-edit-icon" />
               </button>

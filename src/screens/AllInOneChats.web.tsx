@@ -257,6 +257,7 @@ type AllInOneChatsProps = {
   onArchiveChat?: (chatId: string) => void;
   onNavigateToArchive?: () => void;
   onNavigateToChannels?: () => void;
+  onNavigateToCreate?: () => void;
   onOpenChat?: (chat: ChatItem) => void;
   onBlockChat?: (chatId: string, shouldReport?: boolean) => void;
 };
@@ -267,6 +268,7 @@ const AllInOneChats = ({
   onArchiveChat,
   onNavigateToArchive,
   onNavigateToChannels,
+  onNavigateToCreate,
   onBlockChat,
 }: AllInOneChatsProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -763,7 +765,7 @@ const AllInOneChats = ({
       </div>
 
       {/* Floating Action Button */}
-      <button className="fab">
+      <button className="fab" type="button" onClick={onNavigateToCreate}>
         <img src={addIcon} alt="Add" className="fab-icon" />
       </button>
 
