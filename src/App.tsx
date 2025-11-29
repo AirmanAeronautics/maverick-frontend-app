@@ -12,6 +12,9 @@ import CreateGroupMembers from './screens/CreateGroupMembers.web';
 import ChannelGroupsPrivate from './screens/ChannelGroupsPrivate.web';
 import ArchiveChats from './screens/ArchiveChats.web';
 import CommunityPage from './screens/communitypage.web';
+import PeopleList from './screens/PeopleList1.web';
+import PeopleListFull from './screens/PeopleListFull.web';
+import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
 import './App.css';
@@ -157,7 +160,9 @@ type ScreenKey =
   | 'create-group'
   | 'create-group-members'
   | 'channel-groups-private'
-  | 'community';
+  | 'community'
+  | 'people-list'
+  | 'people-list-full';
 
 const VALID_SCREENS: ScreenKey[] = [
   'channels',
@@ -173,14 +178,16 @@ const VALID_SCREENS: ScreenKey[] = [
   'channel-groups-private',
   'archive-chats',
   'community',
+  'people-list',
+  'people-list-full',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
   if (typeof window === 'undefined') {
-    return 'community';
+    return 'messages';
   }
   const hash = window.location.hash.replace('#', '') as ScreenKey;
-  return VALID_SCREENS.includes(hash) ? hash : 'community';
+  return VALID_SCREENS.includes(hash) ? hash : 'messages';
 };
 
 const App = () => {
@@ -190,6 +197,7 @@ const App = () => {
   const [archivedChats, setArchivedChats] = useState<ChatItem[]>([]);
   const [fullListCategoryId, setFullListCategoryId] = useState<ChannelCategoryId>('popular');
   const [selectedGroupMembers, setSelectedGroupMembers] = useState<string[]>([]);
+  const [peopleListCategory, setPeopleListCategory] = useState<'near-location' | 'from-school'>('near-location');
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -253,6 +261,14 @@ const App = () => {
     (categoryId: ChannelCategoryId) => {
       setFullListCategoryId(categoryId);
       navigateTo('explore-full');
+    },
+    [navigateTo],
+  );
+
+  const handlePeopleSeeAll = useCallback(
+    (category: 'near-location' | 'from-school') => {
+      setPeopleListCategory(category);
+      navigateTo('people-list-full');
     },
     [navigateTo],
   );
@@ -331,6 +347,14 @@ const App = () => {
         <ChannelGroupsPrivate onBack={() => navigateTo('messages')} />
       ) : activeScreen === 'community' ? (
         <CommunityPage />
+      ) : activeScreen === 'people-list-full' ? (
+        <PeopleListFull
+          title={peopleListCategory === 'near-location' ? 'People near location' : 'People from your school'}
+          people={peopleListCategory === 'near-location' ? PEOPLE_NEAR_LOCATION : PEOPLE_FROM_SCHOOL}
+          onBack={() => navigateTo('people-list')}
+        />
+      ) : activeScreen === 'people-list' ? (
+        <PeopleList onSeeAll={handlePeopleSeeAll} />
       ) : (
         <AllInOneChats
           chats={chats}
