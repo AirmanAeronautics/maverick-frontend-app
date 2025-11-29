@@ -25,11 +25,11 @@ const imgWifi = "https://www.figma.com/api/mcp/asset/46af0c08-4be9-4858-9391-efd
 const imgIconMobileSignal = "https://www.figma.com/api/mcp/asset/c0e73d38-0fcb-466e-938e-ff3c21f2d842";
 const imgFluentPeople20Regular = "https://www.figma.com/api/mcp/asset/0a74f808-da9c-4250-9453-2485228a939c";
 const imgArrowArrowLeftMd = "https://www.figma.com/api/mcp/asset/80ec8b56-948f-4271-9e53-aad5456b83dc";
-const imgGroup = "https://www.figma.com/api/mcp/asset/55c6e36c-f882-44ca-a311-49f9a91fae45";
+const imgGroup = Image.resolveAssetSource(require('./bi_person-plus.svg')).uri;
 const imgMynauiMessage = "https://www.figma.com/api/mcp/asset/e910d120-53c9-4ff7-a3a9-c73324fd1e5b";
 const imgFluentLive24Regular = "https://www.figma.com/api/mcp/asset/b6666844-cd0c-46e5-87e1-6831543a9e69";
 const imgFrame = "https://www.figma.com/api/mcp/asset/9bb0a10b-c9f6-4d06-83ac-d5906c288d7b";
-const imgGroup1 = "https://www.figma.com/api/mcp/asset/69a5ebc6-20cc-4e2f-aa6e-4af62d54b5a0";
+const imgGroup1 = Image.resolveAssetSource(require('./bi_person-plus.svg')).uri;
 const imgMynauiChatPlus = "https://www.figma.com/api/mcp/asset/e480d4e0-f4eb-48b3-9b87-a1b3d6fa4a15";
 
 type StatusBarBatteryProps = {
@@ -134,11 +134,30 @@ const CommunityPage: React.FC = () => {
               <View style={styles.actionCardContent}>
                 <View style={styles.actionCardIconWrapper}>
                   <View style={styles.actionCardIcon}>
-                    <View style={styles.actionCardIconInner}>
-                      <View style={styles.actionCardIconGroup}>
-                        <Image source={{ uri: imgGroup }} style={styles.actionCardIconImage} />
+                    <LinearGradient
+                      colors={['rgba(255, 255, 255, 0.15)', 'rgba(255, 255, 255, 0.1)']}
+                      style={styles.actionCardIconGradient}
+                    >
+                      <View style={styles.actionCardIconInner}>
+                        {/* Top-left shiny highlight */}
+                        <LinearGradient
+                          colors={['rgba(255, 255, 255, 0.6)', 'rgba(255, 255, 255, 0.1)', 'transparent']}
+                          start={{ x: 0, y: 0 }}
+                          end={{ x: 1, y: 1 }}
+                          style={styles.actionCardIconHighlight}
+                        />
+                        {/* Right side light texture */}
+                        <LinearGradient
+                          colors={['transparent', 'rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.15)']}
+                          start={{ x: 0, y: 0 }}
+                          end={{ x: 1, y: 0 }}
+                          style={styles.actionCardIconTexture}
+                        />
+                        <View style={styles.actionCardIconGroup}>
+                          <Image source={{ uri: imgGroup }} style={styles.actionCardIconImage} />
+                        </View>
                       </View>
-                    </View>
+                    </LinearGradient>
                   </View>
                 </View>
                 <View style={styles.actionCardText}>
@@ -165,11 +184,30 @@ const CommunityPage: React.FC = () => {
               <View style={styles.actionCardContent}>
                 <View style={styles.actionCardIconWrapper}>
                   <View style={styles.actionCardIcon}>
-                    <View style={styles.actionCardIconInner}>
-                      <View style={styles.actionCardIconMessage}>
-                        <Image source={{ uri: imgMynauiMessage }} style={styles.actionCardIconImage} />
+                    <LinearGradient
+                      colors={['rgba(255, 255, 255, 0.15)', 'rgba(255, 255, 255, 0.1)']}
+                      style={styles.actionCardIconGradient}
+                    >
+                      <View style={styles.actionCardIconInner}>
+                        {/* Top-left shiny highlight */}
+                        <LinearGradient
+                          colors={['rgba(255, 255, 255, 0.6)', 'rgba(255, 255, 255, 0.1)', 'transparent']}
+                          start={{ x: 0, y: 0 }}
+                          end={{ x: 1, y: 1 }}
+                          style={styles.actionCardIconHighlight}
+                        />
+                        {/* Right side light texture */}
+                        <LinearGradient
+                          colors={['transparent', 'rgba(255, 255, 255, 0.1)', 'rgba(255, 255, 255, 0.15)']}
+                          start={{ x: 0, y: 0 }}
+                          end={{ x: 1, y: 0 }}
+                          style={styles.actionCardIconTexture}
+                        />
+                        <View style={styles.actionCardIconMessage}>
+                          <Image source={{ uri: imgMynauiMessage }} style={styles.actionCardIconImage} />
+                        </View>
                       </View>
-                    </View>
+                    </LinearGradient>
                   </View>
                 </View>
                 <View style={[styles.actionCardText, styles.actionCardTextLast]}>
@@ -529,15 +567,43 @@ const styles = StyleSheet.create({
     height: 48,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: '#FFFFFF',
+    borderColor: 'rgba(255, 255, 255, 0.4)',
     overflow: 'hidden',
-    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+    shadowColor: '#FFFFFF',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 8,
+  },
+  actionCardIconGradient: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 8,
   },
   actionCardIconInner: {
     width: '100%',
     height: '100%',
     overflow: 'hidden',
+    borderRadius: 8,
+    position: 'relative',
+  },
+  actionCardIconHighlight: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '50%',
+    height: '50%',
     borderRadius: 10,
+    opacity: 0.9,
+  },
+  actionCardIconTexture: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: 8,
+    opacity: 0.8,
   },
   actionCardIconGroup: {
     position: 'absolute',
@@ -546,6 +612,9 @@ const styles = StyleSheet.create({
     transform: [{ translateX: -11.5 }, { translateY: -11.5 }],
     width: 23,
     height: 23,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 2,
   },
   actionCardIconMessage: {
     position: 'absolute',
@@ -554,10 +623,14 @@ const styles = StyleSheet.create({
     transform: [{ translateX: -11.5 }, { translateY: -11.5 }],
     width: 23,
     height: 23,
+    alignItems: 'center',
+    justifyContent: 'center',
+    zIndex: 2,
   },
   actionCardIconImage: {
     width: '100%',
     height: '100%',
+    resizeMode: 'contain',
   },
   actionCardText: {
     flexDirection: 'column',
@@ -621,6 +694,8 @@ const styles = StyleSheet.create({
   actionButtonIconGroup: {
     width: '100%',
     height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   actionButtonIconSecondary: {
     width: 20,
@@ -631,6 +706,7 @@ const styles = StyleSheet.create({
   actionButtonIconImage: {
     width: '100%',
     height: '100%',
+    resizeMode: 'contain',
   },
   actionButtonText: {
     fontFamily: 'Helvetica Neue',

@@ -1,5 +1,6 @@
 import React from 'react';
 import './communitypage.css';
+import biPersonPlusIcon from './bi_person-plus.svg?url';
 
 // Image assets from Figma
 const imgImage = "https://www.figma.com/api/mcp/asset/fef54a34-f074-4b6a-b39e-d06ad1e6d8d2";
@@ -11,11 +12,11 @@ const imgWifi = "https://www.figma.com/api/mcp/asset/46af0c08-4be9-4858-9391-efd
 const imgIconMobileSignal = "https://www.figma.com/api/mcp/asset/c0e73d38-0fcb-466e-938e-ff3c21f2d842";
 const imgFluentPeople20Regular = "https://www.figma.com/api/mcp/asset/0a74f808-da9c-4250-9453-2485228a939c";
 const imgArrowArrowLeftMd = "https://www.figma.com/api/mcp/asset/80ec8b56-948f-4271-9e53-aad5456b83dc";
-const imgGroup = "https://www.figma.com/api/mcp/asset/55c6e36c-f882-44ca-a311-49f9a91fae45";
+const imgGroup = biPersonPlusIcon;
 const imgMynauiMessage = "https://www.figma.com/api/mcp/asset/e910d120-53c9-4ff7-a3a9-c73324fd1e5b";
 const imgFluentLive24Regular = "https://www.figma.com/api/mcp/asset/b6666844-cd0c-46e5-87e1-6831543a9e69";
 const imgFrame = "https://www.figma.com/api/mcp/asset/9bb0a10b-c9f6-4d06-83ac-d5906c288d7b";
-const imgGroup1 = "https://www.figma.com/api/mcp/asset/69a5ebc6-20cc-4e2f-aa6e-4af62d54b5a0";
+const imgGroup1 = biPersonPlusIcon;
 const imgMynauiChatPlus = "https://www.figma.com/api/mcp/asset/e480d4e0-f4eb-48b3-9b87-a1b3d6fa4a15";
 
 type StatusBarBatteryProps = {
