@@ -1,4 +1,4 @@
-.people-list-container {
+.connection-list-container {
   position: relative;
   width: 430px;
   height: 100vh;
@@ -278,51 +278,10 @@
 
 .scroll-view-content {
   padding: 0;
-  padding-top: 0;
+  padding-top: 36px;
   padding-bottom: 100px;
   width: 382px;
   max-width: 100%;
-}
-
-.section {
-  margin-bottom: 32px;
-  width: 100%;
-}
-
-.section-separator {
-  width: 100%;
-  height: 6px;
-  background-color: #F4F3F8;
-  margin-bottom: 32px;
-}
-
-.section-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  height: 18px;
-}
-
-.section-title {
-  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: #000000;
-  line-height: 18px;
-}
-
-.section-see-all {
-  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 14px;
-  font-weight: 400;
-  color: #000000;
-  line-height: 18px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 0;
 }
 
 .cards-row {
@@ -330,14 +289,6 @@
   flex-direction: row;
   gap: 16px;
   margin-bottom: 16px;
-}
-
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(2, 183.188px);
-  gap: 16px;
-  width: 100%;
-  justify-content: start;
 }
 
 .person-card {
@@ -498,26 +449,5 @@
   width: 100%;
   height: 100%;
   display: block;
-}
-
-.divider-line {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 428px;
-  height: 0;
-  border-top: 1px solid #e6e9f0;
-}
-
-.divider-line-1 {
-  top: 693.5px;
-}
-
-.divider-line-2 {
-  top: 1214.5px;
-}
-
-.divider-line-3 {
-  top: 1736.5px;
 }
 

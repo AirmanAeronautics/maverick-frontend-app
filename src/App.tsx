@@ -14,6 +14,7 @@ import ArchiveChats from './screens/ArchiveChats.web';
 import CommunityPage from './screens/communitypage.web';
 import PeopleList from './screens/PeopleList1.web';
 import PeopleListFull from './screens/PeopleListFull.web';
+import ConnectionList from './screens/ConnectionList.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -162,7 +163,8 @@ type ScreenKey =
   | 'channel-groups-private'
   | 'community'
   | 'people-list'
-  | 'people-list-full';
+  | 'people-list-full'
+  | 'connection-list';
 
 const VALID_SCREENS: ScreenKey[] = [
   'channels',
@@ -180,6 +182,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'community',
   'people-list',
   'people-list-full',
+  'connection-list',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -355,6 +358,8 @@ const App = () => {
         />
       ) : activeScreen === 'people-list' ? (
         <PeopleList onSeeAll={handlePeopleSeeAll} />
+      ) : activeScreen === 'connection-list' ? (
+        <ConnectionList onNavigateToPeople={() => navigateTo('people-list')} />
       ) : (
         <AllInOneChats
           chats={chats}

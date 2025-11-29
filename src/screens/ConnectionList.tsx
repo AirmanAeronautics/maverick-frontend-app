@@ -32,7 +32,6 @@ const imgIconMobileSignal = 'https://www.figma.com/api/mcp/asset/d4404a29-dc2f-4
 const imgPhDotsThreeVertical = 'https://www.figma.com/api/mcp/asset/d3be18f1-c10e-4506-9b0c-a66c5c067efc';
 const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/15731158-712e-465a-8916-59b6d9f8f331';
 const imgFrame1171275571 = 'https://www.figma.com/api/mcp/asset/32ccedea-d40b-49fc-9ff6-77ee0f6db33e';
-const imgLine720 = 'https://www.figma.com/api/mcp/asset/cc82d5bb-0d54-462c-9f18-cf62b38ec0ab';
 
 type StatusBarBatteryProps = {
   darkMode?: 'False';
@@ -139,6 +138,9 @@ const PEOPLE_FROM_SCHOOL: PersonCard[] = [
   },
 ];
 
+// Combine all connections into one array
+const ALL_CONNECTIONS: PersonCard[] = [...PEOPLE_NEAR_LOCATION, ...PEOPLE_FROM_SCHOOL];
+
 const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard; isPending?: boolean; onConnectClick?: () => void }) => {
   return (
     <View style={styles.personCard}>
@@ -175,7 +177,11 @@ const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard;
   );
 };
 
-const PeopleList = () => {
+type ConnectionListProps = {
+  onNavigateToPeople?: () => void;
+};
+
+const ConnectionList = ({ onNavigateToPeople }: ConnectionListProps = {}) => {
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
 
   const handleConnectClick = (personId: string) => {
@@ -189,6 +195,12 @@ const PeopleList = () => {
       return next;
     });
   };
+
+  // Create rows of 2 cards each
+  const cardRows: PersonCard[][] = [];
+  for (let i = 0; i < ALL_CONNECTIONS.length; i += 2) {
+    cardRows.push(ALL_CONNECTIONS.slice(i, i + 2));
+  }
 
   return (
     <View style={styles.container}>
@@ -226,13 +238,13 @@ const PeopleList = () => {
 
       {/* Tabs */}
       <View style={styles.tabsContainer}>
-        <View style={[styles.tab, styles.tabActive]}>
+        <TouchableOpacity style={styles.tab} activeOpacity={0.7} onPress={onNavigateToPeople}>
           <Text style={styles.tabText}>People</Text>
+        </TouchableOpacity>
+        <View style={[styles.tab, styles.tabActive]}>
+          <Text style={styles.tabText}>Connections</Text>
           <View style={styles.tabIndicator} />
         </View>
-        <TouchableOpacity style={styles.tab} activeOpacity={0.7}>
-          <Text style={styles.tabText}>Connections</Text>
-        </TouchableOpacity>
         <TouchableOpacity style={styles.tab} activeOpacity={0.7}>
           <Text style={styles.tabText}>Catch up</Text>
         </TouchableOpacity>
@@ -244,16 +256,9 @@ const PeopleList = () => {
         contentContainerStyle={styles.scrollViewContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* People near location */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>People near location</Text>
-            <TouchableOpacity activeOpacity={0.7}>
-              <Text style={styles.sectionSeeAll}>See all</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.cardsRow}>
-            {PEOPLE_NEAR_LOCATION.slice(0, 2).map(person => (
+        {cardRows.map((row, rowIndex) => (
+          <View key={rowIndex} style={styles.cardsRow}>
+            {row.map(person => (
               <PersonCard 
                 key={person.id} 
                 person={person} 
@@ -262,40 +267,7 @@ const PeopleList = () => {
               />
             ))}
           </View>
-          <View style={styles.cardsRow}>
-            {PEOPLE_NEAR_LOCATION.slice(2, 4).map(person => (
-              <PersonCard 
-                key={person.id} 
-                person={person} 
-                isPending={pendingIds.has(person.id)}
-                onConnectClick={() => handleConnectClick(person.id)}
-              />
-            ))}
-          </View>
-        </View>
-
-        {/* Separator */}
-        <View style={styles.sectionSeparator} />
-
-        {/* People from your school */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>People from your school</Text>
-            <TouchableOpacity activeOpacity={0.7}>
-              <Text style={styles.sectionSeeAll}>See all</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.cardsRow}>
-            {PEOPLE_FROM_SCHOOL.map(person => (
-              <PersonCard 
-                key={person.id} 
-                person={person} 
-                isPending={pendingIds.has(person.id)}
-                onConnectClick={() => handleConnectClick(person.id)}
-              />
-            ))}
-          </View>
-        </View>
+        ))}
       </ScrollView>
     </View>
   );
@@ -498,33 +470,6 @@ const styles = StyleSheet.create({
     width: 382,
     maxWidth: '100%',
   },
-  section: {
-    marginBottom: 32,
-  },
-  sectionSeparator: {
-    width: '100%',
-    height: 6,
-    backgroundColor: '#F4F3F8',
-    marginBottom: 32,
-  },
-  sectionHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 16,
-  },
-  sectionTitle: {
-    fontFamily: 'Helvetica Neue',
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#000000',
-  },
-  sectionSeeAll: {
-    fontFamily: 'Helvetica Neue',
-    fontSize: 14,
-    fontWeight: '400',
-    color: '#000000',
-  },
   cardsRow: {
     flexDirection: 'row',
     gap: 16,
@@ -652,5 +597,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PeopleList;
+export default ConnectionList;
 
