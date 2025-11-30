@@ -293,7 +293,7 @@
 
 .person-card {
   width: 183.188px;
-  height: 203.082px;
+  min-height: 230px;
   background-color: #ffffff;
   border-radius: 8px;
   border: 1.2px solid #e6e9f0;
@@ -378,7 +378,7 @@
   height: 31px;
 }
 
-.connect-button {
+.message-button {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -395,12 +395,7 @@
   padding: 0;
 }
 
-.connect-button--pending {
-  background-color: #ffffff;
-  border: 1px solid #6D6D6D;
-}
-
-.connect-button-text {
+.message-button-text {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 9.95px;
   font-weight: 500;
@@ -410,8 +405,31 @@
   white-space: nowrap;
 }
 
-.connect-button--pending .connect-button-text {
-  color: #6D6D6D;
+.disconnect-button {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 194.165px;
+  width: 154.177px;
+  height: 26.525px;
+  background-color: #ffffff;
+  border: 1px solid #168aad;
+  border-radius: 46.053px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.disconnect-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 9.95px;
+  font-weight: 500;
+  color: #168aad;
+  text-align: center;
+  line-height: 0;
+  white-space: nowrap;
 }
 
 .badge {
@@ -450,4 +468,69 @@
   height: 100%;
   display: block;
 }
+
+.disconnect-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  z-index: 60;
+}
+
+.disconnect-modal-frame {
+  width: min(85vw, 360px);
+  max-width: 360px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  padding: 28px 24px 24px;
+  text-align: center;
+}
+
+.disconnect-modal-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #111111;
+  margin: 0 0 24px;
+  line-height: 1.4;
+}
+
+.disconnect-modal-button-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+  padding-top: 8px;
+  width: 100%;
+}
+
+.disconnect-modal-text-button {
+  background: transparent;
+  border: none;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #168aad;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.disconnect-modal-text-button:last-child {
+  margin-left: auto;
+}
+
+.disconnect-modal-text-button:hover {
+  opacity: 0.8;
+}
+
+.disconnect-modal-text-button:active {
+  opacity: 0.6;
+}
+
 

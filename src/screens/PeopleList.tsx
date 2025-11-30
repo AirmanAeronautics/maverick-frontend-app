@@ -175,7 +175,12 @@ const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard;
   );
 };
 
-const PeopleList = () => {
+type PeopleListProps = {
+  onSeeAll?: (category: 'near-location' | 'from-school') => void;
+  onNavigateToConnectionList?: () => void;
+};
+
+const PeopleList = ({ onSeeAll, onNavigateToConnectionList }: PeopleListProps = {}) => {
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
 
   const handleConnectClick = (personId: string) => {
@@ -230,7 +235,11 @@ const PeopleList = () => {
           <Text style={styles.tabText}>People</Text>
           <View style={styles.tabIndicator} />
         </View>
-        <TouchableOpacity style={styles.tab} activeOpacity={0.7}>
+        <TouchableOpacity 
+          style={styles.tab} 
+          activeOpacity={0.7}
+          onPress={onNavigateToConnectionList}
+        >
           <Text style={styles.tabText}>Connections</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.tab} activeOpacity={0.7}>
@@ -493,7 +502,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   scrollViewContent: {
-    paddingTop: 36,
+    paddingTop: 16,
     paddingBottom: 100,
     width: 382,
     maxWidth: '100%',

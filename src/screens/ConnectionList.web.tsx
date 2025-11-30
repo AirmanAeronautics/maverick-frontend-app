@@ -129,7 +129,7 @@ const PEOPLE_FROM_SCHOOL: PersonCard[] = [
 // Combine all connections into one array
 const ALL_CONNECTIONS: PersonCard[] = [...PEOPLE_NEAR_LOCATION, ...PEOPLE_FROM_SCHOOL];
 
-const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard; isPending?: boolean; onConnectClick?: () => void }) => {
+const PersonCard = ({ person, isPending, onConnectClick, onDisconnectClick }: { person: PersonCard; isPending?: boolean; onConnectClick?: () => void; onDisconnectClick?: () => void }) => {
   return (
     <div className="person-card">
       <div className="person-card-inner">
@@ -144,10 +144,16 @@ const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard;
           <p className="person-card-description">{person.description}</p>
         </div>
         <button 
-          className={`connect-button ${isPending ? 'connect-button--pending' : ''}`}
+          className="message-button"
           onClick={onConnectClick}
         >
-          <span className="connect-button-text">{isPending ? 'Pending' : 'Connect'}</span>
+          <span className="message-button-text">Message</span>
+        </button>
+        <button 
+          className="disconnect-button"
+          onClick={onDisconnectClick}
+        >
+          <span className="disconnect-button-text">Disconnect</span>
         </button>
         <div className="badge" style={{ borderColor: person.badgeBorderColor }}>
           <span className="badge-text" style={{ color: person.badgeColor }}>
@@ -168,6 +174,7 @@ type ConnectionListProps = {
 
 const ConnectionList = ({ onNavigateToPeople }: ConnectionListProps = {}) => {
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
+  const [pendingDisconnectPerson, setPendingDisconnectPerson] = useState<PersonCard | null>(null);
 
   const handleConnectClick = (personId: string) => {
     setPendingIds(prev => {
@@ -179,6 +186,22 @@ const ConnectionList = ({ onNavigateToPeople }: ConnectionListProps = {}) => {
       }
       return next;
     });
+  };
+
+  const handleDisconnectClick = (person: PersonCard) => {
+    setPendingDisconnectPerson(person);
+  };
+
+  const handleCancelDisconnect = () => {
+    setPendingDisconnectPerson(null);
+  };
+
+  const handleConfirmDisconnect = () => {
+    if (pendingDisconnectPerson) {
+      // Handle disconnect logic here
+      console.log('Disconnecting:', pendingDisconnectPerson.name);
+      setPendingDisconnectPerson(null);
+    }
   };
 
   // Create rows of 2 cards each
@@ -246,12 +269,43 @@ const ConnectionList = ({ onNavigateToPeople }: ConnectionListProps = {}) => {
                   person={person} 
                   isPending={pendingIds.has(person.id)}
                   onConnectClick={() => handleConnectClick(person.id)}
+                  onDisconnectClick={() => handleDisconnectClick(person)}
                 />
               ))}
             </div>
           ))}
         </div>
       </div>
+      {pendingDisconnectPerson ? (
+        <div className="disconnect-modal-backdrop">
+          <div
+            className="disconnect-modal-frame"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="disconnect-modal-title"
+          >
+            <h3 id="disconnect-modal-title" className="disconnect-modal-title">
+              Are you sure you want to disconnect &quot;{pendingDisconnectPerson.name}&quot;?
+            </h3>
+            <div className="disconnect-modal-button-row">
+              <button 
+                type="button" 
+                className="disconnect-modal-text-button" 
+                onClick={handleCancelDisconnect}
+              >
+                Cancel
+              </button>
+              <button 
+                type="button" 
+                className="disconnect-modal-text-button" 
+                onClick={handleConfirmDisconnect}
+              >
+                Disconnect
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

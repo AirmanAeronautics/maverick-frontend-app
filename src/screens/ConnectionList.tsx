@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Dimensions,
+  Modal,
 } from 'react-native';
 
 const { width: screenWidth } = Dimensions.get('window');
@@ -141,7 +142,7 @@ const PEOPLE_FROM_SCHOOL: PersonCard[] = [
 // Combine all connections into one array
 const ALL_CONNECTIONS: PersonCard[] = [...PEOPLE_NEAR_LOCATION, ...PEOPLE_FROM_SCHOOL];
 
-const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard; isPending?: boolean; onConnectClick?: () => void }) => {
+const PersonCard = ({ person, isPending, onConnectClick, onDisconnectClick }: { person: PersonCard; isPending?: boolean; onConnectClick?: () => void; onDisconnectClick?: () => void }) => {
   return (
     <View style={styles.personCard}>
       <View style={styles.personCardInner}>
@@ -158,12 +159,21 @@ const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard;
           </Text>
         </View>
         <TouchableOpacity 
-          style={[styles.connectButton, isPending && styles.connectButtonPending]} 
+          style={styles.messageButton} 
           activeOpacity={0.7}
           onPress={onConnectClick}
         >
-          <Text style={[styles.connectButtonText, isPending && styles.connectButtonTextPending]}>
-            {isPending ? 'Pending' : 'Connect'}
+          <Text style={styles.messageButtonText}>
+            Message
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity 
+          style={styles.disconnectButton} 
+          activeOpacity={0.7}
+          onPress={onDisconnectClick}
+        >
+          <Text style={styles.disconnectButtonText}>
+            Disconnect
           </Text>
         </TouchableOpacity>
         <View style={[styles.badge, { borderColor: person.badgeBorderColor }]}>
@@ -183,6 +193,7 @@ type ConnectionListProps = {
 
 const ConnectionList = ({ onNavigateToPeople }: ConnectionListProps = {}) => {
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
+  const [pendingDisconnectPerson, setPendingDisconnectPerson] = useState<PersonCard | null>(null);
 
   const handleConnectClick = (personId: string) => {
     setPendingIds(prev => {
@@ -194,6 +205,22 @@ const ConnectionList = ({ onNavigateToPeople }: ConnectionListProps = {}) => {
       }
       return next;
     });
+  };
+
+  const handleDisconnectClick = (person: PersonCard) => {
+    setPendingDisconnectPerson(person);
+  };
+
+  const handleCancelDisconnect = () => {
+    setPendingDisconnectPerson(null);
+  };
+
+  const handleConfirmDisconnect = () => {
+    if (pendingDisconnectPerson) {
+      // Handle disconnect logic here
+      console.log('Disconnecting:', pendingDisconnectPerson.name);
+      setPendingDisconnectPerson(null);
+    }
   };
 
   // Create rows of 2 cards each
@@ -264,11 +291,42 @@ const ConnectionList = ({ onNavigateToPeople }: ConnectionListProps = {}) => {
                 person={person} 
                 isPending={pendingIds.has(person.id)}
                 onConnectClick={() => handleConnectClick(person.id)}
+                onDisconnectClick={() => handleDisconnectClick(person)}
               />
             ))}
           </View>
         ))}
       </ScrollView>
+      <Modal
+        visible={pendingDisconnectPerson !== null}
+        transparent={true}
+        animationType="fade"
+        onRequestClose={handleCancelDisconnect}
+      >
+        <View style={styles.disconnectModalBackdrop}>
+          <View style={styles.disconnectModalFrame}>
+            <Text style={styles.disconnectModalTitle}>
+              Are you sure you want to disconnect &quot;{pendingDisconnectPerson?.name}&quot;?
+            </Text>
+            <View style={styles.disconnectModalButtonRow}>
+              <TouchableOpacity 
+                style={styles.disconnectModalTextButton}
+                activeOpacity={0.7}
+                onPress={handleCancelDisconnect}
+              >
+                <Text style={styles.disconnectModalTextButtonText}>Cancel</Text>
+              </TouchableOpacity>
+              <TouchableOpacity 
+                style={[styles.disconnectModalTextButton, styles.disconnectModalTextButtonLast]}
+                activeOpacity={0.7}
+                onPress={handleConfirmDisconnect}
+              >
+                <Text style={styles.disconnectModalTextButtonText}>Disconnect</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
     </View>
   );
 };
@@ -477,7 +535,7 @@ const styles = StyleSheet.create({
   },
   personCard: {
     width: 183.188,
-    height: 203.082,
+    minHeight: 230,
     backgroundColor: '#FFFFFF',
     borderRadius: 8,
     borderWidth: 1.2,
@@ -542,7 +600,7 @@ const styles = StyleSheet.create({
     marginTop: 0,
     height: 31,
   },
-  connectButton: {
+  messageButton: {
     position: 'absolute',
     left: '50%',
     transform: [{ translateX: -77.0885 }],
@@ -554,20 +612,33 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  connectButtonPending: {
-    backgroundColor: '#FFFFFF',
-    borderWidth: 1,
-    borderColor: '#6D6D6D',
-  },
-  connectButtonText: {
+  messageButtonText: {
     fontFamily: 'Helvetica Neue',
     fontSize: 9.95,
     fontWeight: '500',
     color: '#FFFFFF',
     textAlign: 'center',
   },
-  connectButtonTextPending: {
-    color: '#6D6D6D',
+  disconnectButton: {
+    position: 'absolute',
+    left: '50%',
+    transform: [{ translateX: -77.0885 }],
+    top: 194.165,
+    width: 154.177,
+    height: 26.525,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#168aad',
+    borderRadius: 46.053,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  disconnectButtonText: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 9.95,
+    fontWeight: '500',
+    color: '#168aad',
+    textAlign: 'center',
   },
   badge: {
     position: 'absolute',
@@ -594,6 +665,64 @@ const styles = StyleSheet.create({
   favoriteIconImage: {
     width: '100%',
     height: '100%',
+  },
+  disconnectModalBackdrop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.45)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 24,
+  },
+  disconnectModalFrame: {
+    width: Math.min(APP_WIDTH * 0.85, 360),
+    maxWidth: 360,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
+    paddingTop: 28,
+    paddingBottom: 24,
+    paddingHorizontal: 24,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 12 },
+    shadowOpacity: 0.18,
+    shadowRadius: 32,
+    elevation: 8,
+  },
+  disconnectModalTitle: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 22,
+    fontWeight: '600',
+    color: '#111111',
+    marginBottom: 24,
+    textAlign: 'center',
+    lineHeight: 30.8,
+  },
+  disconnectModalButtonRow: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    width: '100%',
+    paddingTop: 8,
+  },
+  disconnectModalTextButton: {
+    padding: 0,
+    margin: 0,
+    marginRight: 16,
+  },
+  disconnectModalTextButtonLast: {
+    marginLeft: 'auto',
+    marginRight: 0,
+  },
+  disconnectModalTextButtonText: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 16,
+    fontWeight: '400',
+    color: '#168aad',
+    textAlign: 'center',
   },
 });
 

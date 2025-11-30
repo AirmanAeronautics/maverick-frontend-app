@@ -222,9 +222,10 @@ const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard;
 
 type PeopleListProps = {
   onSeeAll?: (category: 'near-location' | 'from-school') => void;
+  onNavigateToConnectionList?: () => void;
 };
 
-const PeopleList = ({ onSeeAll }: PeopleListProps = {}) => {
+const PeopleList = ({ onSeeAll, onNavigateToConnectionList }: PeopleListProps = {}) => {
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
 
   const handleConnectClick = (personId: string) => {
@@ -279,7 +280,10 @@ const PeopleList = ({ onSeeAll }: PeopleListProps = {}) => {
           <span className="tab-text">People</span>
           <div className="tab-indicator" />
         </div>
-        <button className="tab">
+        <button 
+          className="tab"
+          onClick={onNavigateToConnectionList}
+        >
           <span className="tab-text">Connections</span>
         </button>
         <button className="tab">

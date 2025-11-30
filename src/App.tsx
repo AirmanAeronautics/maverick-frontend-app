@@ -15,6 +15,7 @@ import CommunityPage from './screens/communitypage.web';
 import PeopleList from './screens/PeopleList1.web';
 import PeopleListFull from './screens/PeopleListFull.web';
 import ConnectionList from './screens/ConnectionList.web';
+import CatchupList from './screens/CatchupList.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -164,7 +165,8 @@ type ScreenKey =
   | 'community'
   | 'people-list'
   | 'people-list-full'
-  | 'connection-list';
+  | 'connection-list'
+  | 'catchup-list';
 
 const VALID_SCREENS: ScreenKey[] = [
   'channels',
@@ -183,6 +185,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'people-list',
   'people-list-full',
   'connection-list',
+  'catchup-list',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -357,9 +360,17 @@ const App = () => {
           onBack={() => navigateTo('people-list')}
         />
       ) : activeScreen === 'people-list' ? (
-        <PeopleList onSeeAll={handlePeopleSeeAll} />
+        <PeopleList 
+          onSeeAll={handlePeopleSeeAll}
+          onNavigateToConnectionList={() => navigateTo('connection-list')}
+        />
       ) : activeScreen === 'connection-list' ? (
         <ConnectionList onNavigateToPeople={() => navigateTo('people-list')} />
+      ) : activeScreen === 'catchup-list' ? (
+        <CatchupList 
+          onNavigateToPeopleList={() => navigateTo('people-list')}
+          onNavigateToConnectionList={() => navigateTo('connection-list')}
+        />
       ) : (
         <AllInOneChats
           chats={chats}
