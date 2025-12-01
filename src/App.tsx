@@ -19,6 +19,7 @@ import ConnectionList from './screens/ConnectionList.web';
 import CatchupList from './screens/CatchupList.web';
 import Profile1 from './screens/Profile1.web';
 import ChannelProfile from './screens/ChannelProfile.web';
+import Login from './screens/login.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -153,6 +154,7 @@ const INITIAL_CHAT_ITEMS: ChatItem[] = [
 ];
 
 type ScreenKey =
+  | 'login'
   | 'channels'
   | 'messages'
   | 'archive-chats'
@@ -175,6 +177,7 @@ type ScreenKey =
   | 'channel-profile';
 
 const VALID_SCREENS: ScreenKey[] = [
+  'login',
   'channels',
   'messages',
   'explore',
@@ -199,10 +202,10 @@ const VALID_SCREENS: ScreenKey[] = [
 
 const getScreenFromHash = (): ScreenKey => {
   if (typeof window === 'undefined') {
-    return 'messages';
+    return 'login';
   }
   const hash = window.location.hash.replace('#', '') as ScreenKey;
-  return VALID_SCREENS.includes(hash) ? hash : 'messages';
+  return VALID_SCREENS.includes(hash) ? hash : 'login';
 };
 
 const App = () => {
@@ -292,7 +295,12 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {activeScreen === 'explore-full' ? (
+      {activeScreen === 'login' ? (
+        <Login 
+          onLogin={() => navigateTo('messages')}
+          onSignUp={() => navigateTo('messages')}
+        />
+      ) : activeScreen === 'explore-full' ? (
         <ExploreChannelFull
           title={fullListCategory.title}
           channels={fullListCategory.channels}
