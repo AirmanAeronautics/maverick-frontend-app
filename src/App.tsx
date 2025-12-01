@@ -16,6 +16,7 @@ import PeopleList from './screens/PeopleList1.web';
 import PeopleListFull from './screens/PeopleListFull.web';
 import ConnectionList from './screens/ConnectionList.web';
 import CatchupList from './screens/CatchupList.web';
+import Profile1 from './screens/Profile1.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -166,7 +167,8 @@ type ScreenKey =
   | 'people-list'
   | 'people-list-full'
   | 'connection-list'
-  | 'catchup-list';
+  | 'catchup-list'
+  | 'profile1';
 
 const VALID_SCREENS: ScreenKey[] = [
   'channels',
@@ -186,6 +188,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'people-list-full',
   'connection-list',
   'catchup-list',
+  'profile1',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -363,13 +366,21 @@ const App = () => {
         <PeopleList 
           onSeeAll={handlePeopleSeeAll}
           onNavigateToConnectionList={() => navigateTo('connection-list')}
+          onNavigateToCatchupList={() => navigateTo('catchup-list')}
         />
       ) : activeScreen === 'connection-list' ? (
-        <ConnectionList onNavigateToPeople={() => navigateTo('people-list')} />
+        <ConnectionList 
+          onNavigateToPeople={() => navigateTo('people-list')}
+          onNavigateToCatchupList={() => navigateTo('catchup-list')}
+        />
       ) : activeScreen === 'catchup-list' ? (
         <CatchupList 
           onNavigateToPeopleList={() => navigateTo('people-list')}
           onNavigateToConnectionList={() => navigateTo('connection-list')}
+        />
+      ) : activeScreen === 'profile1' ? (
+        <Profile1 
+          onBack={() => navigateTo('messages')}
         />
       ) : (
         <AllInOneChats

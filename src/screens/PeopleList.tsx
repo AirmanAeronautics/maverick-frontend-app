@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
+import SearchBar from '../components/SearchBar';
 
 const { width: screenWidth } = Dimensions.get('window');
 const DESIGN_WIDTH = 430;
@@ -178,9 +179,10 @@ const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard;
 type PeopleListProps = {
   onSeeAll?: (category: 'near-location' | 'from-school') => void;
   onNavigateToConnectionList?: () => void;
+  onNavigateToCatchupList?: () => void;
 };
 
-const PeopleList = ({ onSeeAll, onNavigateToConnectionList }: PeopleListProps = {}) => {
+const PeopleList = ({ onSeeAll, onNavigateToConnectionList, onNavigateToCatchupList }: PeopleListProps = {}) => {
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
 
   const handleConnectClick = (personId: string) => {
@@ -242,10 +244,17 @@ const PeopleList = ({ onSeeAll, onNavigateToConnectionList }: PeopleListProps = 
         >
           <Text style={styles.tabText}>Connections</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.tab} activeOpacity={0.7}>
+        <TouchableOpacity 
+          style={styles.tab} 
+          activeOpacity={0.7}
+          onPress={onNavigateToCatchupList}
+        >
           <Text style={styles.tabText}>Catch up</Text>
         </TouchableOpacity>
       </View>
+
+      {/* Search Bar */}
+      <SearchBar />
 
       {/* Content */}
       <ScrollView
@@ -502,7 +511,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   scrollViewContent: {
-    paddingTop: 16,
+    paddingTop: 0,
     paddingBottom: 100,
     width: 382,
     maxWidth: '100%',

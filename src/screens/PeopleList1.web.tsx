@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './PeopleList.css';
+import SearchBar from '../components/SearchBar.web';
 
 // Image assets from Figma
 const imgRectangle4249 = 'https://www.figma.com/api/mcp/asset/0819f6cb-e382-4719-9e12-dfb5bd59da53';
@@ -223,9 +224,10 @@ const PersonCard = ({ person, isPending, onConnectClick }: { person: PersonCard;
 type PeopleListProps = {
   onSeeAll?: (category: 'near-location' | 'from-school') => void;
   onNavigateToConnectionList?: () => void;
+  onNavigateToCatchupList?: () => void;
 };
 
-const PeopleList = ({ onSeeAll, onNavigateToConnectionList }: PeopleListProps = {}) => {
+const PeopleList = ({ onSeeAll, onNavigateToConnectionList, onNavigateToCatchupList }: PeopleListProps = {}) => {
   const [pendingIds, setPendingIds] = useState<Set<string>>(new Set());
 
   const handleConnectClick = (personId: string) => {
@@ -286,10 +288,16 @@ const PeopleList = ({ onSeeAll, onNavigateToConnectionList }: PeopleListProps = 
         >
           <span className="tab-text">Connections</span>
         </button>
-        <button className="tab">
+        <button 
+          className="tab"
+          onClick={onNavigateToCatchupList}
+        >
           <span className="tab-text">Catch up</span>
         </button>
       </div>
+
+      {/* Search Bar */}
+      <SearchBar />
 
       {/* Content */}
       <div className="scroll-view">
