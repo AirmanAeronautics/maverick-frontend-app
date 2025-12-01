@@ -176,6 +176,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  align-self: center;
 }
 
 .back-icon {
@@ -204,6 +205,9 @@
   color: #000000;
   line-height: 22.933px;
   margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
 }
 
 .header-subtitle-container {

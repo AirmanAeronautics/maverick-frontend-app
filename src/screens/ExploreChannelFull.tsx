@@ -321,6 +321,7 @@ const styles = StyleSheet.create({
     height: 27.52,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
   },
   backIcon: {
     width: 27.52,
@@ -341,6 +342,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: '#000000',
     lineHeight: 26,
+    margin: 0,
+    padding: 0,
+    textAlignVertical: 'center',
   },
   searchContainer: {
     position: 'absolute',

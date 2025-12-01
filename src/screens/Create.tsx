@@ -382,6 +382,7 @@ const styles = StyleSheet.create({
     height: 27.52,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
   },
   backIcon: {
     width: 27.52,
@@ -404,6 +405,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#000000',
     lineHeight: 22.933,
+    margin: 0,
+    padding: 0,
+    textAlignVertical: 'center',
   },
   headerButtonPlaceholder: {
     width: 27.52,

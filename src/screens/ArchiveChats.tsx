@@ -540,6 +540,7 @@ const styles = StyleSheet.create({
     height: 32,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
   },
   backIcon: {
     width: 28,
@@ -553,6 +554,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '500',
     color: '#000000',
+    margin: 0,
+    padding: 0,
+    textAlignVertical: 'center',
   },
   headerSubtitle: {
     fontFamily: 'Helvetica Neue',

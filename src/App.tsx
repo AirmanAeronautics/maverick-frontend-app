@@ -9,6 +9,7 @@ import CreateChannel from './screens/CreateChannel.web';
 import Create from './screens/Create.web';
 import CreateGroup from './screens/CreateGroup.web';
 import CreateGroupMembers from './screens/CreateGroupMembers.web';
+import AddPeopleInChannel from './screens/AddPeopleInChannel.web';
 import ChannelGroupsPrivate from './screens/ChannelGroupsPrivate.web';
 import ArchiveChats from './screens/ArchiveChats.web';
 import CommunityPage from './screens/communitypage.web';
@@ -17,6 +18,7 @@ import PeopleListFull from './screens/PeopleListFull.web';
 import ConnectionList from './screens/ConnectionList.web';
 import CatchupList from './screens/CatchupList.web';
 import Profile1 from './screens/Profile1.web';
+import ChannelProfile from './screens/ChannelProfile.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -162,13 +164,15 @@ type ScreenKey =
   | 'create'
   | 'create-group'
   | 'create-group-members'
+  | 'add-people-in-channel'
   | 'channel-groups-private'
   | 'community'
   | 'people-list'
   | 'people-list-full'
   | 'connection-list'
   | 'catchup-list'
-  | 'profile1';
+  | 'profile1'
+  | 'channel-profile';
 
 const VALID_SCREENS: ScreenKey[] = [
   'channels',
@@ -181,6 +185,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'create',
   'create-group',
   'create-group-members',
+  'add-people-in-channel',
   'channel-groups-private',
   'archive-chats',
   'community',
@@ -189,6 +194,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'connection-list',
   'catchup-list',
   'profile1',
+  'channel-profile',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -340,6 +346,15 @@ const App = () => {
             navigateTo('messages');
           }}
         />
+      ) : activeScreen === 'add-people-in-channel' ? (
+        <AddPeopleInChannel
+          onBack={() => navigateTo('channel-groups-private')}
+          onContinue={selectedIds => {
+            console.log('Adding people to channel:', selectedIds);
+            // Navigate back after adding
+            navigateTo('channel-groups-private');
+          }}
+        />
       ) : activeScreen === 'messages-empty' ? (
         <AllInOneChatsEmpty 
           onNavigateToChannels={() => navigateTo('channels-empty')}
@@ -380,6 +395,10 @@ const App = () => {
         />
       ) : activeScreen === 'profile1' ? (
         <Profile1 
+          onBack={() => navigateTo('messages')}
+        />
+      ) : activeScreen === 'channel-profile' ? (
+        <ChannelProfile 
           onBack={() => navigateTo('messages')}
         />
       ) : (

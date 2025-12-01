@@ -1143,6 +1143,7 @@ const styles = StyleSheet.create({
     height: 27.52,
     justifyContent: 'center',
     alignItems: 'center',
+    alignSelf: 'center',
     zIndex: 1,
   },
   backIcon: {
@@ -1171,6 +1172,9 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#000000',
     lineHeight: 22.933,
+    margin: 0,
+    padding: 0,
+    textAlignVertical: 'center',
   },
   headerSubtitle: {
     fontFamily: 'Helvetica Neue',

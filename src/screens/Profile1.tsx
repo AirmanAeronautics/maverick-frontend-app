@@ -659,9 +659,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     transform: [{ rotate: '0deg' }],
   },
-  chevronDown: {
-    transform: [{ rotate: '90deg' }],
-  },
   sectionItemPlaceholder: {
     fontFamily: 'Helvetica Neue',
     fontSize: 12,

@@ -202,12 +202,12 @@ const ContactCard = ({ contact, isSelected, onToggle }: ContactCardProps) => {
   );
 };
 
-type CreateGroupProps = {
+type AddPeopleInChannelProps = {
   onContinue?: (selectedContactIds: string[]) => void;
   onBack?: () => void;
 };
 
-const CreateGroup = ({ onContinue, onBack }: CreateGroupProps) => {
+const AddPeopleInChannel = ({ onContinue, onBack }: AddPeopleInChannelProps) => {
   const [selectedContactIds, setSelectedContactIds] = useState<Set<string>>(new Set());
 
   const handleToggleContact = useCallback((contact: Contact) => {
@@ -270,10 +270,12 @@ const CreateGroup = ({ onContinue, onBack }: CreateGroupProps) => {
         </TouchableOpacity>
         <View style={styles.headerContent}>
           <View style={styles.headerTextContainer}>
-            <Text style={styles.headerTitle}>New Group</Text>
+            <Text style={styles.headerTitle}>Add people</Text>
           </View>
         </View>
-        <View style={styles.headerButtonPlaceholder} />
+        <TouchableOpacity style={styles.skipButton} activeOpacity={0.7}>
+          <Text style={styles.skipButtonText}>Skip</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Search Input */}
@@ -503,9 +505,18 @@ const styles = StyleSheet.create({
     padding: 0,
     textAlignVertical: 'center',
   },
-  headerButtonPlaceholder: {
+  skipButton: {
     width: 27.52,
     height: 27.52,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  skipButtonText: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#168aad',
   },
   searchContainer: {
     position: 'absolute',
@@ -753,5 +764,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CreateGroup;
+export default AddPeopleInChannel;
 
