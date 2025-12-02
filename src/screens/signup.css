@@ -1,0 +1,450 @@
+.login-container {
+  position: relative;
+  width: 430.419px;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.login-background-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  border-radius: 10.33px;
+}
+
+.login-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 430.419px;
+  height: 50.502px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17.22px 34.43px 0 34.43px;
+  z-index: 10;
+}
+
+.login-status-bar-time {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18.36px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 18.365px;
+  margin: 0;
+}
+
+.login-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5.739px;
+}
+
+.login-status-bar-icon {
+  width: 20.66px;
+  height: 11.478px;
+  display: block;
+}
+
+.login-status-bar-battery {
+  width: 30.965px;
+  height: 14.921px;
+  display: block;
+}
+
+.login-headline-section {
+  position: absolute;
+  top: 78.05px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 36.729px;
+}
+
+.login-logo-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-logo-icon {
+  height: 22.26px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.login-headline-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 13.773px;
+}
+
+.login-headline-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 36.729px;
+  font-weight: 700;
+  color: #eeeeee;
+  line-height: 47.748px;
+  letter-spacing: -0.7346px;
+  width: 375.325px;
+  margin: 0;
+}
+
+.login-headline-subtitle {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.773px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 19.282px;
+  letter-spacing: -0.1377px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.login-content-card {
+  position: absolute;
+  top: 253.66px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border-top-left-radius: 18.365px;
+  border-top-right-radius: 18.365px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-top: 27.547px;
+  padding-left: 27.547px;
+  padding-right: 27.547px;
+  padding-bottom: 27.547px;
+  display: flex;
+  flex-direction: column;
+  gap: 27.547px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.login-tabbing-container {
+  background-color: #f5f6f9;
+  border: 1.148px solid #f5f6f9;
+  height: 41.32px;
+  border-radius: 8.034px;
+  overflow: hidden;
+  box-shadow: inset 0px 3.443px 6.887px 0px rgba(0, 0, 0, 0.02);
+}
+
+.login-tabbing-inner {
+  display: flex;
+  flex-direction: row;
+  gap: 1.148px;
+  padding: 2.296px;
+  height: 100%;
+}
+
+.login-tab {
+  flex: 1;
+  height: 100%;
+  border-radius: 6.887px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13.773px 16.069px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.login-tab--active {
+  background-color: #ffffff;
+  border: 1.148px solid rgba(239, 240, 246, 0.5);
+  box-shadow: inset 0px -2.296px 2.296px 0px rgba(0, 0, 0, 0.03);
+}
+
+.login-tab:not(.login-tab--active) {
+  box-shadow: 0px 1.148px 2.296px 0px rgba(228, 229, 231, 0.24);
+  box-shadow: inset 0px -2.296px 2.296px 0px rgba(0, 0, 0, 0.03);
+}
+
+.login-tab-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16.069px;
+  font-weight: 500;
+  line-height: 24.104px;
+  letter-spacing: -0.3214px;
+  margin: 0;
+}
+
+.login-tab-text--active {
+  color: #232447;
+}
+
+.login-tab-text:not(.login-tab-text--active) {
+  color: #7d7d91;
+}
+
+.login-field-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18.365px;
+}
+
+.login-input-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.296px;
+}
+
+.login-input-label {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.773px;
+  font-weight: 500;
+  color: #6c7278;
+  line-height: 22.037px;
+  letter-spacing: -0.2755px;
+  margin: 0;
+}
+
+.login-input-area {
+  background-color: #ffffff;
+  border: 1.148px solid #edf1f3;
+  height: 52.798px;
+  border-radius: 11.478px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 13.773px 16.069px;
+  gap: 11.478px;
+}
+
+.login-input-text {
+  flex: 1;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16.069px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 22.497px;
+  letter-spacing: -0.1607px;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-input-text::placeholder {
+  color: #6c7278;
+}
+
+.login-eye-icon-container {
+  width: 18.365px;
+  height: 18.365px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-eye-icon {
+  width: 18.365px;
+  height: 18.365px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.login-link-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-remember-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5.739px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-checkbox-input {
+  width: 21.808px;
+  height: 21.808px;
+  cursor: pointer;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: #168aad;
+}
+
+.login-checkbox-input:focus {
+  outline: 2px solid #168aad;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.login-remember-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.773px;
+  font-weight: 500;
+  color: #6c7278;
+  line-height: 20.66px;
+  letter-spacing: -0.1377px;
+  text-align: center;
+  margin: 0;
+}
+
+.login-forgot-password-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.773px;
+  font-weight: 500;
+  color: #168aad;
+  line-height: 19.282px;
+  letter-spacing: -0.1377px;
+  text-align: right;
+  margin: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.login-buttons-section {
+  display: flex;
+  flex-direction: column;
+  gap: 18.365px;
+}
+
+.login-button {
+  height: 55.094px;
+  border-radius: 11.478px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(90deg, rgba(22, 138, 173, 1) 0%, rgba(22, 138, 173, 1) 100%);
+  border: 1.148px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 11.478px 27.547px;
+  cursor: pointer;
+}
+
+.login-button-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16.069px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 22.497px;
+  letter-spacing: -0.1607px;
+  text-align: center;
+  margin: 0;
+}
+
+.login-or-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18.365px;
+}
+
+.login-or-line {
+  flex: 1;
+  height: 1.148px;
+  background-color: #edf1f3;
+}
+
+.login-or-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.773px;
+  font-weight: 400;
+  color: #6c7278;
+  line-height: 20.66px;
+  letter-spacing: -0.1377px;
+  text-align: center;
+  margin: 0;
+}
+
+.login-social-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 17.217px;
+}
+
+.login-social-button {
+  height: 55.094px;
+  background-color: #ffffff;
+  border: 1.148px solid #eff0f6;
+  border-radius: 11.478px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 11.478px 27.547px;
+  gap: 11.478px;
+  cursor: pointer;
+  box-shadow: inset 0px -3.443px 6.887px 0px rgba(244, 245, 250, 0.6);
+}
+
+.login-google-icon-container {
+  width: 20.66px;
+  height: 20.66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.login-google-icon {
+  width: 20.66px;
+  height: 20.66px;
+  display: block;
+  object-fit: contain;
+}
+
+.login-apple-icon-container {
+  width: 20.66px;
+  height: 20.66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.login-apple-icon {
+  width: 20.66px;
+  height: 20.66px;
+  display: block;
+}
+
+.login-social-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1a1c1e;
+  line-height: 22.4px;
+  letter-spacing: -0.16px;
+  text-align: center;
+  margin: 0;
+  white-space: pre-wrap;
+}
+

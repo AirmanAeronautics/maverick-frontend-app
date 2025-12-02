@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './login.css';
+import './signup.css';
 
 // Image assets
 const imgSignUpVersion9 = 'https://www.figma.com/api/mcp/asset/bc616f1c-a467-4982-8fdb-3f947fefecc2';
@@ -17,15 +17,15 @@ const eyeOpenIcon = '/eye-open.svg';
 type LoginProps = {
   onLogin?: () => void;
   onSignUp?: () => void;
-  onNavigateToSignup?: () => void;
+  onNavigateToLogin?: () => void;
 };
 
-const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
+const Login = ({ onLogin, onSignUp, onNavigateToLogin }: LoginProps = {}) => {
   const [email, setEmail] = useState('nathank18uiux@gmail.com');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const [activeTab, setActiveTab] = useState<'login' | 'signup'>('login');
+  const [activeTab, setActiveTab] = useState<'login' | 'signup'>('signup');
 
   return (
     <div className="login-container">
@@ -48,8 +48,8 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
           <img src={logoImage} alt="Airman Maverick Logo" className="login-logo-icon" />
         </div>
         <div className="login-headline-text-container">
-          <h1 className="login-headline-title">Sign in to Airman</h1>
-          <p className="login-headline-subtitle">Enter your email and password to log in </p>
+          <h1 className="login-headline-title">Get Started now</h1>
+          <p className="login-headline-subtitle">Create an account to explore about our app</p>
         </div>
       </div>
 
@@ -60,7 +60,13 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
           <div className="login-tabbing-inner">
             <button
               className={`login-tab ${activeTab === 'login' ? 'login-tab--active' : ''}`}
-              onClick={() => setActiveTab('login')}
+              onClick={() => {
+                if (onNavigateToLogin) {
+                  onNavigateToLogin();
+                } else {
+                  setActiveTab('login');
+                }
+              }}
             >
               <span className={`login-tab-text ${activeTab === 'login' ? 'login-tab-text--active' : ''}`}>
                 Log In
@@ -68,13 +74,7 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
             </button>
             <button
               className={`login-tab ${activeTab === 'signup' ? 'login-tab--active' : ''}`}
-              onClick={() => {
-                if (onNavigateToSignup) {
-                  onNavigateToSignup();
-                } else {
-                  setActiveTab('signup');
-                }
-              }}
+              onClick={() => setActiveTab('signup')}
             >
               <span className={`login-tab-text ${activeTab === 'signup' ? 'login-tab-text--active' : ''}`}>
                 Sign up
@@ -101,7 +101,7 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
 
           {/* Password Input */}
           <div className="login-input-field-container">
-            <label className="login-input-label">Password</label>
+            <label className="login-input-label">Set Password</label>
             <div className="login-input-area">
               <input
                 type={showPassword ? 'text' : 'password'}
@@ -125,33 +125,28 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
             </div>
           </div>
 
-          {/* Remember Me & Forgot Password */}
+          {/* Remember Me */}
           <div className="login-link-container">
-            <label className="login-remember-container">
-              <input
-                type="checkbox"
-                checked={rememberMe}
-                onChange={(e) => setRememberMe(e.target.checked)}
-                className="login-checkbox-input"
-                aria-label="Remember me"
-              />
-              <span className="login-remember-text">Remember me</span>
-            </label>
-            <button
-              className="login-forgot-password-text"
-              onClick={() => {}}
-              type="button"
-            >
-              Forgot Password ?
-            </button>
+            <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+              <label className="login-remember-container">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => setRememberMe(e.target.checked)}
+                  className="login-checkbox-input"
+                  aria-label="Remember me"
+                />
+                <span className="login-remember-text">Remember me</span>
+              </label>
+            </div>
           </div>
         </div>
 
         {/* Buttons Section */}
         <div className="login-buttons-section">
-          {/* Log In Button */}
+          {/* Sign Up Button */}
           <button className="login-button" onClick={onLogin} type="button">
-            <span className="login-button-text">Log In</span>
+            <span className="login-button-text">Sign Up</span>
           </button>
 
           {/* Or Divider */}

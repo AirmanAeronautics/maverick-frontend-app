@@ -37,15 +37,15 @@ const eyeOpenIconUri = 'https://www.figma.com/api/mcp/asset/5233f8ea-cea0-403f-b
 type LoginProps = {
   onLogin?: () => void;
   onSignUp?: () => void;
-  onNavigateToSignup?: () => void;
+  onNavigateToLogin?: () => void;
 };
 
-const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
+const Login = ({ onLogin, onSignUp, onNavigateToLogin }: LoginProps = {}) => {
   const [email, setEmail] = useState('nathank18uiux@gmail.com');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const [activeTab, setActiveTab] = useState<'login' | 'signup'>('login');
+  const [activeTab, setActiveTab] = useState<'login' | 'signup'>('signup');
 
   return (
     <View style={styles.container}>
@@ -72,8 +72,8 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
             <Text style={styles.logoText}>MAVERICK</Text>
           </View>
           <View style={styles.headlineTextContainer}>
-            <Text style={styles.headlineTitle}>Sign in to Airman</Text>
-            <Text style={styles.headlineSubtitle}>Enter your email and password to log in </Text>
+            <Text style={styles.headlineTitle}>Get Started now</Text>
+            <Text style={styles.headlineSubtitle}>Create an account to explore about our app</Text>
           </View>
         </View>
 
@@ -84,7 +84,13 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
             <View style={styles.tabbingInner}>
               <TouchableOpacity
                 style={[styles.tab, activeTab === 'login' && styles.tabActive]}
-                onPress={() => setActiveTab('login')}
+                onPress={() => {
+                  if (onNavigateToLogin) {
+                    onNavigateToLogin();
+                  } else {
+                    setActiveTab('login');
+                  }
+                }}
                 activeOpacity={0.7}
               >
                 <Text style={[styles.tabText, activeTab === 'login' && styles.tabTextActive]}>
@@ -93,13 +99,7 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.tab, activeTab === 'signup' && styles.tabActive]}
-                onPress={() => {
-                  if (onNavigateToSignup) {
-                    onNavigateToSignup();
-                  } else {
-                    setActiveTab('signup');
-                  }
-                }}
+                onPress={() => setActiveTab('signup')}
                 activeOpacity={0.7}
               >
                 <Text style={[styles.tabText, activeTab === 'signup' && styles.tabTextActive]}>
@@ -129,7 +129,7 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
 
             {/* Password Input */}
             <View style={styles.inputFieldContainer}>
-              <Text style={styles.inputLabel}>Password</Text>
+              <Text style={styles.inputLabel}>Set Password</Text>
               <View style={styles.inputArea}>
                 <TextInput
                   style={styles.inputText}
@@ -152,31 +152,30 @@ const Login = ({ onLogin, onSignUp, onNavigateToSignup }: LoginProps = {}) => {
               </View>
             </View>
 
-            {/* Remember Me & Forgot Password */}
+            {/* Remember Me */}
             <View style={styles.linkContainer}>
-              <TouchableOpacity
-                style={styles.rememberContainer}
-                onPress={() => setRememberMe(!rememberMe)}
-                activeOpacity={0.7}
-              >
-                <Image source={{ uri: imgPlayerStop }} style={styles.checkboxIcon} />
-                <Text style={styles.rememberText}>Remember me</Text>
-              </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.7}>
-                <Text style={styles.forgotPasswordText}>Forgot Password ?</Text>
-              </TouchableOpacity>
+              <View style={{ width: '100%', alignItems: 'flex-end' }}>
+                <TouchableOpacity
+                  style={styles.rememberContainer}
+                  onPress={() => setRememberMe(!rememberMe)}
+                  activeOpacity={0.7}
+                >
+                  <Image source={{ uri: imgPlayerStop }} style={styles.checkboxIcon} />
+                  <Text style={styles.rememberText}>Remember me</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </View>
 
           {/* Buttons Section */}
           <View style={styles.buttonsSection}>
-            {/* Log In Button */}
+            {/* Sign Up Button */}
             <TouchableOpacity
               style={styles.loginButton}
               onPress={onLogin}
               activeOpacity={0.7}
             >
-              <Text style={styles.loginButtonText}>Log In</Text>
+              <Text style={styles.loginButtonText}>Sign Up</Text>
             </TouchableOpacity>
 
             {/* Or Divider */}

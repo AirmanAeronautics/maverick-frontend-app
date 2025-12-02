@@ -20,6 +20,7 @@ import CatchupList from './screens/CatchupList.web';
 import Profile1 from './screens/Profile1.web';
 import ChannelProfile from './screens/ChannelProfile.web';
 import Login from './screens/login.web';
+import Signup from './screens/signup.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -155,6 +156,7 @@ const INITIAL_CHAT_ITEMS: ChatItem[] = [
 
 type ScreenKey =
   | 'login'
+  | 'signup'
   | 'channels'
   | 'messages'
   | 'archive-chats'
@@ -178,6 +180,7 @@ type ScreenKey =
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
+  'signup',
   'channels',
   'messages',
   'explore',
@@ -299,6 +302,13 @@ const App = () => {
         <Login 
           onLogin={() => navigateTo('messages')}
           onSignUp={() => navigateTo('messages')}
+          onNavigateToSignup={() => navigateTo('signup')}
+        />
+      ) : activeScreen === 'signup' ? (
+        <Signup 
+          onLogin={() => navigateTo('messages')}
+          onSignUp={() => navigateTo('messages')}
+          onNavigateToLogin={() => navigateTo('login')}
         />
       ) : activeScreen === 'explore-full' ? (
         <ExploreChannelFull
