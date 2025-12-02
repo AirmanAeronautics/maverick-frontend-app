@@ -23,6 +23,7 @@ import Login from './screens/login.web';
 import Signup from './screens/signup.web';
 import RegBody from './screens/regbody.web';
 import RegBodyAll from './screens/regbodyall.web';
+import Step1 from './screens/step1.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -180,7 +181,8 @@ type ScreenKey =
   | 'profile1'
   | 'channel-profile'
   | 'regbody'
-  | 'regbodyall';
+  | 'regbodyall'
+  | 'step1';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -207,6 +209,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'channel-profile',
   'regbody',
   'regbodyall',
+  'step1',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -429,6 +432,8 @@ const App = () => {
         <RegBody />
       ) : activeScreen === 'regbodyall' ? (
         <RegBodyAll />
+      ) : activeScreen === 'step1' ? (
+        <Step1 />
       ) : (
         <AllInOneChats
           chats={chats}
