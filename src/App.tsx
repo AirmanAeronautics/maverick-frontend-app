@@ -21,6 +21,7 @@ import Profile1 from './screens/Profile1.web';
 import ChannelProfile from './screens/ChannelProfile.web';
 import Login from './screens/login.web';
 import Signup from './screens/signup.web';
+import RegBody from './screens/regbody.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -176,7 +177,8 @@ type ScreenKey =
   | 'connection-list'
   | 'catchup-list'
   | 'profile1'
-  | 'channel-profile';
+  | 'channel-profile'
+  | 'regbody';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -201,6 +203,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'catchup-list',
   'profile1',
   'channel-profile',
+  'regbody',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -419,6 +422,8 @@ const App = () => {
         <ChannelProfile 
           onBack={() => navigateTo('messages')}
         />
+      ) : activeScreen === 'regbody' ? (
+        <RegBody />
       ) : (
         <AllInOneChats
           chats={chats}
