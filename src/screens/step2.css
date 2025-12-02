@@ -1,0 +1,444 @@
+.step2-container {
+  position: relative;
+  width: 430px;
+  height: 932px;
+  background-color: #ffffff;
+  margin: 20px auto;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 10.33px;
+}
+
+.status-bar {
+  position: absolute;
+  height: 50.502px;
+  width: 430.419px;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17.22px 34.43px 0 34.43px;
+  z-index: 100;
+}
+
+.status-bar-time {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18.365px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 18.365px;
+}
+
+.status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5.739px;
+  padding: 1.148px 0;
+}
+
+.status-bar-icon {
+  width: 20.66px;
+  height: 11.479px;
+}
+
+.status-bar-wifi {
+  width: 17.529px;
+  height: 12.586px;
+}
+
+.battery-container {
+  position: relative;
+  width: 30.965px;
+  height: 14.921px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.battery-image {
+  width: 30.965px;
+  height: 14.921px;
+}
+
+.step-header {
+  position: absolute;
+  top: 76px;
+  left: 24px;
+  width: 383px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.step-text {
+  font-family: 'Helvetica Neue', -apple-system, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 32px;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 110px;
+}
+
+.progress-dot-active {
+  width: 31px;
+  height: 10px;
+  border-radius: 30px;
+  background-color: #168aad;
+}
+
+.progress-dot-active:nth-child(2) {
+  width: 32px;
+}
+
+.progress-dot {
+  width: 31px;
+  height: 10px;
+  border-radius: 30px;
+  background-color: #d9d9d9;
+}
+
+.content-container {
+  position: absolute;
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 382px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.title-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 299px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.title {
+  font-family: 'Helvetica Neue', -apple-system, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 32px;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: 'Helvetica Neue', -apple-system, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 25.2px;
+  letter-spacing: -0.18px;
+}
+
+.role-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.role-card {
+  position: relative;
+  height: 139px;
+  width: 100%;
+  border-radius: 5.966px;
+  overflow: hidden;
+  box-shadow: 1.491px 1.491px 7.457px 0.746px rgba(0, 0, 0, 0.2);
+}
+
+.role-card:nth-child(2) {
+  height: 140px;
+}
+
+.role-card-image-container {
+  position: absolute;
+  top: 0.12px;
+  left: 0;
+  width: 382px;
+  height: 149px;
+}
+
+.role-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+  pointer-events: none;
+}
+
+.role-card-overlay {
+  position: absolute;
+  left: 0;
+  width: 382px;
+  border-radius: 5.966px;
+  background: linear-gradient(0.53deg, rgba(0, 0, 0, 0.95) 27.36%, rgba(0, 0, 0, 0) 99.54%);
+  opacity: 0.8;
+}
+
+.role-card:nth-child(1) .role-card-overlay {
+  top: 41px;
+  height: 98px;
+}
+
+.role-card:nth-child(2) .role-card-overlay {
+  top: 28px;
+  height: 112px;
+}
+
+.role-card:nth-child(3) .role-card-overlay {
+  top: 50px;
+  height: 89px;
+}
+
+.role-card-text {
+  position: absolute;
+  left: 16px;
+  font-family: 'Helvetica Neue', -apple-system, sans-serif;
+  font-size: 14.319px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 10.739px;
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+
+.role-card:nth-child(1) .role-card-text {
+  top: 121.5px;
+}
+
+.role-card:nth-child(2) .role-card-text {
+  top: 122.5px;
+}
+
+.role-card:nth-child(3) .role-card-text {
+  top: 122.5px;
+}
+
+.role-card-premium-text {
+  position: absolute;
+  left: calc(50% + 32px);
+  top: 113px;
+  font-family: 'Helvetica Neue', -apple-system, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: #edf7ff;
+  line-height: 20px;
+}
+
+.divider {
+  position: absolute;
+  top: 689px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 430px;
+  height: 1px;
+  background-color: #e9f1f9;
+  border-top: 1px solid #e9f1f9;
+}
+
+.upload-license-container {
+  position: absolute;
+  top: 714px;
+  left: 24px;
+  width: 382px;
+  height: 76px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.upload-license-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+}
+
+.upload-license-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-license-icon-bg {
+  width: 41px;
+  height: 41px;
+  border-radius: 6405.609px;
+  background-color: #f5f5f5;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-license-icon {
+  width: 15.375px;
+  height: 15.375px;
+}
+
+.upload-license-text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 142px;
+}
+
+.upload-license-title {
+  font-family: 'Helvetica Neue', -apple-system, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  line-height: normal;
+  white-space: pre-wrap;
+}
+
+.upload-license-subtitle {
+  font-family: 'Roboto', -apple-system, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #757575;
+  line-height: 20px;
+  white-space: pre-wrap;
+  font-variation-settings: 'wdth' 100;
+}
+
+.upload-license-arrow {
+  width: 10px;
+  height: 16px;
+}
+
+.bottom-nav {
+  position: absolute;
+  top: 829px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 373px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.previous-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.previous-button:hover {
+  opacity: 0.8;
+}
+
+.previous-button:focus {
+  outline: none;
+  border: none;
+}
+
+.previous-button:active {
+  outline: none;
+  border: none;
+}
+
+.previous-arrow {
+  width: 20px;
+  height: 20px;
+}
+
+.previous-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16.069px;
+  font-weight: 500;
+  color: #168aad;
+  line-height: 22.497px;
+  letter-spacing: -0.1607px;
+  text-align: center;
+}
+
+.next-button {
+  width: 124px;
+  height: 43px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 11.478px 27.547px;
+  border-radius: 11.478px;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(90deg, rgba(22, 138, 173, 1) 0%, rgba(22, 138, 173, 1) 100%);
+  border: 1.148px solid #ffffff;
+  box-shadow: 0px 1.148px 2.296px 0px rgba(22, 138, 173, 0.48),
+    0px 0px 0px 1.148px #168aad;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  gap: 4px;
+}
+
+.next-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0px 2px 4px 0px rgba(22, 138, 173, 0.6),
+    0px 0px 0px 1.148px #168aad;
+}
+
+.next-button:active {
+  transform: translateY(0);
+}
+
+.next-button-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16.069px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 22.497px;
+  letter-spacing: -0.1607px;
+  text-align: center;
+}
+
+.next-arrow-container {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(180deg) scaleY(-1);
+}
+
+.next-arrow {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
+
