@@ -1,0 +1,324 @@
+.connect-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.status-bar {
+  position: absolute;
+  height: 50.502px;
+  left: 0;
+  top: 0;
+  width: 430.419px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17.22px 34.43px 0 34.43px;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.status-bar-time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.status-bar-time {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18.365px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 18.365px;
+  text-align: center;
+}
+
+.status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5.739px;
+  padding: 1.148px 0;
+}
+
+.status-bar-icon {
+  width: 17.529px;
+  height: 12.586px;
+  display: block;
+}
+
+.battery-container {
+  position: relative;
+  width: 30.965px;
+  height: 14.921px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.battery-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.header-section {
+  position: absolute;
+  width: 382px;
+  height: 117px;
+  left: 46%;
+  top: 87px;
+  transform: translateX(-50%);
+}
+
+.header-content {
+  position: relative;
+  width: 382px;
+  height: 117px;
+}
+
+.main-title {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 32px;
+  text-align: left;
+  margin: 0;
+  padding: 0;
+}
+
+.description-text {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 382px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 25.2px;
+  letter-spacing: -0.18px;
+  margin: 0;
+  padding: 0;
+}
+
+.skip-button {
+  position: absolute;
+  left: 355px;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.skip-text {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16.069px;
+  font-weight: 500;
+  color: #168aad;
+  line-height: 22.497px;
+  letter-spacing: -0.1607px;
+  text-align: center;
+}
+
+.skip-icon-container {
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg) scaleY(-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skip-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.suggested-list-section {
+  position: absolute;
+  width: 384px;
+  left: 24px;
+  top: 231px;
+  display: flex;
+  flex-direction: column;
+}
+
+.suggested-list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.suggested-list-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 25.102px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.invite-button {
+  width: 125px;
+  height: 36.005px;
+  background-color: #168aad;
+  border-radius: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.invite-button-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 5.435px;
+  padding: 6.793px;
+}
+
+.invite-icon {
+  width: 13.587px;
+  height: 13.587px;
+  display: block;
+}
+
+.invite-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 9.511px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 10.19px;
+  white-space: nowrap;
+}
+
+.search-container {
+  position: absolute;
+  width: 384px;
+  left: 50%;
+  top: 283px;
+  transform: translateX(-50%);
+  height: 44px;
+}
+
+.search-input-container {
+  height: 44px;
+  background-color: #ffffff;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 14px;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  gap: 8px;
+}
+
+.search-icon-container {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.search-input {
+  flex: 1;
+  height: 24px;
+  min-width: 0;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+.search-input::placeholder {
+  color: #667085;
+}
+
+.people-section {
+  position: absolute;
+  left: 24px;
+  top: 343px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 384px;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 18px;
+  width: 100%;
+}
+
+.section-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 18px;
+  width: 153px;
+  margin: 0;
+  padding: 0;
+}
+
+.section-see-all {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 18px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* Card styles (person-card, cards-row, connect-button, badge, favorite-icon, etc.) are imported from PeopleList.css */
+
+/* Set minimum height for person cards in Connect screen */
+.connect-container .person-card {
+  min-height: 200px !important;
+}
+

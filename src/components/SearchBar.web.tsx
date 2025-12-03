@@ -30,3 +30,5 @@ const SearchBar = ({ placeholder = 'Search', value, onChangeText }: SearchBarPro
 export default SearchBar;
 
 
+
+
