@@ -111,7 +111,7 @@
 
 .content-container {
   position: absolute;
-  top: 140px;
+  top: 70px !important;
   left: 50%;
   transform: translateX(-50%);
   width: 382px;
@@ -125,8 +125,8 @@
   flex-direction: column;
   gap: 2px;
   width: 299px;
-  justify-content: center;
   align-items: flex-start;
+  align-self: flex-start;
 }
 
 .title {
@@ -135,7 +135,7 @@
   font-weight: 500;
   color: #000000;
   line-height: 32px;
-  text-align: center;
+  text-align: left;
 }
 
 .subtitle {
@@ -145,6 +145,7 @@
   color: #000000;
   line-height: 25.2px;
   letter-spacing: -0.18px;
+  text-align: left;
 }
 
 .profile-section {

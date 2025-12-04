@@ -27,11 +27,10 @@ const Step1 = () => {
 
       {/* Step Header */}
       <div className="step-header">
-        <p className="step-text">Step 1 of 3</p>
+        <p className="step-text">Step 1 of 2</p>
         <div className="progress-container">
           <div className="progress-dot-active"></div>
           <div className="progress-dot"></div>
-          <div className="progress-dot progress-dot-last"></div>
         </div>
       </div>
 

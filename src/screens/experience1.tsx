@@ -9,6 +9,7 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const { width: screenWidth } = Dimensions.get('window');
 const DESIGN_WIDTH = 430;
@@ -31,6 +32,37 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
   const [typeRating, setTypeRating] = useState('');
   const [ftoAffiliation, setFtoAffiliation] = useState('');
   const [pilotNumber, setPilotNumber] = useState('');
+  const [licenseLevelMenuOpen, setLicenseLevelMenuOpen] = useState(false);
+  const [typeRatingMenuOpen, setTypeRatingMenuOpen] = useState(false);
+  const [ftoAffiliationMenuOpen, setFtoAffiliationMenuOpen] = useState(false);
+
+  const LICENSE_LEVEL_OPTIONS = selectedRole === 'pilot' 
+    ? [
+        'Student Pilot License (SPL)',
+        'Private Pilot License (PPL)',
+        'Commercial Pilot License (CPL)',
+        'Airline Transport Pilot License (ATPL)',
+      ]
+    : [
+        'Class 4 Flight Instructor Rating',
+        'Class 3 Flight Instructor Rating',
+        'Class 2 Flight Instructor Rating',
+        'Class 1 Flight Instructor Rating',
+      ];
+
+  const TYPE_RATING_OPTIONS = [
+    'Single Engine',
+    'Multi Engine',
+    'Jet',
+    'Turboprop',
+  ];
+
+  const FTO_AFFILIATION_OPTIONS = [
+    'Airline A',
+    'Airline B',
+    'Flight Training Organization A',
+    'Flight Training Organization B',
+  ];
 
   return (
     <View style={styles.container}>
@@ -70,7 +102,10 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
               styles.segmentButton,
               selectedRole === 'pilot' && styles.segmentButtonActive,
             ]}
-            onPress={() => setSelectedRole('pilot')}
+            onPress={() => {
+              setSelectedRole('pilot');
+              setLicenseLevel('');
+            }}
           >
             <Text
               style={[
@@ -86,7 +121,10 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
               styles.segmentButton,
               selectedRole === 'instructor' && styles.segmentButtonActive,
             ]}
-            onPress={() => setSelectedRole('instructor')}
+            onPress={() => {
+              setSelectedRole('instructor');
+              setLicenseLevel('');
+            }}
           >
             <Text
               style={[
@@ -104,43 +142,130 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
           {/* License Level */}
           <View style={styles.inputField}>
             <Text style={styles.inputLabel}>License Level</Text>
-            <View style={styles.inputArea}>
-              <TextInput
-                style={styles.inputText}
-                placeholder="Select your License Level"
-                placeholderTextColor="#6a6a6a"
-                value={licenseLevel}
-                onChangeText={setLicenseLevel}
+            <TouchableOpacity
+              activeOpacity={0.85}
+              style={styles.inputArea}
+              onPress={() => setLicenseLevelMenuOpen(!licenseLevelMenuOpen)}
+            >
+              <Text style={[styles.inputText, !licenseLevel && styles.inputTextPlaceholder]}>
+                {licenseLevel || 'Select your License Level'}
+              </Text>
+              <Ionicons 
+                name={licenseLevelMenuOpen ? 'chevron-up' : 'chevron-down'} 
+                size={18} 
+                color="#6a6a6a" 
               />
-            </View>
+            </TouchableOpacity>
+            {licenseLevelMenuOpen && (
+              <View style={styles.dropdownMenu}>
+                {LICENSE_LEVEL_OPTIONS.map(option => (
+                  <TouchableOpacity
+                    key={option}
+                    style={styles.dropdownOption}
+                    activeOpacity={0.85}
+                    onPress={() => {
+                      setLicenseLevel(option);
+                      setLicenseLevelMenuOpen(false);
+                    }}
+                  >
+                    <Text
+                      style={[
+                        styles.dropdownOptionLabel,
+                        option === licenseLevel && styles.dropdownOptionLabelActive,
+                      ]}
+                    >
+                      {option}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
           </View>
 
           {/* Type Rating */}
           <View style={styles.inputField}>
             <Text style={styles.inputLabel}>Type Rating</Text>
-            <View style={styles.inputArea}>
-              <TextInput
-                style={styles.inputText}
-                placeholder="Enter your Type Rating"
-                placeholderTextColor="#6a6a6a"
-                value={typeRating}
-                onChangeText={setTypeRating}
+            <TouchableOpacity
+              activeOpacity={0.85}
+              style={styles.inputArea}
+              onPress={() => setTypeRatingMenuOpen(!typeRatingMenuOpen)}
+            >
+              <Text style={[styles.inputText, !typeRating && styles.inputTextPlaceholder]}>
+                {typeRating || 'Enter your Type Rating'}
+              </Text>
+              <Ionicons 
+                name={typeRatingMenuOpen ? 'chevron-up' : 'chevron-down'} 
+                size={18} 
+                color="#6a6a6a" 
               />
-            </View>
+            </TouchableOpacity>
+            {typeRatingMenuOpen && (
+              <View style={styles.dropdownMenu}>
+                {TYPE_RATING_OPTIONS.map(option => (
+                  <TouchableOpacity
+                    key={option}
+                    style={styles.dropdownOption}
+                    activeOpacity={0.85}
+                    onPress={() => {
+                      setTypeRating(option);
+                      setTypeRatingMenuOpen(false);
+                    }}
+                  >
+                    <Text
+                      style={[
+                        styles.dropdownOptionLabel,
+                        option === typeRating && styles.dropdownOptionLabelActive,
+                      ]}
+                    >
+                      {option}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
           </View>
 
           {/* FTO / Airline Affiliation */}
           <View style={styles.inputField}>
             <Text style={styles.inputLabel}>FTO / Airline Affiliation</Text>
-            <View style={styles.inputArea}>
-              <TextInput
-                style={styles.inputText}
-                placeholder="Enter your FTOs / Airline Affiliation"
-                placeholderTextColor="#6a6a6a"
-                value={ftoAffiliation}
-                onChangeText={setFtoAffiliation}
+            <TouchableOpacity
+              activeOpacity={0.85}
+              style={styles.inputArea}
+              onPress={() => setFtoAffiliationMenuOpen(!ftoAffiliationMenuOpen)}
+            >
+              <Text style={[styles.inputText, !ftoAffiliation && styles.inputTextPlaceholder]}>
+                {ftoAffiliation || 'Enter your FTOs / Airline Affiliation'}
+              </Text>
+              <Ionicons 
+                name={ftoAffiliationMenuOpen ? 'chevron-up' : 'chevron-down'} 
+                size={18} 
+                color="#6a6a6a" 
               />
-            </View>
+            </TouchableOpacity>
+            {ftoAffiliationMenuOpen && (
+              <View style={styles.dropdownMenu}>
+                {FTO_AFFILIATION_OPTIONS.map(option => (
+                  <TouchableOpacity
+                    key={option}
+                    style={styles.dropdownOption}
+                    activeOpacity={0.85}
+                    onPress={() => {
+                      setFtoAffiliation(option);
+                      setFtoAffiliationMenuOpen(false);
+                    }}
+                  >
+                    <Text
+                      style={[
+                        styles.dropdownOptionLabel,
+                        option === ftoAffiliation && styles.dropdownOptionLabelActive,
+                      ]}
+                    >
+                      {option}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+            )}
           </View>
 
           {/* Applicant Pilot Number */}
@@ -162,11 +287,14 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
         <TouchableOpacity style={styles.uploadLicenseButton}>
           <View style={styles.uploadLicenseContent}>
             <View style={styles.uploadLicenseIconContainer}>
-              <Image source={{ uri: imgCamera }} style={styles.uploadLicenseIcon} />
+              <Image source={{ uri: imgArrowRight }} style={styles.uploadLicenseIcon} />
             </View>
-            <Text style={styles.uploadLicenseText}>Upload License</Text>
+            <View style={styles.uploadLicenseTextContainer}>
+              <Text style={styles.uploadLicenseText}>Upload License</Text>
+              <Text style={styles.uploadLicenseSubtext}>Verify your credentials.</Text>
+            </View>
           </View>
-          <Image source={{ uri: imgArrowRight }} style={styles.uploadLicenseArrow} />
+          <Image source={{ uri: imgCamera }} style={styles.uploadLicenseArrow} />
         </TouchableOpacity>
       </View>
     </View>
@@ -344,6 +472,8 @@ const styles = StyleSheet.create({
     shadowRadius: 2.296,
     elevation: 2,
     justifyContent: 'center',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   inputText: {
     fontFamily: 'Helvetica Neue',
@@ -353,6 +483,40 @@ const styles = StyleSheet.create({
     lineHeight: 19.6,
     letterSpacing: -0.14,
     flex: 1,
+  },
+  inputTextPlaceholder: {
+    color: '#6a6a6a',
+  },
+  dropdownMenu: {
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1.148,
+    borderColor: '#edf1f3',
+    borderRadius: 11.478,
+    marginTop: 4,
+    shadowColor: 'rgba(228, 229, 231, 0.24)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+    elevation: 4,
+    maxHeight: 200,
+    zIndex: 1000,
+  },
+  dropdownOption: {
+    paddingHorizontal: 16.069,
+    paddingVertical: 13.99,
+    borderBottomWidth: 1,
+    borderBottomColor: '#edf1f3',
+  },
+  dropdownOptionLabel: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 14,
+    fontWeight: '500',
+    color: '#000000',
+    lineHeight: 19.6,
+    letterSpacing: -0.14,
+  },
+  dropdownOptionLabelActive: {
+    color: '#168aad',
   },
   uploadLicenseButton: {
     width: '100%',
@@ -370,6 +534,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
+    flex: 1,
   },
   uploadLicenseIconContainer: {
     width: 41,
@@ -383,18 +548,36 @@ const styles = StyleSheet.create({
     width: 15.375,
     height: 15.375,
   },
+  uploadLicenseTextContainer: {
+    flexDirection: 'column',
+    gap: 0,
+    flex: 1,
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
   uploadLicenseText: {
     fontFamily: 'Helvetica Neue',
     fontSize: 14,
     fontWeight: '500',
     color: '#000000',
     lineHeight: 20,
+    textAlign: 'left',
+  },
+  uploadLicenseSubtext: {
+    fontFamily: 'Helvetica Neue',
+    fontSize: 12,
+    fontWeight: '400',
+    color: '#6c7278',
+    lineHeight: 16,
+    textAlign: 'left',
   },
   uploadLicenseArrow: {
     width: 10,
     height: 16,
+    marginLeft: 'auto',
   },
 });
 
 export default Experience1;
+
 

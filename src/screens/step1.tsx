@@ -39,11 +39,10 @@ const Step1 = () => {
 
       {/* Step Header */}
       <View style={styles.stepHeader}>
-        <Text style={styles.stepText}>Step 1 of 3</Text>
+        <Text style={styles.stepText}>Step 1 of 2</Text>
         <View style={styles.progressContainer}>
           <View style={styles.progressDotActive} />
           <View style={styles.progressDot} />
-          <View style={[styles.progressDot, styles.progressDotLast]} />
         </View>
       </View>
 
@@ -234,7 +233,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     position: 'absolute',
-    top: 140,
+    top: 70,
     left: (APP_WIDTH - 382) / 2,
     width: 382,
     flexDirection: 'column',
@@ -244,6 +243,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 2,
     width: 299,
+    alignSelf: 'flex-start',
   },
   title: {
     fontFamily: 'Helvetica Neue',
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#000000',
     lineHeight: 32,
-    textAlign: 'center',
+    textAlign: 'left',
   },
   subtitle: {
     fontFamily: 'Helvetica Neue',
@@ -260,6 +260,7 @@ const styles = StyleSheet.create({
     color: '#000000',
     lineHeight: 25.2,
     letterSpacing: -0.18,
+    textAlign: 'left',
   },
   profileSection: {
     flexDirection: 'column',

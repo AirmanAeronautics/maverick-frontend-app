@@ -55,14 +55,20 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
         <div className="permission-segmented-control">
           <button
             className={`permission-segment-button ${selectedRole === 'pilot' ? 'permission-segment-button-active' : ''}`}
-            onClick={() => setSelectedRole('pilot')}
+            onClick={() => {
+              setSelectedRole('pilot');
+              setLicenseLevel('');
+            }}
             type="button"
           >
             <span className="permission-segment-button-text">Pilot</span>
           </button>
           <button
             className={`permission-segment-button ${selectedRole === 'instructor' ? 'permission-segment-button-active' : ''}`}
-            onClick={() => setSelectedRole('instructor')}
+            onClick={() => {
+              setSelectedRole('instructor');
+              setLicenseLevel('');
+            }}
             type="button"
           >
             <span className="permission-segment-button-text">Flight Instructor</span>
@@ -74,16 +80,28 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
           {/* License Level */}
           <div className="permission-input-field">
             <p className="permission-input-label">License Level</p>
-            <div className="permission-input-area">
+            <div className="permission-input-area permission-input-area-select">
               <select
                 className="permission-input-select"
                 value={licenseLevel}
                 onChange={(e) => setLicenseLevel(e.target.value)}
               >
                 <option value="">Select your License Level</option>
-                <option value="ppl">Private Pilot License (PPL)</option>
-                <option value="cpl">Commercial Pilot License (CPL)</option>
-                <option value="atpl">Airline Transport Pilot License (ATPL)</option>
+                {selectedRole === 'pilot' ? (
+                  <>
+                    <option value="Student Pilot License (SPL)">Student Pilot License (SPL)</option>
+                    <option value="Private Pilot License (PPL)">Private Pilot License (PPL)</option>
+                    <option value="Commercial Pilot License (CPL)">Commercial Pilot License (CPL)</option>
+                    <option value="Airline Transport Pilot License (ATPL)">Airline Transport Pilot License (ATPL)</option>
+                  </>
+                ) : (
+                  <>
+                    <option value="Class 4 Flight Instructor Rating">Class 4 Flight Instructor Rating</option>
+                    <option value="Class 3 Flight Instructor Rating">Class 3 Flight Instructor Rating</option>
+                    <option value="Class 2 Flight Instructor Rating">Class 2 Flight Instructor Rating</option>
+                    <option value="Class 1 Flight Instructor Rating">Class 1 Flight Instructor Rating</option>
+                  </>
+                )}
               </select>
             </div>
           </div>
@@ -91,28 +109,36 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
           {/* Type Rating */}
           <div className="permission-input-field">
             <p className="permission-input-label">Type Rating</p>
-            <div className="permission-input-area">
-              <input
-                type="text"
-                className="permission-input-text"
-                placeholder="Enter your Type Rating"
+            <div className="permission-input-area permission-input-area-select">
+              <select
+                className="permission-input-select"
                 value={typeRating}
                 onChange={(e) => setTypeRating(e.target.value)}
-              />
+              >
+                <option value="">Enter your Type Rating</option>
+                <option value="single-engine">Single Engine</option>
+                <option value="multi-engine">Multi Engine</option>
+                <option value="jet">Jet</option>
+                <option value="turboprop">Turboprop</option>
+              </select>
             </div>
           </div>
 
           {/* FTO / Airline Affiliation */}
           <div className="permission-input-field">
             <p className="permission-input-label">FTO / Airline Affiliation</p>
-            <div className="permission-input-area">
-              <input
-                type="text"
-                className="permission-input-text"
-                placeholder="Enter your FTOs / Airline Affiliation"
+            <div className="permission-input-area permission-input-area-select">
+              <select
+                className="permission-input-select"
                 value={ftoAffiliation}
                 onChange={(e) => setFtoAffiliation(e.target.value)}
-              />
+              >
+                <option value="">Enter your FTOs / Airline Affiliation</option>
+                <option value="airline-a">Airline A</option>
+                <option value="airline-b">Airline B</option>
+                <option value="fto-a">Flight Training Organization A</option>
+                <option value="fto-b">Flight Training Organization B</option>
+              </select>
             </div>
           </div>
 
@@ -135,11 +161,14 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
         <button className="permission-upload-license-button" type="button">
           <div className="permission-upload-license-content">
             <div className="permission-upload-license-icon-container">
-              <img src={imgCamera} alt="Camera" className="permission-upload-license-icon" />
+              <img src={imgArrowRight} alt="Arrow" className="permission-upload-license-icon" />
             </div>
-            <span className="permission-upload-license-text">Upload License</span>
+            <div className="permission-upload-license-text-container">
+              <span className="permission-upload-license-text">Upload License</span>
+              <span className="permission-upload-license-subtext">Verify your credentials.</span>
+            </div>
           </div>
-          <img src={imgArrowRight} alt="Arrow" className="permission-upload-license-arrow" />
+          <img src={imgCamera} alt="Camera" className="permission-upload-license-arrow" />
         </button>
       </div>
     </div>
@@ -147,4 +176,5 @@ const Experience1 = ({ onContinue }: Experience1Props = {}) => {
 };
 
 export default Experience1;
+
 

@@ -27,6 +27,7 @@ import Step1 from './screens/step1.web';
 import Step2 from './screens/step2.web';
 import Connect from './screens/connect.web';
 import Permission from './screens/permission.web';
+import Experience1 from './screens/experience1.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -188,7 +189,8 @@ type ScreenKey =
   | 'step1'
   | 'step2'
   | 'connect'
-  | 'permission';
+  | 'permission'
+  | 'experience1';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -219,6 +221,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'step2',
   'connect',
   'permission',
+  'experience1',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -449,6 +452,8 @@ const App = () => {
         <Connect />
       ) : activeScreen === 'permission' ? (
         <Permission onContinue={() => navigateTo('messages')} />
+      ) : activeScreen === 'experience1' ? (
+        <Experience1 onContinue={() => navigateTo('messages')} />
       ) : (
         <AllInOneChats
           chats={chats}
