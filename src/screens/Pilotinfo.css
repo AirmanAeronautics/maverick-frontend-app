@@ -1,0 +1,393 @@
+/* DO NOT MODIFY OTHER FILES — Pilotinfo SCREEN ONLY */
+.pilotinfo-container {
+  position: relative;
+  width: 430.419px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+  border-radius: 10.33px;
+}
+
+.pilotinfo-status-bar {
+  position: absolute;
+  height: 50.502px;
+  width: 430.419px;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17.22px 34.43px 0 34.43px;
+  z-index: 100;
+  background-color: #ffffff;
+}
+
+.pilotinfo-status-bar-time {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18.365px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 18.365px;
+  margin: 0;
+}
+
+.pilotinfo-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5.739px;
+  padding: 1.148px 0;
+}
+
+.pilotinfo-status-bar-icon {
+  width: 20.66px;
+  height: 11.479px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.pilotinfo-status-bar-wifi {
+  width: 17.529px;
+  height: 12.586px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.pilotinfo-battery-container {
+  position: relative;
+  width: 30.965px;
+  height: 14.921px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pilotinfo-battery-image {
+  width: 30.965px;
+  height: 14.921px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.pilotinfo-header {
+  position: absolute;
+  background-color: #ffffff;
+  height: 66.507px;
+  width: 430px;
+  top: 47px;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.pilotinfo-back-button-container {
+  width: 27.52px;
+  height: 27.52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pilotinfo-back-button-icon {
+  width: 27.52px;
+  height: 27.52px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.pilotinfo-header-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.pilotinfo-header-save {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #168aad;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.pilotinfo-verification-banner {
+  position: absolute;
+  background-color: #edf7ff;
+  border-radius: 5px;
+  width: 385px;
+  left: 50%;
+  margin-left: -192.5px;
+  top: 123px;
+}
+
+.pilotinfo-verification-banner-content {
+  padding: 17px 18px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pilotinfo-verification-banner-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  width: 260px;
+  height: 14px;
+}
+
+.pilotinfo-verification-icon-container {
+  width: 16px;
+  height: 16px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.pilotinfo-verification-icon-inner {
+  position: absolute;
+  top: 11.02%;
+  left: 10.94%;
+  right: 10.94%;
+  bottom: 10.94%;
+}
+
+.pilotinfo-verification-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.pilotinfo-verification-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13.933px;
+  font-weight: 500;
+  color: #00485a;
+  line-height: 13.933px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.pilotinfo-form-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 195px;
+  width: 384px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.pilotinfo-input-field {
+  height: 82px;
+  width: 100%;
+  position: relative;
+}
+
+.pilotinfo-input-title-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 11.478px;
+  height: 24.103px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pilotinfo-input-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #6c7278;
+  line-height: 20.8px;
+  letter-spacing: -0.26px;
+  margin: 0;
+}
+
+.pilotinfo-status-badge {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 23px;
+  padding: 5.818px 9.52px;
+  border-radius: 27px;
+  border-width: 1.063px;
+  border-style: solid;
+  gap: 5.289px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.pilotinfo-status-badge-not-verified {
+  border-color: #168aad;
+  gap: 5.289px;
+}
+
+.pilotinfo-status-badge-in-review {
+  border-color: #1f64ee;
+  gap: 5.289px;
+}
+
+.pilotinfo-status-badge-verified {
+  border-color: #008f35;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pilotinfo-status-badge-icon {
+  width: 10px;
+  height: 10px;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
+  margin: 0;
+  padding: 0;
+}
+
+.pilotinfo-status-badge-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pilotinfo-status-badge-text-not-verified {
+  color: #168aad;
+}
+
+.pilotinfo-status-badge-text-in-review {
+  color: #1f64ee;
+}
+
+.pilotinfo-status-badge-text-verified {
+  color: #008f35;
+}
+
+.pilotinfo-verification-icon-container-small {
+  width: 10px;
+  height: 10px;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pilotinfo-verification-icon-inner-small {
+  position: absolute;
+  top: 11.02%;
+  left: 10.94%;
+  right: 10.94%;
+  bottom: 10.94%;
+}
+
+.pilotinfo-status-badge-icon-verified {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.pilotinfo-input-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0;
+  position: absolute;
+  top: 36px;
+  left: 0;
+}
+
+.pilotinfo-input-area {
+  background-color: #ffffff;
+  border-width: 1.148px;
+  border-color: #edf1f3;
+  border-style: solid;
+  border-radius: 11.478px;
+  height: 46px;
+  padding: 0 16.069px;
+  display: flex;
+  align-items: center;
+  width: 328px;
+  box-shadow: 0px 1.148px 2.296px 0px rgba(228, 229, 231, 0.24);
+}
+
+.pilotinfo-input-area-small {
+  width: 125px;
+}
+
+.pilotinfo-input-area-second {
+  position: absolute;
+  left: 133px;
+  border-color: #ebebeb;
+  padding: 0 16px;
+}
+
+.pilotinfo-input-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #282828;
+  line-height: 22.4px;
+  letter-spacing: -0.16px;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.pilotinfo-upload-button {
+  position: absolute;
+  left: 338px;
+  background-color: #168aad;
+  border-width: 1.148px;
+  border-color: #edf1f3;
+  border-style: solid;
+  border-radius: 11.478px;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1.148px 2.296px 0px rgba(228, 229, 231, 0.24);
+}
+
+.pilotinfo-upload-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
