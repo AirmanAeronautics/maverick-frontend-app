@@ -27,6 +27,7 @@ import Step1 from './screens/step1.web';
 import Step2 from './screens/step2.web';
 import Connect from './screens/connect.web';
 import Permission from './screens/permission.web';
+import Privacy from './screens/privacy.web';
 import Experience1 from './screens/experience1.web';
 import GenAI from './screens/GenAI.web';
 import Pilotinfo from './screens/Pilotinfo.web';
@@ -227,6 +228,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'step2',
   'connect',
   'permission',
+  'privacy',
   'experience1',
   'genai',
   'pilotinfo',
@@ -461,6 +463,8 @@ const App = () => {
         <Connect />
       ) : activeScreen === 'permission' ? (
         <Permission onContinue={() => navigateTo('messages')} />
+      ) : activeScreen === 'privacy' ? (
+        <Privacy onContinue={() => navigateTo('messages')} />
       ) : activeScreen === 'experience1' ? (
         <Experience1 onContinue={() => navigateTo('messages')} />
       ) : activeScreen === 'genai' ? (
