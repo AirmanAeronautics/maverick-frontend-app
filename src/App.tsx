@@ -32,6 +32,10 @@ import Experience1 from './screens/experience1.web';
 import GenAI from './screens/GenAI.web';
 import Pilotinfo from './screens/Pilotinfo.web';
 import Instructorinfo from './screens/Instructorinfo.web';
+import Settings from './screens/settings.web';
+import Userprofile from './screens/Userprofile.web';
+import Personalinfo from './screens/personalinfo.web';
+import LogHome from './screens/loghome.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -194,10 +198,15 @@ type ScreenKey =
   | 'step2'
   | 'connect'
   | 'permission'
+  | 'privacy'
   | 'experience1'
   | 'genai'
   | 'pilotinfo'
-  | 'instructorinfo';
+  | 'instructorinfo'
+  | 'settings'
+  | 'userprofile'
+  | 'personalinfo'
+  | 'loghome';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -233,6 +242,10 @@ const VALID_SCREENS: ScreenKey[] = [
   'genai',
   'pilotinfo',
   'instructorinfo',
+  'settings',
+  'userprofile',
+  'personalinfo',
+  'loghome',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -473,6 +486,14 @@ const App = () => {
         <Pilotinfo />
       ) : activeScreen === 'instructorinfo' ? (
         <Instructorinfo />
+      ) : activeScreen === 'settings' ? (
+        <Settings onBack={() => navigateTo('messages')} />
+      ) : activeScreen === 'userprofile' ? (
+        <Userprofile onBack={() => navigateTo('messages')} />
+      ) : activeScreen === 'personalinfo' ? (
+        <Personalinfo onBack={() => navigateTo('messages')} />
+      ) : activeScreen === 'loghome' ? (
+        <LogHome />
       ) : (
         <AllInOneChats
           chats={chats}

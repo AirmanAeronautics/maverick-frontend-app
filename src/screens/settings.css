@@ -1,0 +1,471 @@
+/* DO NOT MODIFY OTHER FILES — settings SCREEN ONLY */
+.settings-screen-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.settings-screen-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 430px;
+  height: 47px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 20px;
+  background-color: transparent;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.settings-screen-status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.settings-screen-status-bar-time-container {
+  height: 21px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-screen-status-bar-time {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.settings-screen-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.settings-screen-status-bar-icon {
+  width: 18px;
+  height: 12px;
+  display: block;
+}
+
+.settings-screen-battery-container {
+  position: relative;
+  width: 28px;
+  height: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.settings-screen-battery-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.settings-screen-header {
+  position: absolute;
+  top: 63px;
+  left: 0;
+  right: 0;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  z-index: 10;
+}
+
+.settings-screen-back-button {
+  width: 27.52px;
+  height: 27.52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.settings-screen-back-icon {
+  width: 27.52px;
+  height: 27.52px;
+  display: block;
+}
+
+.settings-screen-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 24px;
+  text-align: center;
+  margin: 0;
+}
+
+.settings-screen-save-button {
+  padding: 4px 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.settings-screen-save-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #168aad;
+  line-height: 20px;
+  margin: 0;
+}
+
+.settings-screen-scroll-content {
+  margin-top: 127px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.settings-screen-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+.settings-screen-scroll-content-container {
+  padding: 16px 24px 100px;
+}
+
+.settings-screen-card {
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e6e9f0;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.settings-screen-card-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 19px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.settings-screen-card-header-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.settings-screen-card-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 17.501px;
+  margin: 0;
+  text-align: left;
+}
+
+.settings-screen-card-subtitle {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #5a5a5a;
+  line-height: 15px;
+  margin: 0;
+  text-align: left;
+}
+
+.settings-screen-chevron-up {
+  width: 10px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-screen-chevron-image {
+  width: 10px;
+  height: 16px;
+  object-fit: contain;
+  object-position: 50% 50%;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.settings-screen-card-content {
+  padding: 0 19px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-screen-device-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-screen-device-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.settings-screen-device-name {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 17px;
+  margin: 0;
+}
+
+.settings-screen-device-status {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #5a5a5a;
+  line-height: 15px;
+  margin: 0;
+}
+
+.settings-screen-pair-button {
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid #5a5a5a;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.settings-screen-pair-button:hover {
+  background-color: #f5f5f5;
+}
+
+.settings-screen-pair-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #5a5a5a;
+  line-height: 17px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.settings-screen-notification-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-screen-notification-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 17px;
+  margin: 0;
+}
+
+.settings-screen-dropdown-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.settings-screen-dropdown-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 17px;
+  margin: 0;
+}
+
+.settings-screen-dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #e6e9f0;
+  background-color: #f5f5f5;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.settings-screen-dropdown:hover {
+  background-color: #eeeeee;
+}
+
+.settings-screen-dropdown-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.settings-screen-dropdown-chevron {
+  width: 10px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.settings-screen-dropdown-chevron-image {
+  width: 10px;
+  height: 16px;
+  object-fit: contain;
+  object-position: 50% 50%;
+  display: block;
+}
+
+.settings-screen-dropdown-wrapper {
+  position: relative;
+}
+
+.settings-screen-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  min-width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e6e9f0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow: hidden;
+  margin-top: 4px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.settings-screen-dropdown-option {
+  padding: 10px 12px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.settings-screen-dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.settings-screen-dropdown-option:hover {
+  background-color: #f5f5f5;
+}
+
+.settings-screen-dropdown-option-selected {
+  background-color: #f0f7f9;
+  font-weight: 500;
+}
+
+.settings-screen-footer {
+  margin-top: 24px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.settings-screen-footer-link {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.settings-screen-footer-link:hover {
+  color: #168aad;
+}
+
+.settings-screen-footer-version {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+  margin: 0;
+  margin-top: 8px;
+}
+
+.settings-screen-toggle-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: 100px;
+  background-color: #D2D5DA;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  padding: 2px;
+}
+
+.settings-screen-toggle-switch--active {
+  background-color: #168aad;
+}
+
+.settings-screen-toggle-button {
+  width: 16px;
+  height: 16px;
+  border-radius: 100px;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(39, 39, 39, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.settings-screen-toggle-switch--active .settings-screen-toggle-button {
+  transform: translateX(16px);
+}
+
+

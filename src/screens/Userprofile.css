@@ -1,0 +1,451 @@
+/* DO NOT MODIFY OTHER FILES — Userprofile SCREEN ONLY */
+.up-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.up-header-background {
+  position: absolute;
+  top: 57px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 382px;
+  height: 198px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.up-header-background-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.up-edit-background-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background-color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.up-edit-background-icon {
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.up-edit-background-image {
+  width: 15px;
+  height: 15px;
+  display: block;
+  filter: brightness(0);
+}
+
+.up-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 430px;
+  height: 47px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 20px;
+  background-color: transparent;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.up-status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.up-status-bar-time-container {
+  height: 21px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.up-status-bar-time {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.up-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.up-status-bar-icon {
+  width: 18px;
+  height: 12px;
+  display: block;
+}
+
+.up-battery-container {
+  position: relative;
+  width: 28px;
+  height: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.up-battery-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.up-profile-image-container {
+  position: absolute;
+  left: 50%;
+  top: 197px;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  z-index: 5;
+  overflow: visible;
+}
+
+.up-progress-ring-container {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: -10px;
+  left: -10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.up-progress-ring {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid #DCDCDC;
+  border-top-color: #4CAF50;
+  border-right-color: #4CAF50;
+  border-bottom-color: #DCDCDC;
+  border-left-color: #DCDCDC;
+  transform: rotate(-90deg);
+  box-sizing: border-box;
+}
+
+.up-progress-text {
+  position: absolute;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #4CAF50;
+  background-color: #FFFFFF;
+  padding: 3px 8px;
+  border-radius: 12px;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 4;
+  white-space: nowrap;
+  line-height: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.up-profile-image-wrapper {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.up-profile-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center center;
+  background-color: #E5E5E5;
+}
+
+.up-camera-button {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #FFFFFF;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.up-camera-icon {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.up-camera-image {
+  width: 16px;
+  height: 16px;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.up-name {
+  position: absolute;
+  left: 50%;
+  top: 312px;
+  transform: translateX(-50%);
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 29px;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.up-email {
+  position: absolute;
+  left: 50%;
+  top: 345px;
+  transform: translateX(-50%);
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.up-badges-container {
+  position: absolute;
+  left: 50%;
+  top: 372px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 382px;
+}
+
+.up-badge-blue {
+  height: 28px;
+  border-radius: 14px;
+  background-color: #168aad;
+  padding: 6px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.up-badge-blue-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFFFFF;
+  line-height: 15px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.up-badge-light-blue {
+  height: 28px;
+  border-radius: 14px;
+  background-color: #E3F2FD;
+  padding: 6px 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.up-badge-info-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.up-badge-light-blue-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #168aad;
+  line-height: 15px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.up-scroll-content {
+  position: absolute;
+  top: 432px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.up-scroll-content::-webkit-scrollbar {
+  display: none;
+}
+
+.up-scroll-content-container {
+  padding-top: 20px;
+  padding-bottom: 100px;
+}
+
+.up-nav-item {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+.up-nav-item:hover {
+  background-color: #F5F5F5;
+}
+
+.up-nav-item-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.up-nav-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.up-nav-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 20px;
+  margin: 0;
+}
+
+.up-nav-chevron {
+  width: 8px;
+  height: 14px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.up-divider {
+  width: 432px;
+  height: 1px;
+  background-color: #E5E5E5;
+  margin-left: 24px;
+}
+
+.up-divider-thick {
+  width: 100%;
+  height: 10px;
+  background-color: #EEF2F9;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.up-log-out-item {
+  width: 100%;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 24px;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  gap: 16px;
+}
+
+.up-log-out-item:hover {
+  background-color: #F5F5F5;
+}
+
+.up-log-out-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.up-log-out-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #FF3B30;
+  line-height: 20px;
+  margin: 0;
+}
+

@@ -1,0 +1,373 @@
+/* DO NOT MODIFY OTHER FILES — loghome SCREEN ONLY. */
+.loghome-container {
+  position: relative;
+  width: 430.419px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.loghome-status-bar {
+  position: absolute;
+  height: 50.502px;
+  width: 430.419px;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17.22px 34.43px 0 34.43px;
+  z-index: 100;
+  background-color: #ffffff;
+}
+
+.loghome-status-bar-time {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18.365px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 18.365px;
+}
+
+.loghome-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5.739px;
+  padding: 1.148px 0;
+}
+
+.loghome-status-bar-icon {
+  width: 20.66px;
+  height: 11.479px;
+  display: block;
+}
+
+.loghome-status-bar-wifi {
+  width: 17.529px;
+  height: 12.586px;
+  display: block;
+}
+
+.loghome-battery-container {
+  position: relative;
+  width: 30.965px;
+  height: 14.921px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loghome-battery-image {
+  width: 30.965px;
+  height: 14.921px;
+  display: block;
+}
+
+.loghome-main-content {
+  margin-top: 92px;
+  margin-left: 24px;
+  width: 382px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 100px;
+}
+
+.loghome-add-card {
+  height: 102.99px;
+  border: 1.3px solid #e6e9f0;
+  border-radius: 11.235px;
+  background-color: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 14.7px;
+  padding-right: 14.7px;
+}
+
+.loghome-add-card-content {
+  width: 318px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.loghome-add-card-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #0a0f1f;
+  line-height: 22.471px;
+  margin: 0;
+  margin-top: 4px;
+}
+
+.loghome-add-card-subtitle {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.044px;
+  font-weight: 400;
+  color: #585858;
+  line-height: 22.471px;
+  margin: 0;
+  margin-top: 0;
+  width: 210px;
+}
+
+.loghome-add-button {
+  background-color: #168aad;
+  border-radius: 11.235px;
+  padding: 7px 14px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  border: none;
+  border-width: 0;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: none;
+  border-image: none;
+}
+
+.loghome-add-button:hover {
+  opacity: 0.9;
+}
+
+.loghome-add-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14.044px;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 14.044px;
+  margin: 0;
+}
+
+.loghome-add-button-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg) scaleY(-1);
+}
+
+.loghome-add-button-arrow {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.loghome-cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.loghome-card {
+  height: 91px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  padding: 23px 21px;
+  cursor: pointer;
+}
+
+.loghome-card:hover {
+  opacity: 0.9;
+}
+
+.loghome-card-logbook {
+  background-color: #e9f3fc;
+  border: 1px solid #c5e3ff;
+}
+
+.loghome-card-currency {
+  background-color: #fef2f2;
+  border: 1px solid #ffdbb8;
+}
+
+.loghome-card-documents {
+  background-color: #eafaef;
+  border: 1px solid #bbffd6;
+}
+
+.loghome-card-analytics {
+  background-color: #f7faea;
+  border: 1px solid #fff898;
+}
+
+.loghome-card-certificates {
+  background-color: #f9ecff;
+  border: 1px solid #edc7ff;
+}
+
+.loghome-card-export {
+  background-color: #eaf6fa;
+  border: 1px solid #c9f1ff;
+}
+
+.loghome-card-bg-icon {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  left: 324px;
+  top: 44px;
+  display: block;
+}
+
+.loghome-card-bg-icon-currency {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  left: 324px;
+  top: 44px;
+  display: block;
+}
+
+.loghome-card-bg-icon-wrapper {
+  position: absolute;
+  width: 58px;
+  height: 58px;
+  left: 325px;
+  top: 47px;
+  overflow: hidden;
+}
+
+.loghome-card-bg-icon-documents {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.loghome-card-bg-icon-analytics {
+  position: absolute;
+  width: 55px;
+  height: 58px;
+  left: 324px;
+  top: 44px;
+  display: block;
+}
+
+.loghome-card-bg-icon-certificates {
+  position: absolute;
+  width: 54px;
+  height: 58px;
+  left: 324px;
+  top: 44px;
+  display: block;
+}
+
+.loghome-card-bg-icon-wrapper-export {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  left: 331px;
+  top: 47.01px;
+  overflow: hidden;
+}
+
+.loghome-card-bg-icon-export {
+  width: 47px;
+  height: 100%;
+  display: block;
+}
+
+.loghome-card-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+  width: 276px;
+  position: relative;
+  z-index: 1;
+}
+
+.loghome-card-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.loghome-card-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.loghome-card-icon-documents {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.loghome-card-icon-wrapper-export {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.loghome-card-icon-export {
+  width: 32px;
+  height: 100%;
+  display: block;
+}
+
+.loghome-card-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.loghome-card-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 15.333px;
+  font-weight: 700;
+  line-height: 23.418px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.loghome-card-title-logbook {
+  color: #3f51bf;
+}
+
+.loghome-card-title-currency {
+  color: #b26d2c;
+}
+
+.loghome-card-title-documents {
+  color: #2c9054;
+}
+
+.loghome-card-title-analytics {
+  color: #717300;
+}
+
+.loghome-card-title-certificates {
+  color: #7335b2;
+}
+
+.loghome-card-title-export {
+  color: #007a99;
+}
+
+.loghome-card-subtitle {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 16px;
+  margin: 0;
+  white-space: pre-wrap;
+}
+

@@ -1,0 +1,421 @@
+/* DO NOT MODIFY OTHER FILES — personalinfo SCREEN ONLY */
+.pi-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+.pi-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 430px;
+  height: 47px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 20px;
+  background-color: transparent;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.pi-status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.pi-status-bar-time-container {
+  height: 21px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pi-status-bar-time {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.pi-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.pi-status-bar-icon {
+  width: 18px;
+  height: 12px;
+  display: block;
+}
+
+.pi-battery-container {
+  position: relative;
+  width: 28px;
+  height: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pi-battery-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.pi-header {
+  position: absolute;
+  top: 47px;
+  left: 0;
+  width: 430px;
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.pi-back-button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.pi-back-button-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.pi-header-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 22px;
+  text-align: center;
+  margin: 0;
+  flex: 1;
+}
+
+.pi-header-save {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #007AFF;
+  line-height: 20px;
+  text-align: right;
+  margin: 0;
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.pi-form-container {
+  position: absolute;
+  top: 103px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0 24px;
+  padding-top: 32px;
+  padding-bottom: 40px;
+  z-index: 1;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.pi-form-container::-webkit-scrollbar {
+  display: none;
+}
+
+.pi-form-field {
+  margin-bottom: 24px;
+}
+
+.pi-form-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+  margin: 0 0 8px 0;
+  display: block;
+}
+
+.pi-input-field {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #E5E5E5;
+  background-color: #FFFFFF;
+  padding: 0 16px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 20px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.pi-input-field:focus {
+  border-color: #007AFF;
+}
+
+.pi-phone-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: 1px solid #E5E5E5;
+  background-color: #FFFFFF;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pi-phone-country {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 12px;
+  gap: 4px;
+  border-right: 1px solid #E5E5E5;
+  background-color: #FFFFFF;
+}
+
+.pi-phone-flag {
+  width: 20px;
+  height: 15px;
+  display: block;
+  object-fit: contain;
+}
+
+.pi-phone-chevron {
+  width: 12px;
+  height: 12px;
+  display: block;
+}
+
+.pi-phone-input {
+  flex: 1;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  padding: 0 16px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 20px;
+  outline: none;
+}
+
+.pi-language-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.pi-language-tags-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 48px;
+  border-radius: 8px;
+  border: 1px solid #E5E5E5;
+  background-color: #FFFFFF;
+  padding: 8px 12px;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.pi-language-tags-wrapper:focus-within {
+  border-color: #007AFF;
+}
+
+.pi-language-tag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  background-color: #E8F4FD;
+  flex-shrink: 0;
+}
+
+.pi-language-tag-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #34C759;
+  flex-shrink: 0;
+}
+
+.pi-language-tag-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.pi-language-tag-close {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.pi-language-tag-close-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 16px;
+  margin: 0;
+}
+
+.pi-language-input {
+  flex: 1;
+  min-width: 120px;
+  height: 32px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 20px;
+  outline: none;
+}
+
+.pi-language-input::placeholder {
+  color: #999999;
+}
+
+.pi-language-suggestions-container {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  border-radius: 8px;
+  border: 1px solid #E5E5E5;
+  background-color: #FFFFFF;
+  max-height: 200px;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.pi-language-suggestions-header {
+  padding: 12px 16px 8px 16px;
+  border-bottom: 1px solid #E5E5E5;
+}
+
+.pi-language-suggestions-header-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #007AFF;
+  line-height: 17px;
+  margin: 0;
+  display: block;
+}
+
+.pi-language-suggestions-list {
+  max-height: 150px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.pi-language-suggestions-chips {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 12px;
+  gap: 8px;
+}
+
+.pi-language-suggestion-chip {
+  padding: 8px 12px;
+  border-radius: 16px;
+  border: 1px solid #E5E5E5;
+  background-color: #FFFFFF;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 17px;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.pi-language-suggestion-chip:hover {
+  background-color: #F5F5F5;
+  border-color: #007AFF;
+}
+
+.pi-language-suggestion-chip-text {
+  margin: 0;
+  white-space: nowrap;
+}
+
+.pi-textarea-field {
+  width: 100%;
+  min-height: 96px;
+  border-radius: 8px;
+  border: 1px solid #E5E5E5;
+  background-color: #FFFFFF;
+  padding: 12px 16px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 20px;
+  box-sizing: border-box;
+  outline: none;
+  resize: vertical;
+}
+
+.pi-textarea-field:focus {
+  border-color: #007AFF;
+}
