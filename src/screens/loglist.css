@@ -1,0 +1,561 @@
+/* DO NOT MODIFY OTHER FILES — loglist SCREEN ONLY */
+.ll-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+  /* Hide scrollbar while keeping scrolling functional */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.ll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.ll-status-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 430px;
+  height: 47px;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.ll-status-bar-left {
+  position: absolute;
+  left: 20px;
+  top: 14px;
+}
+
+.ll-status-bar-time-container {
+  position: absolute;
+  height: 21px;
+  border-radius: 24px;
+  width: 54px;
+}
+
+.ll-status-bar-time {
+  position: absolute;
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 54px;
+  white-space: pre-wrap;
+}
+
+.ll-status-bar-right {
+  position: absolute;
+  right: 20px;
+  top: 19px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.ll-status-bar-icon {
+  height: 12px;
+  width: 18px;
+}
+
+.ll-status-bar-wifi {
+  height: 11.834px;
+  width: 17px;
+}
+
+.ll-battery-container {
+  height: 13px;
+  width: 27.401px;
+  position: relative;
+}
+
+.ll-battery-outline {
+  position: absolute;
+  height: 13px;
+  left: 0;
+  right: 2.4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ll-battery-end {
+  position: absolute;
+  height: 4.22px;
+  right: 0;
+  top: calc(50% + 0.61px);
+  transform: translateY(-50%);
+  width: 1.401px;
+}
+
+.ll-battery-fill {
+  position: absolute;
+  height: 9px;
+  left: 2px;
+  right: 4.4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.ll-header {
+  position: absolute;
+  height: 66.507px;
+  left: 50%;
+  top: 54px;
+  transform: translateX(-50%);
+  width: 430px;
+}
+
+.ll-header-content {
+  position: absolute;
+  height: 27.52px;
+  left: 19.93px;
+  top: calc(50% + 0.25px);
+  transform: translateY(-50%);
+  width: 385.52px;
+}
+
+.ll-back-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 27.52px;
+  height: 27.52px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ll-back-button-icon {
+  position: absolute;
+  left: 16px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ll-header-title-container {
+  position: absolute;
+  left: 7px;
+  top: 2.26px;
+  width: 379px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ll-header-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22.933px;
+  color: #000000;
+  text-align: center;
+  margin: 0;
+}
+
+.ll-search-filter-container {
+  position: absolute;
+  left: 26px;
+  top: 137px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.ll-search-input-container {
+  height: 44px;
+  width: 323px;
+  position: relative;
+}
+
+.ll-search-input {
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  padding: 10px 14px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.ll-search-input-content {
+  flex: 1 0 0;
+  height: 24px;
+  min-height: 1px;
+  min-width: 1px;
+  position: relative;
+}
+
+.ll-search-icon-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+}
+
+.ll-search-icon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-search-placeholder {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  color: #667085;
+  white-space: nowrap;
+}
+
+.ll-filter-button {
+  background-color: #4c4c4c;
+  border: 1px solid #4c4c4c;
+  border-radius: 8px;
+  height: 44px;
+  width: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.ll-filter-icon {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-list-container {
+  position: absolute;
+  left: 25px;
+  top: 205px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ll-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  width: 380px;
+  position: relative;
+}
+
+.ll-log-card {
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 14.648px;
+  height: 145px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ll-log-card-actions {
+  position: absolute;
+  left: 304px;
+  top: 16px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.ll-edit-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-delete-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-log-card-content {
+  position: absolute;
+  left: 17px;
+  top: 21px;
+  width: 343px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.ll-log-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+  width: 141px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-log-hours {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 15.051px;
+  color: #000000;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.ll-log-registration {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  justify-content: center;
+  width: 140px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-airplane-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-registration-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15.051px;
+  color: #4e4e4e;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.ll-divider {
+  height: 0;
+  width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-divider-line {
+  position: absolute;
+  inset: -1px 0 0 0;
+}
+
+.ll-flight-details {
+  height: 44px;
+  width: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ll-departure {
+  position: absolute;
+  height: 43px;
+  left: 0;
+  top: 0;
+  width: 109px;
+  line-height: 1.5;
+  color: #27272a;
+}
+
+.ll-departure-code {
+  position: absolute;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 15.26px;
+  left: 0;
+  top: -0.28px;
+  color: #27272a;
+  margin: 0;
+}
+
+.ll-departure-date {
+  position: absolute;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: 13.08px;
+  left: calc(50% - 54.5px);
+  top: 53.49%;
+  bottom: 0;
+  color: #27272a;
+  margin: 0;
+}
+
+.ll-flight-info {
+  position: absolute;
+  height: 6px;
+  left: 50%;
+  top: 27px;
+  transform: translateX(-50%);
+  width: 87px;
+}
+
+.ll-training-badge {
+  position: absolute;
+  background-color: #ceecff;
+  border: 0.679px solid #c4eeff;
+  border-radius: 12.217px;
+  height: 13.574px;
+  left: 20px;
+  padding: 4.072px 8.144px;
+  top: -26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ll-training-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 6.787px;
+  line-height: 9.502px;
+  color: #272727;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.ll-ifr-badge {
+  position: absolute;
+  border: 0.68px solid #dbdbdb;
+  border-radius: 18px;
+  height: 13.574px;
+  left: 22px;
+  padding: 6px 12px;
+  top: -1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ll-ifr-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 6.787px;
+  line-height: 9.502px;
+  color: #272727;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.ll-destination {
+  position: absolute;
+  height: 44px;
+  left: 234px;
+  top: 0;
+  width: 109px;
+  line-height: 1.5;
+  color: #27272a;
+}
+
+.ll-destination-code {
+  position: absolute;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 15.26px;
+  left: 0;
+  top: -0.28px;
+  color: #27272a;
+  margin: 0;
+}
+
+.ll-destination-date {
+  position: absolute;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 500;
+  font-size: 13.08px;
+  left: calc(50% - 54.5px);
+  top: 53.91%;
+  bottom: 0.64%;
+  color: #27272a;
+  margin: 0;
+}
+
+.ll-arrow-line {
+  position: absolute;
+  height: 0;
+  left: calc(50% + 0.01px);
+  top: calc(50% - 2px);
+  transform: translate(-50%, -50%);
+  width: 85.02px;
+}
+
+.ll-arrow-line-image {
+  position: absolute;
+  inset: -3.68px -0.59% -3.68px 0;
+}
+
+.ll-fab {
+  position: absolute;
+  left: calc(80% + 6px);
+  top: 788px;
+  width: 56px;
+  height: 56px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ll-fab-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Image styles */
+.ll-battery-outline-image,
+.ll-battery-end-image,
+.ll-battery-fill-image,
+.ll-back-button-icon,
+.ll-search-icon-image,
+.ll-filter-icon-image,
+.ll-edit-icon-image,
+.ll-delete-icon-image,
+.ll-airplane-icon-image,
+.ll-divider-line-image,
+.ll-arrow-line-image-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ll-edit-button,
+.ll-delete-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+

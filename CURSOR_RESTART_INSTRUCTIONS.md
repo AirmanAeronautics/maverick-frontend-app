@@ -77,3 +77,4 @@ This is the correct format for Cursor IDE. Once you restart Cursor and enable th
 
 
 
+

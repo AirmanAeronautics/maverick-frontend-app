@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import './signup.css';
+import signalIcon from '../../Mobile Signal.svg?url';
+import wifiIcon from '../../Wifi.svg?url';
+import batteryIcon from '../../_StatusBar-battery.svg?url';
 
-// Image assets
-const imgSignUpVersion9 = 'https://www.figma.com/api/mcp/asset/bc616f1c-a467-4982-8fdb-3f947fefecc2';
-const imgEyeOff = 'https://www.figma.com/api/mcp/asset/5233f8ea-cea0-403f-b591-52669008f8d3';
-const imgMobileSignal = 'https://www.figma.com/api/mcp/asset/da65b702-2478-4f47-a89f-0659fffd4f5e';
-const imgWifi = 'https://www.figma.com/api/mcp/asset/90578645-59ab-4d77-b28c-eb0f7f440eb0';
-const imgBattery = 'https://www.figma.com/api/mcp/asset/5a4b0b09-ff18-48eb-9c72-5fa4682ada07';
+// Image assets - using local assets
+const imgSignUpVersion9 = '/Onboarding Bg.png';
+const imgEyeOff = '/eye-off.svg';
 
 // Local image assets
 const logoImage = '/airman_maverick.png';
@@ -36,9 +36,9 @@ const Login = ({ onLogin, onSignUp, onNavigateToLogin }: LoginProps = {}) => {
       <div className="login-status-bar">
         <span className="login-status-bar-time">9:41</span>
         <div className="login-status-bar-right">
-          <img src={imgMobileSignal} alt="Signal" className="login-status-bar-icon" />
-          <img src={imgWifi} alt="WiFi" className="login-status-bar-icon" />
-          <img src={imgBattery} alt="Battery" className="login-status-bar-battery" />
+          <img src={signalIcon} alt="Signal" className="login-status-bar-icon login-status-bar-icon-white" />
+          <img src={wifiIcon} alt="WiFi" className="login-status-bar-icon login-status-bar-icon-white" />
+          <img src={batteryIcon} alt="Battery" className="login-status-bar-battery login-status-bar-icon-white" />
         </div>
       </div>
 

@@ -36,6 +36,7 @@ import Settings from './screens/settings.web';
 import Userprofile from './screens/Userprofile.web';
 import Personalinfo from './screens/personalinfo.web';
 import LogHome from './screens/loghome.web';
+import LogList from './screens/loglist.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -206,7 +207,8 @@ type ScreenKey =
   | 'settings'
   | 'userprofile'
   | 'personalinfo'
-  | 'loghome';
+  | 'loghome'
+  | 'loglist';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -246,6 +248,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'userprofile',
   'personalinfo',
   'loghome',
+  'loglist',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -494,6 +497,8 @@ const App = () => {
         <Personalinfo onBack={() => navigateTo('messages')} />
       ) : activeScreen === 'loghome' ? (
         <LogHome />
+      ) : activeScreen === 'loglist' ? (
+        <LogList />
       ) : (
         <AllInOneChats
           chats={chats}

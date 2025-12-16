@@ -217,3 +217,4 @@ const LogHome = ({ onAddLog, onCardPress }: LogHomeProps = {}) => {
 export default LogHome;
 
 
+

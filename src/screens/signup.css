@@ -58,6 +58,10 @@
   display: block;
 }
 
+.login-status-bar-icon-white {
+  filter: brightness(0) invert(1);
+}
+
 .login-headline-section {
   position: absolute;
   top: 78.05px;
