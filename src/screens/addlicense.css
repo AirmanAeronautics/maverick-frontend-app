@@ -1,0 +1,313 @@
+/* DO NOT MODIFY OTHER FILES — addlicense SCREEN ONLY */
+.addlicense-container {
+  position: relative;
+  width: 430px;
+  height: 100vh;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.addlicense-status-bar {
+  position: absolute;
+  height: 47px;
+  left: 0;
+  top: 0;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 20px;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.addlicense-status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.addlicense-status-bar-time {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.addlicense-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.addlicense-status-bar-icon {
+  width: 18px;
+  height: 12px;
+  display: block;
+}
+
+.addlicense-battery-container {
+  position: relative;
+  width: 27.401px;
+  height: 13px;
+}
+
+.addlicense-status-bar-battery {
+  width: 27.401px;
+  height: 13px;
+  display: block;
+}
+
+.addlicense-header {
+  position: absolute;
+  height: 66.507px;
+  left: 0;
+  top: 55px;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 19.93px;
+  z-index: 10;
+}
+
+.addlicense-back-button {
+  width: 27.52px;
+  height: 27.52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  align-self: center;
+}
+
+.addlicense-back-icon {
+  width: 27.52px;
+  height: 27.52px;
+  display: block;
+}
+
+.addlicense-header-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 22.933px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+  width: 463px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.addlicense-save-button {
+  padding: 8px 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-self: center;
+}
+
+.addlicense-save-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(22, 138, 173, 1);
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.addlicense-scroll-view {
+  position: absolute;
+  top: 130px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.addlicense-scroll-content {
+  width: 100%;
+  padding: 16px 24px 40px 24px;
+}
+
+.addlicense-form-field {
+  margin-bottom: 20px;
+}
+
+.addlicense-form-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 20px;
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+
+.addlicense-input-container {
+  width: 100%;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  border: 1px solid #E5E5E5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 14px 16px;
+  min-height: 48px;
+  box-sizing: border-box;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.addlicense-input {
+  flex: 1;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.addlicense-input::placeholder {
+  color: #999999;
+}
+
+.addlicense-input-text {
+  flex: 1;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 22px;
+}
+
+.addlicense-input-text-placeholder {
+  color: #999999;
+}
+
+.addlicense-input-with-icon {
+  margin-left: 12px;
+}
+
+.addlicense-calendar-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.addlicense-chevron-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.addlicense-text-area-container {
+  min-height: 100px;
+  align-items: flex-start;
+  padding: 14px 16px;
+}
+
+.addlicense-text-area {
+  min-height: 80px;
+  resize: none;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  line-height: 22px;
+}
+
+.addlicense-text-area::placeholder {
+  color: #999999;
+}
+
+.addlicense-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.addlicense-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background-color: #FFFFFF;
+  border-radius: 12px;
+  min-width: 200px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.addlicense-dropdown-option {
+  padding: 12px 16px;
+  border-bottom: 1px solid #F5F5F5;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.addlicense-dropdown-option:hover {
+  background-color: #F5F5F5;
+}
+
+.addlicense-dropdown-option:last-child {
+  border-bottom: none;
+}
+
+.addlicense-dropdown-option-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 22px;
+  margin: 0;
+  padding: 0;
+}
+
+.addlicense-dropdown-option-text-active {
+  color: #007AFF;
+  font-weight: 500;
+}
+
+.addlicense-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}

@@ -1,0 +1,450 @@
+/* DO NOT MODIFY OTHER FILES — Currency SCREEN ONLY */
+.Currency-container {
+  position: relative;
+  width: 430px;
+  height: 100vh;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.Currency-status-bar {
+  position: absolute;
+  height: 47px;
+  left: 0;
+  top: 0;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 20px;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.Currency-status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Currency-status-bar-time-container {
+  height: 21px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Currency-status-bar-time {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.Currency-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.Currency-status-bar-icon {
+  width: 18px;
+  height: 12px;
+  display: block;
+}
+
+.Currency-battery-container {
+  position: relative;
+  width: 27.401px;
+  height: 13px;
+}
+
+.Currency-battery-outline {
+  position: absolute;
+  left: 0;
+  right: 2.4px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 13px;
+}
+
+.Currency-battery-outline-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.Currency-battery-end {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.401px;
+  height: 4.22px;
+}
+
+.Currency-battery-end-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.Currency-battery-fill {
+  position: absolute;
+  left: 2px;
+  right: 4.4px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 9px;
+}
+
+.Currency-battery-fill-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.Currency-nav-bar {
+  position: absolute;
+  height: 66.507px;
+  left: 0;
+  top: 47px;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #FFFFFF;
+  z-index: 10;
+}
+
+.Currency-back-button {
+  width: 27.52px;
+  height: 27.52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.Currency-back-icon {
+  width: 27.52px;
+  height: 27.52px;
+  display: block;
+}
+
+.Currency-nav-title {
+  position: absolute;
+  left: 215px;
+  width: 100px;
+  margin-left: -50px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+  line-height: 22.933px;
+}
+
+.Currency-nav-right {
+  width: 27.52px;
+}
+
+.Currency-scroll-view {
+  position: absolute;
+  top: 113.507px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Hide scrollbar for webkit browsers (Chrome, Safari, Edge) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.Currency-scroll-view::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.Currency-scroll-content {
+  padding: 20px 20px 40px 20px;
+}
+
+.Currency-current-section {
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.Currency-current-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 8px;
+  line-height: 28px;
+}
+
+.Currency-current-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  position: relative;
+}
+
+.Currency-current-description {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: #000000;
+  width: 220px;
+  line-height: 16px;
+  margin-right: 12px;
+}
+
+.Currency-refresh-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #F0F0F0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: -36px;
+  right: 0;
+}
+
+.Currency-refresh-icon-container {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Currency-refresh-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.Currency-refresh-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.Currency-item-card {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 14px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 12px;
+  margin-right: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-shadow: none;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(219, 219, 219, 1);
+  min-height: 100px;
+  height: fit-content;
+  position: relative;
+}
+
+.Currency-item-left {
+  flex: 1;
+  padding-right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.Currency-item-number {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 4px;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.Currency-item-category {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 4px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.Currency-item-details {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(78, 78, 78, 1);
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.Currency-item-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-start;
+  min-width: 100px;
+  position: relative;
+  gap: 11px;
+}
+
+.Currency-item-right-pic {
+  justify-content: center;
+}
+
+.Currency-item-right-pic .Currency-current-button {
+  top: 9.5px;
+}
+
+.Currency-item-card-pic {
+  padding-bottom: 8px;
+  height: 80px;
+}
+
+.Currency-item-cutoff {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(78, 78, 78, 1);
+  margin-bottom: 8px;
+  line-height: 20px;
+  text-align: right;
+  letter-spacing: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.Currency-current-button {
+  background-color: #208BB2;
+  border-radius: 105px;
+  border-top-left-radius: 105px;
+  border-top-right-radius: 105px;
+  border-bottom-right-radius: 105px;
+  border-bottom-left-radius: 105px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  height: 25px;
+  width: 73px;
+  vertical-align: bottom;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  top: 45.5px;
+  right: 0;
+}
+
+.Currency-current-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFFFFF;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.Currency-add-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  border-bottom: 0.5px solid #E0E0E0;
+}
+
+.Currency-add-left {
+  flex: 1;
+  margin-right: 12px;
+}
+
+.Currency-add-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  margin-bottom: 4px;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+
+.Currency-add-status {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(78, 78, 78, 1);
+  letter-spacing: 0;
+}
+
+.Currency-add-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #208BB2;
+  border-radius: 9px;
+  padding: 10px 14px;
+  gap: 6px;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.Currency-add-button-plus {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 1;
+}
+
+.Currency-add-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #FFFFFF;
+  white-space: nowrap;
+}

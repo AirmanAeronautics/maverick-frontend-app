@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
 
+// Type declarations for static asset imports
 declare module '*.png' {
   const src: string;
   export default src;

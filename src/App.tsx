@@ -37,6 +37,10 @@ import Userprofile from './screens/Userprofile.web';
 import Personalinfo from './screens/personalinfo.web';
 import LogHome from './screens/loghome.web';
 import LogList from './screens/loglist.web';
+import Logging from './screens/Logging.web';
+import Currency from './screens/Currency.web';
+import License from './screens/license.web';
+import AddLicense from './screens/addlicense.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -208,7 +212,11 @@ type ScreenKey =
   | 'userprofile'
   | 'personalinfo'
   | 'loghome'
-  | 'loglist';
+  | 'loglist'
+  | 'logging'
+  | 'currency'
+  | 'license'
+  | 'addlicense';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -249,14 +257,18 @@ const VALID_SCREENS: ScreenKey[] = [
   'personalinfo',
   'loghome',
   'loglist',
+  'logging',
+  'currency',
+  'license',
+  'addlicense',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
   if (typeof window === 'undefined') {
-    return 'login';
+    return 'addlicense';
   }
   const hash = window.location.hash.replace('#', '') as ScreenKey;
-  return VALID_SCREENS.includes(hash) ? hash : 'login';
+  return VALID_SCREENS.includes(hash) ? hash : 'addlicense';
 };
 
 const App = () => {
@@ -496,9 +508,41 @@ const App = () => {
       ) : activeScreen === 'personalinfo' ? (
         <Personalinfo onBack={() => navigateTo('messages')} />
       ) : activeScreen === 'loghome' ? (
-        <LogHome />
+        <LogHome 
+          onAddLog={() => navigateTo('loglist')}
+          onCardPress={(cardType) => {
+            console.log('Card pressed:', cardType);
+            navigateTo('loglist');
+          }}
+        />
       ) : activeScreen === 'loglist' ? (
-        <LogList />
+        <LogList 
+          onBack={() => navigateTo('loghome')}
+          onAdd={() => navigateTo('loglist')}
+        />
+      ) : activeScreen === 'logging' ? (
+        <Logging 
+          onBack={() => navigateTo('loghome')}
+          onAdd={() => navigateTo('logging')}
+          onFilter={() => console.log('Filter clicked')}
+          onEdit={(id) => console.log('Edit log:', id)}
+          onDelete={(id) => console.log('Delete log:', id)}
+        />
+      ) : activeScreen === 'currency' ? (
+        <Currency onBack={() => navigateTo('messages')} />
+      ) : activeScreen === 'license' ? (
+        <License 
+          onBack={() => navigateTo('messages')}
+          onAddLicense={() => navigateTo('addlicense')}
+        />
+      ) : activeScreen === 'addlicense' ? (
+        <AddLicense 
+          onBack={() => navigateTo('license')}
+          onSave={() => {
+            console.log('Save clicked');
+            navigateTo('license');
+          }}
+        />
       ) : (
         <AllInOneChats
           chats={chats}

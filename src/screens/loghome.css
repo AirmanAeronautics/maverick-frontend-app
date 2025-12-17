@@ -187,11 +187,6 @@
   border: 1px solid #c5e3ff;
 }
 
-.loghome-card-currency {
-  background-color: #fef2f2;
-  border: 1px solid #ffdbb8;
-}
-
 .loghome-card-documents {
   background-color: #eafaef;
   border: 1px solid #bbffd6;
@@ -202,26 +197,22 @@
   border: 1px solid #fff898;
 }
 
-.loghome-card-certificates {
-  background-color: #f9ecff;
-  border: 1px solid #edc7ff;
-}
-
 .loghome-card-export {
   background-color: #eaf6fa;
   border: 1px solid #c9f1ff;
 }
 
-.loghome-card-bg-icon {
-  position: absolute;
-  width: 58px;
-  height: 58px;
-  left: 324px;
-  top: 44px;
-  display: block;
+.loghome-card-currency {
+  background-color: #fff4e6;
+  border: 1px solid #ffd9b3;
 }
 
-.loghome-card-bg-icon-currency {
+.loghome-card-certificates {
+  background-color: #f3e8ff;
+  border: 1px solid #e0b3ff;
+}
+
+.loghome-card-bg-icon {
   position: absolute;
   width: 58px;
   height: 58px;
@@ -248,15 +239,6 @@
 .loghome-card-bg-icon-analytics {
   position: absolute;
   width: 59px;
-  height: 58px;
-  left: 324px;
-  top: 44px;
-  display: block;
-}
-
-.loghome-card-bg-icon-certificates {
-  position: absolute;
-  width: 58px;
   height: 58px;
   left: 324px;
   top: 44px;
@@ -342,10 +324,6 @@
   color: #3f51bf;
 }
 
-.loghome-card-title-currency {
-  color: #b26d2c;
-}
-
 .loghome-card-title-documents {
   color: #2c9054;
 }
@@ -354,12 +332,34 @@
   color: #717300;
 }
 
+.loghome-card-title-export {
+  color: #007a99;
+}
+
+.loghome-card-title-currency {
+  color: #b26d2c;
+}
+
 .loghome-card-title-certificates {
   color: #7335b2;
 }
 
-.loghome-card-title-export {
-  color: #007a99;
+.loghome-card-bg-icon-currency {
+  position: absolute;
+  width: 55px;
+  height: 55px;
+  left: 325px;
+  top: 50px;
+  display: block;
+}
+
+.loghome-card-bg-icon-certificates {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  left: 325px;
+  top: 47px;
+  display: block;
 }
 
 .loghome-card-subtitle {

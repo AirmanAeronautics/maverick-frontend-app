@@ -1,21 +1,20 @@
-/* DO NOT MODIFY OTHER FILES — loglist SCREEN ONLY */
-.ll-container {
+/* DO NOT MODIFY OTHER FILES — Logging SCREEN ONLY */
+.logging-container {
   position: relative;
   width: 430px;
   min-height: 100vh;
   background-color: #ffffff;
   margin: 0 auto;
   overflow-x: hidden;
-  /* Hide scrollbar while keeping scrolling functional */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-.ll-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+.logging-container::-webkit-scrollbar {
+  display: none;
 }
 
-.ll-status-bar {
+.logging-status-bar {
   position: absolute;
   top: 0;
   left: 0;
@@ -25,20 +24,20 @@
   overflow: hidden;
 }
 
-.ll-status-bar-left {
+.logging-status-bar-left {
   position: absolute;
   left: 20px;
   top: 14px;
 }
 
-.ll-status-bar-time-container {
+.logging-status-bar-time-container {
   position: absolute;
   height: 21px;
   border-radius: 24px;
   width: 54px;
 }
 
-.ll-status-bar-time {
+.logging-status-bar-time {
   position: absolute;
   font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 16px;
@@ -54,7 +53,7 @@
   white-space: pre-wrap;
 }
 
-.ll-status-bar-right {
+.logging-status-bar-right {
   position: absolute;
   right: 20px;
   top: 19px;
@@ -64,23 +63,23 @@
   gap: 5px;
 }
 
-.ll-status-bar-icon {
+.logging-status-bar-icon {
   height: 12px;
   width: 18px;
 }
 
-.ll-status-bar-wifi {
+.logging-status-bar-wifi {
   height: 11.834px;
   width: 17px;
 }
 
-.ll-battery-container {
+.logging-battery-container {
   height: 13px;
   width: 27.401px;
   position: relative;
 }
 
-.ll-battery-outline {
+.logging-battery-outline {
   position: absolute;
   height: 13px;
   left: 0;
@@ -89,7 +88,7 @@
   transform: translateY(-50%);
 }
 
-.ll-battery-end {
+.logging-battery-end {
   position: absolute;
   height: 4.22px;
   right: 0;
@@ -98,7 +97,7 @@
   width: 1.401px;
 }
 
-.ll-battery-fill {
+.logging-battery-fill {
   position: absolute;
   height: 9px;
   left: 2px;
@@ -107,7 +106,13 @@
   transform: translateY(-50%);
 }
 
-.ll-header {
+.logging-battery-image {
+  width: 27.401px;
+  height: 13px;
+  display: block;
+}
+
+.logging-header {
   position: absolute;
   height: 66.507px;
   left: 50%;
@@ -116,7 +121,7 @@
   width: 430px;
 }
 
-.ll-header-content {
+.logging-header-content {
   position: absolute;
   height: 27.52px;
   left: 19.93px;
@@ -125,7 +130,7 @@
   width: 385.52px;
 }
 
-.ll-back-button {
+.logging-back-button {
   position: absolute;
   left: 0;
   top: 0;
@@ -137,7 +142,7 @@
   cursor: pointer;
 }
 
-.ll-back-button-icon {
+.logging-back-button-icon {
   position: absolute;
   left: 16px;
   top: 0px;
@@ -146,7 +151,7 @@
   display: block;
 }
 
-.ll-header-title-container {
+.logging-header-title-container {
   position: absolute;
   left: 7px;
   top: 2.26px;
@@ -156,7 +161,7 @@
   justify-content: center;
 }
 
-.ll-header-title {
+.logging-header-title {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -166,7 +171,7 @@
   margin: 0;
 }
 
-.ll-search-filter-container {
+.logging-search-filter-container {
   position: absolute;
   left: 26px;
   top: 137px;
@@ -175,13 +180,13 @@
   align-items: center;
 }
 
-.ll-search-input-container {
+.logging-search-input-container {
   height: 44px;
   width: 323px;
   position: relative;
 }
 
-.ll-search-input {
+.logging-search-input {
   background-color: #ffffff;
   border: 1px solid #dbdbdb;
   border-radius: 8px;
@@ -194,7 +199,7 @@
   box-sizing: border-box;
 }
 
-.ll-search-input-content {
+.logging-search-input-content {
   flex: 1 0 0;
   height: 24px;
   min-height: 1px;
@@ -202,21 +207,27 @@
   position: relative;
 }
 
-.ll-search-icon-container {
+.logging-search-icon-container {
   display: flex;
   gap: 10px;
   align-items: center;
   width: 100%;
 }
 
-.ll-search-icon {
+.logging-search-icon {
   width: 18px;
   height: 18px;
   position: relative;
   flex-shrink: 0;
 }
 
-.ll-search-placeholder {
+.logging-search-icon-image {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.logging-search-placeholder {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   font-size: 14px;
@@ -225,7 +236,7 @@
   white-space: nowrap;
 }
 
-.ll-filter-button {
+.logging-filter-button {
   background-color: #4c4c4c;
   border: 1px solid #4c4c4c;
   border-radius: 8px;
@@ -239,14 +250,21 @@
   overflow: hidden;
 }
 
-.ll-filter-icon {
+.logging-filter-icon {
   width: 24px;
   height: 24px;
   position: relative;
   flex-shrink: 0;
 }
 
-.ll-list-container {
+.logging-filter-icon-image {
+  width: 24px;
+  height: 24px;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.logging-list-container {
   position: absolute;
   left: 25px;
   top: 205px;
@@ -255,25 +273,26 @@
   flex-direction: column;
   align-items: flex-start;
   overflow-y: auto;
-  /* Hide scrollbar while keeping scrolling functional */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  right: 25px;
 }
 
-.ll-list-container::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+.logging-list-container::-webkit-scrollbar {
+  display: none;
 }
 
-.ll-list-items {
+.logging-list-items {
   display: flex;
   flex-direction: column;
   gap: 16px;
   align-items: flex-start;
-  width: 380px;
+  width: 100%;
   position: relative;
+  padding-bottom: 20px;
 }
 
-.ll-log-card {
+.logging-log-card {
   background-color: #ffffff;
   border: 1px solid #dbdbdb;
   border-radius: 14.648px;
@@ -284,30 +303,56 @@
   flex-shrink: 0;
 }
 
-.ll-log-card-content {
+.logging-log-card-content {
   position: absolute;
   left: 17px;
   top: 21px;
   right: 17px;
   height: calc(100% - 42px);
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-}
-
-/* Left Side: Hours, Departure, Date */
-.ll-log-left {
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
   gap: 6px;
-  flex: 0 0 auto;
-  min-width: 100px;
 }
 
-.ll-log-hours {
+.logging-log-card-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.logging-log-card-actions {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+}
+
+.logging-edit-button,
+.logging-delete-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logging-edit-icon-image {
+  width: 20px;
+  height: 22px;
+  display: block;
+}
+
+.logging-delete-icon-image {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.logging-log-hours {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 500;
   font-size: 18px;
@@ -317,7 +362,32 @@
   margin: 0;
 }
 
-.ll-departure-code {
+.logging-log-registration-row {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  margin-top: 2px;
+}
+
+.logging-log-route-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.logging-log-departure {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.logging-departure-code {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   font-size: 15.26px;
@@ -326,7 +396,7 @@
   margin: 0;
 }
 
-.ll-departure-date {
+.logging-departure-date {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 500;
   font-size: 13.08px;
@@ -335,18 +405,16 @@
   margin: 0;
 }
 
-/* Center: Arrow with badges */
-.ll-log-center {
+.logging-log-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 4px;
   flex: 0 0 auto;
-  min-width: 100px;
 }
 
-.ll-training-badge {
+.logging-training-badge {
   background-color: #ceecff;
   border: 0.679px solid #c4eeff;
   border-radius: 12.217px;
@@ -354,9 +422,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 18px;
 }
 
-.ll-training-text {
+.logging-training-text {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   font-size: 6.787px;
@@ -366,7 +435,7 @@
   margin: 0;
 }
 
-.ll-arrow-line {
+.logging-arrow-line {
   width: 85.02px;
   height: 7px;
   position: relative;
@@ -375,13 +444,13 @@
   justify-content: center;
 }
 
-.ll-arrow-line-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.logging-arrow-line-image-img {
+  width: 85.02px;
+  height: 7px;
+  display: block;
 }
 
-.ll-ifr-badge {
+.logging-ifr-badge {
   border: 0.68px solid #dbdbdb;
   border-radius: 18px;
   padding: 6px 12px;
@@ -389,9 +458,10 @@
   align-items: center;
   justify-content: center;
   background-color: #f5f5f5;
+  height: 18px;
 }
 
-.ll-ifr-text {
+.logging-ifr-text {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   font-size: 6.787px;
@@ -399,33 +469,33 @@
   color: #272727;
   white-space: nowrap;
   margin: 0;
+  vertical-align: bottom;
 }
 
-/* Right Side: Aircraft, Registration, Destination, Date */
-.ll-log-right {
+.logging-log-destination {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 6px;
-  flex: 0 0 auto;
-  min-width: 140px;
-}
-
-.ll-log-registration {
-  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
   gap: 4px;
-  align-items: center;
-  justify-content: flex-end;
+  flex: 0 0 auto;
 }
 
-.ll-airplane-icon {
+.logging-airplane-icon {
   width: 16px;
   height: 16px;
   position: relative;
   flex-shrink: 0;
 }
 
-.ll-registration-text {
+.logging-airplane-icon-image {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.logging-registration-text {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
   font-size: 12px;
@@ -435,7 +505,7 @@
   margin: 0;
 }
 
-.ll-destination-code {
+.logging-destination-code {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   font-size: 15.26px;
@@ -444,7 +514,7 @@
   margin: 0;
 }
 
-.ll-destination-date {
+.logging-destination-date {
   font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 500;
   font-size: 13.08px;
@@ -453,7 +523,7 @@
   margin: 0;
 }
 
-.ll-fab {
+.logging-fab {
   position: fixed;
   left: calc(50% + 344px - 28px);
   bottom: 100px;
@@ -466,90 +536,29 @@
   z-index: 99;
 }
 
-.ll-fab-image {
+.logging-fab-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: -18px;
+  left: -188px;
+}
+
+.logging-battery-outline-image,
+.logging-battery-end-image,
+.logging-battery-fill-image,
+.logging-back-button-icon,
+.logging-search-icon-image,
+.logging-filter-icon-image,
+.logging-airplane-icon-image {
   width: 100%;
   height: 100%;
   display: block;
 }
 
-/* Bottom Navigation */
-.ll-bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 430px;
-  background-color: #ffffff;
-  border-top: 1px solid #e5e5e5;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  padding: 8px 0 12px 0;
-  z-index: 100;
-  box-shadow: 0px -2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.ll-nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  flex: 1;
-  cursor: pointer;
-  padding: 4px 0;
-}
-
-.ll-nav-icon {
-  width: 24px;
-  height: 24px;
-  display: block;
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-}
-
-.ll-nav-label {
-  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 11px;
-  font-weight: 400;
-  color: #666666;
-  line-height: 13px;
-  transition: color 0.2s ease;
-}
-
-.ll-nav-item-active .ll-nav-icon {
-  opacity: 1;
-}
-
-.ll-nav-item-active .ll-nav-label {
-  color: #168aad;
-  font-weight: 500;
-}
-
-/* Image styles */
-.ll-battery-outline-image,
-.ll-battery-end-image,
-.ll-battery-fill-image,
-.ll-back-button-icon,
-.ll-search-icon-image,
-.ll-filter-icon-image,
-.ll-edit-icon-image,
-.ll-delete-icon-image,
-.ll-airplane-icon-image,
-.ll-divider-line-image,
-.ll-arrow-line-image-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.ll-edit-button,
-.ll-delete-button {
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
+.logging-battery-fill-image {
+  filter: brightness(0);
 }
 
 /* Sort and Filter Popup Styles */
@@ -951,4 +960,3 @@
 .sf-content::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
 }
-

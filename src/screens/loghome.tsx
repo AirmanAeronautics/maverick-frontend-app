@@ -19,19 +19,20 @@ const imgWhatsAppImage20251104At140830Ee24Dbf33 = 'https://www.figma.com/api/mcp
 const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/a8766184-a2b7-4eea-aac0-bdcd3fe433d6';
 const imgTablerLogs = 'https://www.figma.com/api/mcp/asset/e9bf08e6-fb17-45a8-a158-a767a19648d4';
 const imgTablerLogs1 = 'https://www.figma.com/api/mcp/asset/96a5fdc5-5180-4dbc-9307-ce38e7c02b2f';
-const imgPhArrowsClockwise = 'https://www.figma.com/api/mcp/asset/3b64184c-d2b3-49af-9bfa-d41a9af4c490';
-const imgPhArrowsClockwise1 = 'https://www.figma.com/api/mcp/asset/c22df849-c075-4b82-b78b-05bbaed42c21';
 const imgGroup = 'https://www.figma.com/api/mcp/asset/0c7393b2-5d9b-44cd-8eff-da7a335c2ac4';
 const imgGroup1 = 'https://www.figma.com/api/mcp/asset/6631da69-ab3c-442e-a9ba-d707b4de3c92';
 const imgMajesticonsAnalyticsPlusLine = 'https://www.figma.com/api/mcp/asset/2ead85f7-00fc-49c3-bdd2-ce38eb307367';
 const imgMajesticonsAnalyticsPlusLine1 = 'https://www.figma.com/api/mcp/asset/491a6748-159e-4f98-b3a8-a71b7f1e0dd6';
-const imgPhCertificateLight = 'https://www.figma.com/api/mcp/asset/64618c3e-bcbe-4a7d-9e48-20e74ea2e239';
-const imgPhCertificateLight1 = 'https://www.figma.com/api/mcp/asset/919a6d10-a53c-4ba9-8a1c-81f0811876f1';
 const imgGroup2 = 'https://www.figma.com/api/mcp/asset/1f403974-4351-4597-b76a-44b9234d07b6';
 const imgGroup3 = 'https://www.figma.com/api/mcp/asset/d615e170-f5ed-44e7-b4aa-16d69801595d';
 const imgMobileSignal = 'https://www.figma.com/api/mcp/asset/9b842be9-a029-48b6-b584-6ec193ac368a';
 const imgWifi = 'https://www.figma.com/api/mcp/asset/42febd90-d513-4b02-b98a-afa0ca5c3a72';
 const imgBattery = 'https://www.figma.com/api/mcp/asset/40c50d6b-858c-4e69-99f4-020c87916565';
+// Local icon assets for Currency and Certificates
+const imgPhArrowsClockwise = Image.resolveAssetSource(require('../assets/loghome-icons/imgPhArrowsClockwise.svg')).uri;
+const imgPhArrowsClockwise1 = Image.resolveAssetSource(require('../assets/loghome-icons/imgPhArrowsClockwise1.svg')).uri;
+const imgPhCertificateLight = Image.resolveAssetSource(require('../assets/loghome-icons/imgPhCertificateLight.svg')).uri;
+const imgPhCertificateLight1 = Image.resolveAssetSource(require('../assets/loghome-icons/imgPhCertificateLight1.svg')).uri;
 
 type LogHomeProps = {
   onAddLog?: () => void;
@@ -105,28 +106,6 @@ const LogHome = ({ onAddLog, onCardPress }: LogHomeProps = {}) => {
               </View>
             </TouchableOpacity>
 
-            {/* Currency Card */}
-            <TouchableOpacity 
-              style={[styles.loghomeCard, styles.loghomeCardCurrency]}
-              onPress={() => onCardPress?.('currency')}
-              activeOpacity={0.8}
-            >
-              <Image 
-                source={{ uri: imgPhArrowsClockwise }} 
-                style={styles.loghomeCardBgIconCurrency}
-              />
-              <View style={styles.loghomeCardContent}>
-                <Image 
-                  source={{ uri: imgPhArrowsClockwise1 }} 
-                  style={styles.loghomeCardIcon}
-                />
-                <View style={styles.loghomeCardText}>
-                  <Text style={[styles.loghomeCardTitle, styles.loghomeCardTitleCurrency]}>Currency</Text>
-                  <Text style={styles.loghomeCardSubtitle}>Interactive Pdf study with AI Assistance</Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-
             {/* Documents Card */}
             <TouchableOpacity 
               style={[styles.loghomeCard, styles.loghomeCardDocuments]}
@@ -175,28 +154,6 @@ const LogHome = ({ onAddLog, onCardPress }: LogHomeProps = {}) => {
               </View>
             </TouchableOpacity>
 
-            {/* Certificates Card */}
-            <TouchableOpacity 
-              style={[styles.loghomeCard, styles.loghomeCardCertificates]}
-              onPress={() => onCardPress?.('certificates')}
-              activeOpacity={0.8}
-            >
-              <Image 
-                source={{ uri: imgPhCertificateLight }} 
-                style={styles.loghomeCardBgIconCertificates}
-              />
-              <View style={styles.loghomeCardContent}>
-                <Image 
-                  source={{ uri: imgPhCertificateLight1 }} 
-                  style={styles.loghomeCardIcon}
-                />
-                <View style={styles.loghomeCardText}>
-                  <Text style={[styles.loghomeCardTitle, styles.loghomeCardTitleCertificates]}>Certificates</Text>
-                  <Text style={styles.loghomeCardSubtitle}>Interactive Pdf study with AI Assistance</Text>
-                </View>
-              </View>
-            </TouchableOpacity>
-
             {/* Export Card */}
             <TouchableOpacity 
               style={[styles.loghomeCard, styles.loghomeCardExport]}
@@ -219,6 +176,50 @@ const LogHome = ({ onAddLog, onCardPress }: LogHomeProps = {}) => {
                 <View style={styles.loghomeCardText}>
                   <Text style={[styles.loghomeCardTitle, styles.loghomeCardTitleExport]}>Export</Text>
                   <Text style={styles.loghomeCardSubtitle}>Interactive Pdf study with AI Assistance</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+
+            {/* Currency Card */}
+            <TouchableOpacity 
+              style={[styles.loghomeCard, styles.loghomeCardCurrency]}
+              onPress={() => onCardPress?.('currency')}
+              activeOpacity={0.8}
+            >
+              <Image 
+                source={{ uri: imgPhArrowsClockwise }} 
+                style={styles.loghomeCardBgIconCurrency}
+              />
+              <View style={styles.loghomeCardContent}>
+                <Image 
+                  source={{ uri: imgPhArrowsClockwise1 }} 
+                  style={styles.loghomeCardIcon}
+                />
+                <View style={styles.loghomeCardText}>
+                  <Text style={[styles.loghomeCardTitle, styles.loghomeCardTitleCurrency]}>Currency</Text>
+                  <Text style={styles.loghomeCardSubtitle}>Track your flight currency requirements</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+
+            {/* Certificates Card */}
+            <TouchableOpacity 
+              style={[styles.loghomeCard, styles.loghomeCardCertificates]}
+              onPress={() => onCardPress?.('certificates')}
+              activeOpacity={0.8}
+            >
+              <Image 
+                source={{ uri: imgPhCertificateLight }} 
+                style={styles.loghomeCardBgIconCertificates}
+              />
+              <View style={styles.loghomeCardContent}>
+                <Image 
+                  source={{ uri: imgPhCertificateLight1 }} 
+                  style={styles.loghomeCardIcon}
+                />
+                <View style={styles.loghomeCardText}>
+                  <Text style={[styles.loghomeCardTitle, styles.loghomeCardTitleCertificates]}>Certificates</Text>
+                  <Text style={styles.loghomeCardSubtitle}>Manage your certificates and endorsements</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -369,11 +370,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#c5e3ff',
   },
-  loghomeCardCurrency: {
-    backgroundColor: '#fef2f2',
-    borderWidth: 1,
-    borderColor: '#ffdbb8',
-  },
   loghomeCardDocuments: {
     backgroundColor: '#eafaef',
     borderWidth: 1,
@@ -384,15 +380,20 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#fff898',
   },
-  loghomeCardCertificates: {
-    backgroundColor: '#f9ecff',
-    borderWidth: 1,
-    borderColor: '#edc7ff',
-  },
   loghomeCardExport: {
     backgroundColor: '#eaf6fa',
     borderWidth: 1,
     borderColor: '#c9f1ff',
+  },
+  loghomeCardCurrency: {
+    backgroundColor: '#fff4e6',
+    borderWidth: 1,
+    borderColor: '#ffd9b3',
+  },
+  loghomeCardCertificates: {
+    backgroundColor: '#f3e8ff',
+    borderWidth: 1,
+    borderColor: '#e0b3ff',
   },
   loghomeCardBgIcon: {
     position: 'absolute',
@@ -400,13 +401,6 @@ const styles = StyleSheet.create({
     height: 58,
     left: 324,
     top: 44,
-  },
-  loghomeCardBgIconCurrency: {
-    position: 'absolute',
-    width: 56,
-    height: 56,
-    left: 328,
-    top: 46.01,
   },
   loghomeCardBgIconWrapper: {
     position: 'absolute',
@@ -426,13 +420,6 @@ const styles = StyleSheet.create({
     height: 55,
     left: 325,
     top: 50,
-  },
-  loghomeCardBgIconCertificates: {
-    position: 'absolute',
-    width: 54,
-    height: 54,
-    left: 327,
-    top: 51.01,
   },
   loghomeCardBgIconWrapperExport: {
     position: 'absolute',
@@ -487,20 +474,34 @@ const styles = StyleSheet.create({
   loghomeCardTitleLogbook: {
     color: '#3f51bf',
   },
-  loghomeCardTitleCurrency: {
-    color: '#b26d2c',
-  },
   loghomeCardTitleDocuments: {
     color: '#2c9054',
   },
   loghomeCardTitleAnalytics: {
     color: '#717300',
   },
+  loghomeCardTitleExport: {
+    color: '#007a99',
+  },
+  loghomeCardTitleCurrency: {
+    color: '#b26d2c',
+  },
   loghomeCardTitleCertificates: {
     color: '#7335b2',
   },
-  loghomeCardTitleExport: {
-    color: '#007a99',
+  loghomeCardBgIconCurrency: {
+    position: 'absolute',
+    width: 55,
+    height: 55,
+    left: 325,
+    top: 50,
+  },
+  loghomeCardBgIconCertificates: {
+    position: 'absolute',
+    width: 54,
+    height: 54,
+    left: 325,
+    top: 47,
   },
   loghomeCardSubtitle: {
     fontFamily: 'Helvetica Neue',
@@ -512,6 +513,7 @@ const styles = StyleSheet.create({
 });
 
 export default LogHome;
+
 
 
 

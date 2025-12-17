@@ -1,6 +1,6 @@
-// DO NOT MODIFY OTHER FILES — loglist SCREEN ONLY
+// DO NOT MODIFY OTHER FILES — Logging SCREEN ONLY
 import React, { useState, useEffect } from 'react';
-import './loglist.css';
+import './Logging.css';
 
 // Local icons for Sort and Filter popup
 import filterIcon from '../assets/filter-icon.svg?url';
@@ -12,27 +12,22 @@ import chevronDown from '../assets/chevron-down.svg?url';
 import imgBatteryOutline from '../assets/battery-outline.png?url';
 import imgBatteryEnd from '../assets/battery-end.png?url';
 import imgBatteryFill from '../assets/battery-fill.png?url';
-import imgArrowArrowLeftMd from '../assets/loghome-icons/imgArrowArrowLeftMd.svg?url';
+import imgArrowArrowLeftMd from '../../Arrow_Left_MD.svg?url';
 import imgWifi from '../assets/loghome-icons/imgWifi.svg?url';
 import imgIconMobileSignal from '../assets/loghome-icons/imgMobileSignal.svg?url';
-import imgBasilEditOutline from '../../edit.svg?url';
-import imgFluentDelete16Regular from '../../DELETE.svg?url';
 import imgProiconsAirplane from '../../airplane.svg?url';
 import imgSearch from '../../search.svg?url';
 import imgOcticonFilter16 from '../assets/filter-icon.svg?url';
-import imgFrame1171275563 from '../assets/icon-fab.png?url';
-// Bottom navigation icons
-import imgHomeIcon from '../assets/addflight-icons/home-icon.svg?url';
-import imgPlanIcon from '../assets/addflight-icons/plan-icon.svg?url';
-import imgLearnIcon from '../assets/addflight-icons/learn-icon.svg?url';
-import imgLogsIcon from '../assets/addflight-icons/logs-icon.svg?url';
-import imgCommunityIcon from '../assets/addflight-icons/community-icon.svg?url';
-import imgAIIcon from '../assets/addflight-icons/ai-icon.svg?url';
-import imgSettingsIcon from '../../settings.svg?url';
+// FAB icon - teal square with rounded corners and white plus sign
+const imgFabIcon = 'data:image/svg+xml;base64,' + btoa(`<svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="56" height="56" rx="12" fill="#168AAD"/>
+<rect x="26" y="16" width="4" height="24" fill="white"/>
+<rect x="16" y="26" width="24" height="4" fill="white"/>
+</svg>`);
+import imgBasilEditOutline from '../../basil_edit-outline.svg?url';
+import imgFluentDelete16Regular from '../../fluent_delete-16-regular.svg?url';
 
-// For imgThin and imgLine733, we'll use a simple div with border or create placeholder
-// These appear to be divider/line elements, so we'll handle them in CSS or use a simple SVG
-const imgThin = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxsaW5lIHgxPSIwIiB5MT0iMCIgeDI9IjEwMCUiIHkyPSIwIiBzdHJva2U9IiNkYmRiZGIiIHN0cm9rZS13aWR0aD0iMSIvPjwvc3ZnPg==';
+// Arrow line SVG as data URI - dark gray arrow with sharp arrowhead pointing right
 const imgLine733 = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODUiIGhlaWdodD0iNyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNIDAgMy41IEwgODIgMy41IiBzdHJva2U9IiMzMzMzMzMiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0gODIgMCBMIDg1IDMuNSBMIDgyIDcgWiIgZmlsbD0iIzMzMzMzMyIvPjwvc3ZnPg==';
 
 type StatusBarBatteryProps = {
@@ -42,27 +37,28 @@ type StatusBarBatteryProps = {
 const StatusBarBattery = ({ className }: StatusBarBatteryProps) => {
   return (
     <div className={className}>
-      <div className="ll-battery-outline">
-        <img className="ll-battery-outline-image" alt="" src={imgBatteryOutline} />
+      <div className="logging-battery-outline">
+        <img className="logging-battery-outline-image" alt="" src={imgBatteryOutline} />
       </div>
-      <div className="ll-battery-end">
-        <img className="ll-battery-end-image" alt="" src={imgBatteryEnd} />
+      <div className="logging-battery-end">
+        <img className="logging-battery-end-image" alt="" src={imgBatteryEnd} />
       </div>
-      <div className="ll-battery-fill">
-        <img className="ll-battery-fill-image" alt="" src={imgBatteryFill} />
+      <div className="logging-battery-fill">
+        <img className="logging-battery-fill-image" alt="" src={imgBatteryFill} />
       </div>
     </div>
   );
 };
 
-type LogListProps = {
+type LoggingProps = {
   onBack?: () => void;
   onEdit?: (id: number) => void;
   onDelete?: (id: number) => void;
   onAdd?: () => void;
+  onFilter?: () => void;
 };
 
-const LogList = ({ onBack, onEdit, onDelete, onAdd }: LogListProps = {}) => {
+const Logging = ({ onBack, onEdit, onDelete, onAdd, onFilter }: LoggingProps = {}) => {
   const [isFilterPopupOpen, setIsFilterPopupOpen] = useState(false);
   const [isAdvancedFiltersOpen, setIsAdvancedFiltersOpen] = useState(true);
   
@@ -169,92 +165,107 @@ const LogList = ({ onBack, onEdit, onDelete, onAdd }: LogListProps = {}) => {
   };
 
   return (
-    <div className="ll-container">
+    <div className="logging-container">
       {/* Status Bar */}
-      <div className="ll-status-bar">
-        <div className="ll-status-bar-left">
-          <div className="ll-status-bar-time-container">
-            <span className="ll-status-bar-time">9:41</span>
+      <div className="logging-status-bar">
+        <div className="logging-status-bar-left">
+          <div className="logging-status-bar-time-container">
+            <span className="logging-status-bar-time">9:41</span>
           </div>
         </div>
-        <div className="ll-status-bar-right">
-          <img src={imgIconMobileSignal} alt="Signal" className="ll-status-bar-icon" />
-          <img src={imgWifi} alt="WiFi" className="ll-status-bar-wifi" />
-          <StatusBarBattery className="ll-battery-container" />
+        <div className="logging-status-bar-right">
+          <img src={imgIconMobileSignal} alt="Signal" className="logging-status-bar-icon" />
+          <img src={imgWifi} alt="WiFi" className="logging-status-bar-wifi" />
+          <StatusBarBattery className="logging-battery-container" />
         </div>
       </div>
 
       {/* Header */}
-      <div className="ll-header">
-        <div className="ll-header-content">
-          <button className="ll-back-button" type="button" onClick={onBack}>
-            <img alt="" className="ll-back-button-icon" src={imgArrowArrowLeftMd} />
+      <div className="logging-header">
+        <div className="logging-header-content">
+          <button className="logging-back-button" type="button" onClick={onBack}>
+            <img alt="" className="logging-back-button-icon" src={imgArrowArrowLeftMd} />
           </button>
-          <div className="ll-header-title-container">
-            <p className="ll-header-title">Logbook list</p>
+          <div className="logging-header-title-container">
+            <p className="logging-header-title">Logbook list</p>
           </div>
         </div>
       </div>
 
       {/* Search and Filter */}
-      <div className="ll-search-filter-container">
-        <div className="ll-search-input-container">
-          <div className="ll-search-input">
-            <div className="ll-search-input-content">
-              <div className="ll-search-icon-container">
-                <div className="ll-search-icon">
-                  <img alt="" className="ll-search-icon-image" src={imgSearch} />
+      <div className="logging-search-filter-container">
+        <div className="logging-search-input-container">
+          <div className="logging-search-input">
+            <div className="logging-search-input-content">
+              <div className="logging-search-icon-container">
+                <div className="logging-search-icon">
+                  <img alt="" className="logging-search-icon-image" src={imgSearch} />
                 </div>
-                <span className="ll-search-placeholder">Search Your Logs</span>
+                <span className="logging-search-placeholder">Search Your Logs</span>
               </div>
             </div>
           </div>
         </div>
-        <button className="ll-filter-button" type="button" onClick={() => setIsFilterPopupOpen(true)}>
-          <div className="ll-filter-icon">
-            <img alt="" className="ll-filter-icon-image" src={imgOcticonFilter16} />
+        <button className="logging-filter-button" type="button" onClick={() => setIsFilterPopupOpen(true)}>
+          <div className="logging-filter-icon">
+            <img alt="" className="logging-filter-icon-image" src={imgOcticonFilter16} />
           </div>
         </button>
       </div>
 
       {/* Log Entries List */}
-      <div className="ll-list-container">
-        <div className="ll-list-items">
+      <div className="logging-list-container">
+        <div className="logging-list-items">
           {logEntries.map((entry) => (
-            <div key={entry.id} className="ll-log-card">
-              <div className="ll-log-card-content">
-                {/* Left Side: Hours, Departure, Date */}
-                <div className="ll-log-left">
-                  <p className="ll-log-hours">{entry.hours}</p>
-                  <p className="ll-departure-code">{entry.departure}</p>
-                  <p className="ll-departure-date">{entry.date}</p>
-                </div>
-                
-                {/* Center: Arrow with badges above and below */}
-                <div className="ll-log-center">
-                  <div className="ll-training-badge">
-                    <p className="ll-training-text">Training</p>
-                  </div>
-                  <div className="ll-arrow-line">
-                    <div className="ll-arrow-line-image">
-                      <img alt="" className="ll-arrow-line-image-img" src={imgLine733} />
-                    </div>
-                  </div>
-                  <div className="ll-ifr-badge">
-                    <p className="ll-ifr-text">IFR</p>
+            <div key={entry.id} className="logging-log-card">
+              <div className="logging-log-card-content">
+                {/* Top Row: Hours (left) and Action Icons (right) */}
+                <div className="logging-log-card-top">
+                  <p className="logging-log-hours">{entry.hours}</p>
+                  <div className="logging-log-card-actions">
+                    <button className="logging-edit-button" type="button" onClick={() => onEdit?.(entry.id)}>
+                      <img alt="" className="logging-edit-icon-image" src={imgBasilEditOutline} />
+                    </button>
+                    <button className="logging-delete-button" type="button" onClick={() => onDelete?.(entry.id)}>
+                      <img alt="" className="logging-delete-icon-image" src={imgFluentDelete16Regular} />
+                    </button>
                   </div>
                 </div>
                 
-                {/* Right Side: Aircraft, Registration, Destination, Date */}
-                <div className="ll-log-right">
-                  <div className="ll-log-registration">
-                    <div className="ll-airplane-icon">
-                      <img alt="" className="ll-airplane-icon-image" src={imgProiconsAirplane} />
-                    </div>
-                    <p className="ll-registration-text">{entry.registration}</p>
+                {/* Registration Row */}
+                <div className="logging-log-registration-row">
+                  <div className="logging-airplane-icon">
+                    <img alt="" className="logging-airplane-icon-image" src={imgProiconsAirplane} />
                   </div>
-                  <p className="ll-destination-code">{entry.destination}</p>
-                  <p className="ll-destination-date">{entry.date}</p>
+                  <p className="logging-registration-text">{entry.registration}</p>
+                </div>
+                
+                {/* Route Section */}
+                <div className="logging-log-route-section">
+                  {/* Left Side: Departure */}
+                  <div className="logging-log-departure">
+                    <p className="logging-departure-code">{entry.departure}</p>
+                    <p className="logging-departure-date">{entry.date}</p>
+                  </div>
+                  
+                  {/* Center: Arrow with badges */}
+                  <div className="logging-log-center">
+                    <div className="logging-training-badge">
+                      <p className="logging-training-text">Training</p>
+                    </div>
+                    <div className="logging-arrow-line">
+                      <img alt="" className="logging-arrow-line-image-img" src={imgLine733} />
+                    </div>
+                    <div className="logging-ifr-badge">
+                      <p className="logging-ifr-text">IFR</p>
+                    </div>
+                  </div>
+                  
+                  {/* Right Side: Destination */}
+                  <div className="logging-log-destination">
+                    <p className="logging-destination-code">{entry.destination}</p>
+                    <p className="logging-destination-date">{entry.date}</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -263,41 +274,9 @@ const LogList = ({ onBack, onEdit, onDelete, onAdd }: LogListProps = {}) => {
       </div>
 
       {/* Floating Action Button */}
-      <button className="ll-fab" type="button" onClick={onAdd}>
-        <img alt="" className="ll-fab-image" src={imgFrame1171275563} />
+      <button className="logging-fab" type="button" onClick={onAdd}>
+        <img alt="" className="logging-fab-image" src={imgFabIcon} />
       </button>
-
-      {/* Bottom Navigation */}
-      <div className="ll-bottom-nav">
-        <div className="ll-nav-item">
-          <img src={imgHomeIcon} alt="Home" className="ll-nav-icon" />
-          <span className="ll-nav-label">Home</span>
-        </div>
-        <div className="ll-nav-item">
-          <img src={imgPlanIcon} alt="Plan" className="ll-nav-icon" />
-          <span className="ll-nav-label">Plan</span>
-        </div>
-        <div className="ll-nav-item">
-          <img src={imgLearnIcon} alt="Learn" className="ll-nav-icon" />
-          <span className="ll-nav-label">Learn</span>
-        </div>
-        <div className="ll-nav-item ll-nav-item-active">
-          <img src={imgLogsIcon} alt="Logs" className="ll-nav-icon" />
-          <span className="ll-nav-label">Logs</span>
-        </div>
-        <div className="ll-nav-item">
-          <img src={imgCommunityIcon} alt="Community" className="ll-nav-icon" />
-          <span className="ll-nav-label">Community</span>
-        </div>
-        <div className="ll-nav-item">
-          <img src={imgAIIcon} alt="AI" className="ll-nav-icon" />
-          <span className="ll-nav-label">AI</span>
-        </div>
-        <div className="ll-nav-item">
-          <img src={imgSettingsIcon} alt="Settings" className="ll-nav-icon" />
-          <span className="ll-nav-label">Settings</span>
-        </div>
-      </div>
 
       {/* Sort and Filter Popup */}
       {isFilterPopupOpen && (
@@ -477,5 +456,4 @@ const LogList = ({ onBack, onEdit, onDelete, onAdd }: LogListProps = {}) => {
   );
 };
 
-export default LogList;
-
+export default Logging;
