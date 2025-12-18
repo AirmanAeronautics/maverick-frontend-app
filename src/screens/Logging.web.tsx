@@ -457,3 +457,5 @@ const Logging = ({ onBack, onEdit, onDelete, onAdd, onFilter }: LoggingProps = {
 };
 
 export default Logging;
+
+

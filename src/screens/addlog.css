@@ -1,0 +1,1167 @@
+/* DO NOT MODIFY OTHER FILES — addlogSCREEN ONLY */
+
+.addlog-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+}
+
+.addlog-container.addlog-popup-open {
+  overflow: hidden;
+}
+
+/* Status Bar */
+.addlog-status-bar {
+  position: absolute;
+  height: 47px;
+  left: 0;
+  top: 0;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 20px;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.addlog-status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.addlog-status-bar-time {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.addlog-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.addlog-status-bar-icon {
+  width: 18px;
+  height: 12px;
+  display: block;
+}
+
+.addlog-battery-container {
+  width: 27.401px;
+  height: 13px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.addlog-status-bar-battery {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Header */
+.addlog-header {
+  position: absolute;
+  top: 47px;
+  left: 0;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.addlog-back-button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.addlog-back-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.addlog-header-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: -0.18px;
+  line-height: 25.2px;
+  text-align: center;
+  flex: 1;
+  margin: 0 16px;
+}
+
+.addlog-save-button {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.addlog-save-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #168aad;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+}
+
+/* Progress Bar */
+.addlog-progress-container {
+  position: absolute;
+  top: 111px;
+  left: 0;
+  width: 430px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 26px 20px 12px 20px;
+  background-color: #ffffff;
+  z-index: 10;
+  height: 95px;
+}
+
+.addlog-progress-header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.addlog-progress-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: -0.18px;
+  line-height: 25.2px;
+}
+
+.addlog-progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: #e0e0e0;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.addlog-progress-fill {
+  width: 50%;
+  height: 100%;
+  background-color: #2497B4;
+  border-radius: 6px;
+}
+
+.addlog-progress-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #585858;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+  white-space: nowrap;
+}
+
+/* Scroll View */
+.addlog-scroll-view {
+  position: absolute;
+  top: 151px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.addlog-scroll-view::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.addlog-scroll-content {
+  padding: 68px 20px 100px 20px;
+  min-height: calc(100% - 24px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Manual Entry Card */
+.addlog-manual-entry-card {
+  border: 1px solid #e6e9f0;
+  border-radius: 12px;
+  background-color: #ffffff;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.addlog-manual-entry-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.addlog-manual-entry-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0f1f;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  margin: 0;
+}
+
+.addlog-manual-entry-description {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #585858;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+  margin: 0;
+}
+
+.addlog-ai-button {
+  background-color: #168aad;
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.addlog-ai-button:hover {
+  opacity: 0.9;
+}
+
+.addlog-ai-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.addlog-ai-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+}
+
+/* Section Card */
+.addlog-section-card {
+  border: 1px solid #e6e9f0;
+  border-radius: 12px;
+  background-color: #ffffff;
+  overflow: visible;
+}
+
+.addlog-section-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+
+.addlog-section-header-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.addlog-section-icon {
+  width: 40px;
+  height: 40px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.addlog-section-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.addlog-section-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0f1f;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  margin: 0;
+}
+
+.addlog-section-description {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #585858;
+  letter-spacing: -0.14px;
+  line-height: 16px;
+  margin: 0;
+}
+
+.addlog-chevron-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.addlog-chevron-expanded {
+  transform: rotate(180deg);
+}
+
+/* Section Content */
+.addlog-section-content {
+  padding: 0 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: visible;
+}
+
+.addlog-subsection-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.addlog-subsection-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0f1f;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  margin: 0;
+}
+
+.addlog-subsection-description {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #585858;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+  margin: 0;
+}
+
+/* Form Fields */
+.addlog-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.addlog-form-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+  display: block;
+}
+
+.addlog-required {
+  color: #ff0000;
+}
+
+.addlog-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 48px;
+  background-color: #ffffff;
+}
+
+.addlog-input-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.addlog-input {
+  flex: 1;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
+.addlog-input::placeholder {
+  color: #6a6a6a;
+}
+
+.addlog-dropdown-container {
+  cursor: pointer;
+  position: relative;
+}
+
+.addlog-dropdown-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: transform 0.2s ease;
+}
+
+.addlog-dropdown-icon-open {
+  transform: rotate(180deg);
+}
+
+.addlog-role-dropdown-wrapper,
+.addlog-aircraft-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.addlog-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.addlog-dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.addlog-dropdown-menu::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.addlog-dropdown-menu::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.addlog-dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+.addlog-dropdown-option {
+  width: 100%;
+  padding: 12px 16px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.addlog-dropdown-option:hover {
+  background-color: #f5f5f5;
+}
+
+.addlog-dropdown-option:active {
+  background-color: #e8e8e8;
+}
+
+.addlog-dropdown-option-selected {
+  background-color: #e8f4f8;
+  color: #168aad;
+  font-weight: 500;
+}
+
+.addlog-dropdown-option:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.addlog-dropdown-option:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.addlog-text-area-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color: #ffffff;
+  min-height: 100px;
+}
+
+.addlog-text-area {
+  width: 100%;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: vertical;
+  min-height: 80px;
+}
+
+.addlog-text-area::placeholder {
+  color: #a0a0a0;
+}
+
+/* Auto-Fill Button */
+.addlog-auto-fill-button {
+  background-color: #168aad;
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.addlog-auto-fill-button:hover {
+  opacity: 0.9;
+}
+
+.addlog-auto-fill-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.addlog-auto-fill-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+}
+
+/* Multi-leg Flight */
+.addlog-multileg-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.addlog-multileg-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0f1f;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  margin: 0;
+}
+
+.addlog-switch-single-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #168aad;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+}
+
+.addlog-switch-single-button:hover {
+  opacity: 0.8;
+}
+
+.addlog-leg-card {
+  border: 1px solid #e6e9f0;
+  border-radius: 12px;
+  background-color: #ffffff;
+  padding: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+}
+
+.addlog-leg-card:last-child {
+  margin-bottom: 0;
+}
+
+.addlog-leg-card-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.addlog-leg-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0f1f;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  margin: 0;
+}
+
+.addlog-leg-delete-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.addlog-leg-delete-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.addlog-leg-fields-row {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.addlog-leg-field-half {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.addlog-leg-field-half .addlog-form-field {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.addlog-leg-field-half .addlog-input-container {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+.addlog-leg-field-half .addlog-input {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.addlog-leg-time-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.addlog-leg-time-field .addlog-input-container {
+  width: 100%;
+}
+
+.addlog-add-leg-button {
+  background-color: #168aad;
+  border-radius: 8px;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.addlog-add-leg-button:hover {
+  opacity: 0.9;
+}
+
+.addlog-add-leg-icon {
+  width: 16px;
+  height: 16px;
+  display: block;
+}
+
+.addlog-add-leg-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+}
+
+/* Toggle Switch */
+.addlog-incident-toggle-field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+}
+
+.addlog-incident-toggle-field .addlog-form-label {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.addlog-toggle-container {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.addlog-toggle {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #e0e0e0;
+  border: none;
+  padding: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+}
+
+.addlog-toggle-active {
+  background-color: #168aad;
+}
+
+.addlog-toggle-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  transition: transform 0.2s ease;
+  transform: translateX(0);
+}
+
+.addlog-toggle-thumb-active {
+  transform: translateX(20px);
+}
+
+/* Upload Button */
+.addlog-upload-button {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+.addlog-upload-button:hover {
+  background-color: #f5f5f5;
+}
+
+.addlog-upload-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  filter: brightness(0);
+}
+
+.addlog-upload-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+}
+
+/* Review Section */
+.addlog-review-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.addlog-review-item:last-child {
+  margin-bottom: 0;
+}
+
+.addlog-review-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0a0f1f;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  margin: 0;
+  margin-bottom: 4px;
+}
+
+.addlog-review-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #585858;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+  margin: 0;
+}
+
+/* Log Popup Modal */
+.addlog-popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.addlog-popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 343px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.addlog-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.addlog-popup-close-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.addlog-popup-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.2px;
+  line-height: 28px;
+  margin: 0;
+  text-align: center;
+  padding-right: 0;
+}
+
+.addlog-popup-description {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #585858;
+  letter-spacing: -0.14px;
+  line-height: 20px;
+  margin: 0;
+  text-align: center;
+}
+
+.addlog-popup-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.addlog-popup-button {
+  width: 100%;
+  height: 48px;
+  border-radius: 8px;
+  border: none;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  transition: opacity 0.2s ease;
+}
+
+.addlog-popup-button:hover {
+  opacity: 0.9;
+}
+
+.addlog-popup-button:active {
+  opacity: 0.8;
+}
+
+.addlog-popup-button-primary {
+  background-color: #168aad;
+  color: #ffffff;
+}
+
+.addlog-popup-button-secondary {
+  background-color: #f5f5f5;
+  color: #000000;
+}
+
+.addlog-popup-button-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.addlog-popup-button-text {
+  font-weight: 500;
+}
+
+/* Autofill Popup Modal */
+.addlog-autofill-popup-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.addlog-autofill-popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 343px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.addlog-autofill-popup-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.addlog-autofill-popup-close-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.addlog-autofill-popup-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.2px;
+  line-height: 28px;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.addlog-autofill-popup-description {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #585858;
+  letter-spacing: -0.14px;
+  line-height: 20px;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.addlog-autofill-popup-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+}
+
+.addlog-autofill-popup-card {
+  flex: 1;
+  width: 142px;
+  height: 100%;
+  background-color: #168aad;
+  border-radius: 8px;
+  border: none;
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.addlog-autofill-popup-card:hover {
+  opacity: 0.9;
+}
+
+.addlog-autofill-popup-card:active {
+  opacity: 0.8;
+}
+
+.addlog-autofill-popup-card-icon {
+  width: 46px;
+  height: 46px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.addlog-autofill-popup-card-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+  text-align: center;
+  margin: 0;
+}
+

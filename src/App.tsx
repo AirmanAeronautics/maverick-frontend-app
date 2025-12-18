@@ -41,6 +41,10 @@ import Logging from './screens/Logging.web';
 import Currency from './screens/Currency.web';
 import License from './screens/license.web';
 import AddLicense from './screens/addlicense.web';
+import Documents from './screens/documents.web';
+import AddDocuments from './screens/adddocuments.web';
+import AddLog from './screens/addlog.web';
+import Export from './screens/export.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -120,7 +124,7 @@ const INITIAL_CHAT_ITEMS: ChatItem[] = [
     id: 'steve1',
     name: 'Steve Harrington',
     preview:
-      "Morning team — heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
+      "Morning team â€” heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
     time: '04:30 pm',
     unreadCount: 1,
     avatarUri: avatar1,
@@ -129,7 +133,7 @@ const INITIAL_CHAT_ITEMS: ChatItem[] = [
     id: 'kavin',
     name: 'Kavin ',
     preview:
-      "Morning team — heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
+      "Morning team â€” heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
     time: '04:30 pm',
     unreadCount: 1,
     avatarUri: avatar2,
@@ -138,7 +142,7 @@ const INITIAL_CHAT_ITEMS: ChatItem[] = [
     id: 'marcus',
     name: 'Marcus',
     preview:
-      "Morning team — heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
+      "Morning team â€” heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
     time: '04:30 pm',
     unreadCount: 1,
     avatarUri: avatar3,
@@ -147,7 +151,7 @@ const INITIAL_CHAT_ITEMS: ChatItem[] = [
     id: 'landing-legends',
     name: '#landing-legends',
     preview:
-      "Morning team — heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
+      "Morning team â€” heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
     time: '04:30 pm',
     unreadCount: 1,
     avatarUri: avatar4,
@@ -157,7 +161,7 @@ const INITIAL_CHAT_ITEMS: ChatItem[] = [
     id: 'cessna-172',
     name: '#cessna -172',
     preview:
-      "Morning team — heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
+      "Morning team â€” heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
     time: '04:30 pm',
     unreadCount: 1,
     avatarUri: avatar5,
@@ -167,7 +171,7 @@ const INITIAL_CHAT_ITEMS: ChatItem[] = [
     id: 'steve2',
     name: 'Steve Harrington',
     preview:
-      "Morning team — heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
+      "Morning team â€” heads up, runway 27L lighting's partially down until 0900Z. Expect single runway ops and a little delay. Bring patience & snacks.",
     time: '04:30 pm',
     unreadCount: 1,
     avatarUri: avatar1,
@@ -216,7 +220,11 @@ type ScreenKey =
   | 'logging'
   | 'currency'
   | 'license'
-  | 'addlicense';
+  | 'addlicense'
+  | 'documents'
+  | 'adddocuments'
+  | 'addlog'
+  | 'export';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -261,14 +269,18 @@ const VALID_SCREENS: ScreenKey[] = [
   'currency',
   'license',
   'addlicense',
+  'documents',
+  'adddocuments',
+  'addlog',
+  'export',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
   if (typeof window === 'undefined') {
-    return 'addlicense';
+    return 'messages';
   }
   const hash = window.location.hash.replace('#', '') as ScreenKey;
-  return VALID_SCREENS.includes(hash) ? hash : 'addlicense';
+  return VALID_SCREENS.includes(hash) ? hash : 'messages';
 };
 
 const App = () => {
@@ -543,6 +555,28 @@ const App = () => {
             navigateTo('license');
           }}
         />
+      ) : activeScreen === 'documents' ? (
+        <Documents 
+          onBack={() => navigateTo('messages')}
+        />
+      ) : activeScreen === 'adddocuments' ? (
+        <AddDocuments 
+          onBack={() => navigateTo('documents')}
+          onSave={() => {
+            console.log('Save clicked');
+            navigateTo('documents');
+          }}
+        />
+      ) : activeScreen === 'addlog' ? (
+        <AddLog 
+          onBack={() => navigateTo('loghome')}
+          onSave={() => {
+            console.log('Save clicked');
+            navigateTo('loghome');
+          }}
+        />
+      ) : activeScreen === 'export' ? (
+        <Export />
       ) : (
         <AllInOneChats
           chats={chats}

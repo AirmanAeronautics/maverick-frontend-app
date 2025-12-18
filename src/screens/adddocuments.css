@@ -1,0 +1,374 @@
+/* DO NOT MODIFY OTHER FILES — adddocuments SCREEN ONLY */
+
+.ad-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: block;
+}
+
+/* Status Bar */
+.ad-status-bar {
+  position: absolute;
+  height: 47px;
+  left: 0;
+  top: 0;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 20px;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.ad-status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ad-status-bar-time {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.ad-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.ad-status-bar-icon {
+  width: 18px;
+  height: 12px;
+  display: block;
+}
+
+.ad-battery-container {
+  width: 27.401px;
+  height: 13px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-status-bar-battery {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Header */
+.ad-header {
+  position: absolute;
+  top: 47px;
+  left: 0;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #ffffff;
+  z-index: 10;
+}
+
+.ad-back-button {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ad-back-icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.ad-header-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: -0.18px;
+  line-height: 25.2px;
+  text-align: center;
+  flex: 1;
+  margin: 0 16px;
+}
+
+.ad-save-button {
+  background: none;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.ad-save-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #168aad;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+}
+
+/* Scroll View */
+.ad-scroll-view {
+  position: absolute;
+  top: 111px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.ad-scroll-content {
+  padding: 24px 20px 100px 20px;
+  min-height: calc(100% - 24px);
+}
+
+/* Form Fields */
+.ad-form-field {
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.ad-form-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  letter-spacing: -0.14px;
+  line-height: 19.6px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.ad-input-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 48px;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.ad-input {
+  flex: 1;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+}
+
+.ad-input::placeholder {
+  color: #a0a0a0;
+}
+
+.ad-chevron-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  display: block;
+}
+
+/* Dropdown */
+.ad-dropdown-wrapper {
+  position: relative;
+}
+
+.ad-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  z-index: 1000;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.ad-dropdown-item {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.ad-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.ad-dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.ad-dropdown-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+}
+
+/* Upload Container */
+.ad-upload-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.ad-file-input-container {
+  flex: 1;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 0 16px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.ad-file-input-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #a0a0a0;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+}
+
+.ad-upload-button {
+  width: 48px;
+  height: 48px;
+  background-color: #168aad;
+  border: none;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease;
+}
+
+.ad-upload-button:hover {
+  background-color: #147a9a;
+}
+
+.ad-upload-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.ad-file-input-hidden {
+  display: none;
+}
+
+/* Text Area */
+.ad-text-area-container {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  min-height: 100px;
+  background-color: #ffffff;
+}
+
+.ad-text-area {
+  width: 100%;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  color: #000000;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+  border: none;
+  outline: none;
+  background: transparent;
+  resize: none;
+  min-height: 76px;
+  padding: 0;
+}
+
+.ad-text-area::placeholder {
+  color: #a0a0a0;
+}
+
+/* Retry Button */
+.ad-retry-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin-top: 8px;
+  background-color: #ffffff;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.ad-retry-button:hover {
+  background-color: #f9f9f9;
+}
+
+.ad-retry-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.ad-retry-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.16px;
+  line-height: 22.4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 430px) {
+  .ad-container,
+  .ad-status-bar,
+  .ad-header {
+    width: 100%;
+  }
+}
+
+

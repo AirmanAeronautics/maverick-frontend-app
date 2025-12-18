@@ -1,0 +1,349 @@
+/* DO NOT MODIFY OTHER FILES — export SCREEN ONLY */
+
+.export-screen-container {
+  position: relative;
+  width: 430px;
+  height: 100vh;
+  background-color: #FFFFFF;
+  margin: 0 auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.export-screen-status-bar {
+  position: absolute;
+  height: 47px;
+  left: 0;
+  top: 0;
+  width: 430px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px 0 20px;
+  background-color: transparent;
+  z-index: 10;
+}
+
+.export-screen-status-bar-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.export-screen-status-bar-time {
+  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  letter-spacing: -0.32px;
+  text-align: center;
+  line-height: 21px;
+}
+
+.export-screen-status-bar-right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.export-screen-status-bar-icon {
+  width: 18px;
+  height: 12px;
+  object-fit: contain;
+}
+
+.export-screen-status-bar-battery {
+  width: 27.401px;
+  height: 13px;
+  object-fit: contain;
+}
+
+.export-screen-header {
+  position: relative;
+  height: 66.5px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  margin-top: 47px;
+}
+
+.export-screen-back-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.export-screen-back-arrow {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.export-screen-header-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  text-align: center;
+  flex: 1;
+  line-height: 25px;
+}
+
+.export-screen-header-spacer {
+  width: 40px;
+}
+
+.export-screen-scroll-view {
+  width: 100%;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.export-screen-scroll-content {
+  padding: 16px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.export-screen-info-box {
+  background-color: #F5F5F5;
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.export-screen-info-box-bold {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+  line-height: 20px;
+}
+
+.export-screen-info-box-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  line-height: 20px;
+}
+
+.export-screen-section {
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px !important;
+}
+
+.export-screen-title-description-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.export-screen-section-title {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 25px;
+  margin-bottom: 0;
+}
+
+.export-screen-beta-text {
+  font-weight: 400;
+}
+
+.export-screen-section-description {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(78, 78, 78, 1);
+  line-height: 20px;
+  margin-bottom: 0;
+}
+
+.export-screen-export-type-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.export-screen-egca-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.export-screen-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.export-screen-field-label {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000000;
+  line-height: 18px;
+}
+
+.export-screen-dropdown-wrapper {
+  position: relative;
+}
+
+.export-screen-dropdown {
+  height: 52px;
+  width: 100%;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.export-screen-dropdown-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  flex: 1;
+  text-align: left;
+}
+
+.export-screen-dropdown-chevron {
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  transform: rotate(45deg);
+  margin-left: 8px;
+  transition: transform 0.2s;
+}
+
+.export-screen-dropdown-chevron--open {
+  transform: rotate(225deg);
+}
+
+.export-screen-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.export-screen-dropdown-option {
+  width: 100%;
+  height: 44px;
+  padding: 0 16px;
+  background-color: #FFFFFF;
+  border: none;
+  text-align: left;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.export-screen-dropdown-option:hover {
+  background-color: #F5F5F5;
+}
+
+.export-screen-dropdown-option--active {
+  background-color: #F5F5F5;
+  font-weight: 500;
+}
+
+.export-screen-input {
+  height: 52px;
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  padding: 0 16px;
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #000000;
+  outline: none;
+}
+
+.export-screen-input::placeholder {
+  color: #6a6a6a;
+}
+
+.export-screen-button-primary {
+  height: 56px;
+  background-color: rgba(22, 138, 173, 1);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.export-screen-button-primary:hover {
+  opacity: 0.9;
+}
+
+.export-screen-button-primary:active {
+  opacity: 0.8;
+}
+
+.export-screen-button-text {
+  font-family: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+.export-screen-button-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.export-screen-button-arrow {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
