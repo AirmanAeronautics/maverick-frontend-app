@@ -17,14 +17,14 @@ const DESIGN_WIDTH = 430.419;
 const APP_WIDTH = Math.min(screenWidth, DESIGN_WIDTH);
 
 // Image assets from Figma
-const imgAvatar = "https://www.figma.com/api/mcp/asset/149dcca3-2687-4066-ac2b-9e663711cbbb";
-const imgRectangle4257 = "https://www.figma.com/api/mcp/asset/9bc58d6f-311f-4853-99fa-76e29997ef29";
-const imgImage = "https://www.figma.com/api/mcp/asset/249c2f51-ed4e-4f1f-a730-42ae02d14929";
-const imgMobileSignal = "https://www.figma.com/api/mcp/asset/3212fe8e-fe2e-4c56-aa45-841d956a4e92";
-const imgWifi = "https://www.figma.com/api/mcp/asset/4958fcad-6268-4891-aef7-53d6350f1dfc";
-const imgBattery = "https://www.figma.com/api/mcp/asset/f0784d0d-769d-4225-9247-652250588126";
-const imgIconamoonSendFill = "https://www.figma.com/api/mcp/asset/4d000d7a-4c3e-483c-bfb2-34bfc097ee1e";
-const imgEllipse177 = "https://www.figma.com/api/mcp/asset/a20d394f-5673-4fee-abc2-6a1630aa62e7";
+const imgAvatar = Image.resolveAssetSource(require('../assets/logo img.png')).uri;
+const imgRectangle4257 = Image.resolveAssetSource(require('../assets/AI Bg.png')).uri;
+const imgImage = Image.resolveAssetSource(require('../assets/logo img.png')).uri;
+const imgMobileSignal = Image.resolveAssetSource(require('../../Mobile Signal.svg')).uri;
+const imgWifi = Image.resolveAssetSource(require('../../Wifi.svg')).uri;
+const imgBattery = Image.resolveAssetSource(require('../../_StatusBar-battery.svg')).uri;
+const imgIconamoonSendFill = Image.resolveAssetSource(require('../assets/iconamoon_send-fill.svg')).uri;
+const imgEllipse177 = Image.resolveAssetSource(require('../assets/online-dot.png')).uri;
 
 const GenAI = () => {
   return (
@@ -175,10 +175,12 @@ const styles = StyleSheet.create({
   mobileSignal: {
     height: 11.479,
     width: 20.66,
+    tintColor: '#ffffff',
   },
   wifi: {
     height: 12.586,
     width: 17.529,
+    tintColor: '#ffffff',
   },
   batteryContainer: {
     position: 'relative',
@@ -190,6 +192,7 @@ const styles = StyleSheet.create({
   battery: {
     width: 30.965,
     height: 14.921,
+    tintColor: '#ffffff',
   },
   headerSection: {
     position: 'absolute',

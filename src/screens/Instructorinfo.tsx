@@ -15,16 +15,16 @@ const { width: screenWidth } = Dimensions.get('window');
 const instDESIGN_WIDTH = 430.419;
 const instAPP_WIDTH = Math.min(screenWidth, instDESIGN_WIDTH);
 
-// Image assets
-const instImgArrowArrowLeftMd = require('./InstructorinfoAssets/arrow-left-md.png');
-const instImgMobileSignal = require('./InstructorinfoAssets/mobile-signal.png');
-const instImgWifi = require('./InstructorinfoAssets/wifi.png');
-const instImgBattery = require('./InstructorinfoAssets/battery.png');
-const instImgOcticonUnverified24 = require('./InstructorinfoAssets/unverified-icon.png');
-const instImgTablerUpload = require('./InstructorinfoAssets/upload-icon.png');
-const instImgIconParkOutlineLoadingOne = require('./InstructorinfoAssets/loading-icon.png');
-const instImgGroup = require('./InstructorinfoAssets/verified-icon.png');
-const instImgGroup1 = require('./InstructorinfoAssets/verified-icon-large.png');
+// Image assets - using same icons as Pilotinfo
+const instImgArrowArrowLeftMd = Image.resolveAssetSource(require('../../Arrow_Left_MD.svg')).uri;
+const instImgMobileSignal = Image.resolveAssetSource(require('../../Mobile Signal.svg')).uri;
+const instImgWifi = Image.resolveAssetSource(require('../../Wifi.svg')).uri;
+const instImgBattery = Image.resolveAssetSource(require('../../_StatusBar-battery.svg')).uri;
+const instImgOcticonUnverified24 = Image.resolveAssetSource(require('../../unverified.svg')).uri;
+const instImgTablerUpload = Image.resolveAssetSource(require('../../tabler_upload.svg')).uri;
+const instImgIconParkOutlineLoadingOne = Image.resolveAssetSource(require('../../loading.svg')).uri;
+const instImgGroup = Image.resolveAssetSource(require('../../circle-tick.svg')).uri;
+const instImgGroup1 = Image.resolveAssetSource(require('../../circle-tick.svg')).uri;
 
 const Instructorinfo = () => {
   const [instructorRole, setInstructorRole] = useState('Ground Instructor');
@@ -38,10 +38,10 @@ const Instructorinfo = () => {
       <View style={instStyles.instStatusBar}>
         <Text style={instStyles.instStatusBarTime}>9:41</Text>
         <View style={instStyles.instStatusBarRight}>
-          <Image source={instImgMobileSignal} style={instStyles.instStatusBarIcon} />
-          <Image source={instImgWifi} style={instStyles.instStatusBarWifi} />
+          <Image source={{ uri: instImgMobileSignal }} style={instStyles.instStatusBarIcon} />
+          <Image source={{ uri: instImgWifi }} style={instStyles.instStatusBarWifi} />
           <View style={instStyles.instBatteryContainer}>
-            <Image source={instImgBattery} style={instStyles.instBatteryImage} />
+            <Image source={{ uri: instImgBattery }} style={instStyles.instBatteryImage} />
           </View>
         </View>
       </View>
@@ -49,7 +49,7 @@ const Instructorinfo = () => {
       {/* Header */}
       <View style={instStyles.instHeader}>
         <View style={instStyles.instBackButtonContainer}>
-          <Image source={instImgArrowArrowLeftMd} style={instStyles.instBackButtonIcon} />
+          <Image source={{ uri: instImgArrowArrowLeftMd }} style={instStyles.instBackButtonIcon} />
         </View>
         <Text style={instStyles.instHeaderTitle}>Aviation Info</Text>
         <Text style={instStyles.instHeaderSave}>Save</Text>
@@ -61,7 +61,7 @@ const Instructorinfo = () => {
           <View style={instStyles.instVerificationBannerRow}>
             <View style={instStyles.instVerificationIconContainer}>
               <View style={instStyles.instVerificationIconInner}>
-                <Image source={instImgGroup1} style={instStyles.instVerificationIcon} />
+                <Image source={{ uri: instImgGroup1 }} style={instStyles.instVerificationIcon} />
               </View>
             </View>
             <Text style={instStyles.instVerificationText}>Upload required documents to verify</Text>
@@ -81,7 +81,7 @@ const Instructorinfo = () => {
             <View style={instStyles.instInputTitleRow}>
               <Text style={instStyles.instInputTitle}>License level</Text>
               <View style={[instStyles.instStatusBadge, instStyles.instStatusBadgeNotVerified]}>
-                <Image source={instImgOcticonUnverified24} style={instStyles.instStatusBadgeIcon} />
+                <Image source={{ uri: instImgOcticonUnverified24 }} style={instStyles.instStatusBadgeIcon} />
                 <Text style={[instStyles.instStatusBadgeText, instStyles.instStatusBadgeTextNotVerified]}>Not verified</Text>
               </View>
             </View>
@@ -90,7 +90,7 @@ const Instructorinfo = () => {
                 <Text style={instStyles.instInputText}>Class 4</Text>
               </View>
               <View style={instStyles.instUploadButton}>
-                <Image source={instImgTablerUpload} style={instStyles.instUploadIcon} />
+                <Image source={{ uri: instImgTablerUpload }} style={instStyles.instUploadIcon} />
               </View>
             </View>
           </View>
@@ -100,7 +100,7 @@ const Instructorinfo = () => {
             <View style={instStyles.instInputTitleRow}>
               <Text style={instStyles.instInputTitle}>Type Rating</Text>
               <View style={[instStyles.instStatusBadge, instStyles.instStatusBadgeInReview]}>
-                <Image source={instImgIconParkOutlineLoadingOne} style={instStyles.instStatusBadgeIcon} />
+                <Image source={{ uri: instImgIconParkOutlineLoadingOne }} style={instStyles.instStatusBadgeIcon} />
                 <Text style={[instStyles.instStatusBadgeText, instStyles.instStatusBadgeTextInReview]}>In Review</Text>
               </View>
             </View>
@@ -112,7 +112,7 @@ const Instructorinfo = () => {
                 <Text style={instStyles.instInputText}>Airbus A320</Text>
               </View>
               <View style={instStyles.instUploadButton}>
-                <Image source={instImgTablerUpload} style={instStyles.instUploadIcon} />
+                <Image source={{ uri: instImgTablerUpload }} style={instStyles.instUploadIcon} />
               </View>
             </View>
           </View>
@@ -124,7 +124,7 @@ const Instructorinfo = () => {
               <View style={[instStyles.instStatusBadge, instStyles.instStatusBadgeVerified]}>
                 <View style={instStyles.instVerificationIconContainerSmall}>
                   <View style={instStyles.instVerificationIconInnerSmall}>
-                    <Image source={instImgGroup} style={instStyles.instStatusBadgeIconVerified} />
+                    <Image source={{ uri: instImgGroup }} style={instStyles.instStatusBadgeIconVerified} />
                   </View>
                 </View>
                 <Text style={[instStyles.instStatusBadgeText, instStyles.instStatusBadgeTextVerified]}>Verified</Text>
@@ -135,7 +135,7 @@ const Instructorinfo = () => {
                 <Text style={instStyles.instInputText}>Blue ray Aviation</Text>
               </View>
               <View style={instStyles.instUploadButton}>
-                <Image source={instImgTablerUpload} style={instStyles.instUploadIcon} />
+                <Image source={{ uri: instImgTablerUpload }} style={instStyles.instUploadIcon} />
               </View>
             </View>
           </View>
@@ -145,6 +145,7 @@ const Instructorinfo = () => {
             <View style={instStyles.instInputTitleRow}>
               <Text style={instStyles.instInputTitle}>Total Flight Hours</Text>
               <View style={[instStyles.instStatusBadge, instStyles.instStatusBadgeNotVerified]}>
+                <Image source={{ uri: instImgOcticonUnverified24 }} style={instStyles.instStatusBadgeIcon} />
                 <Text style={[instStyles.instStatusBadgeText, instStyles.instStatusBadgeTextNotVerified]}>Not verified</Text>
               </View>
             </View>
@@ -153,7 +154,7 @@ const Instructorinfo = () => {
                 <Text style={instStyles.instInputText}>60 Hours</Text>
               </View>
               <View style={instStyles.instUploadButton}>
-                <Image source={instImgTablerUpload} style={instStyles.instUploadIcon} />
+                <Image source={{ uri: instImgTablerUpload }} style={instStyles.instUploadIcon} />
               </View>
             </View>
           </View>
@@ -163,7 +164,7 @@ const Instructorinfo = () => {
             <View style={instStyles.instInputTitleRow}>
               <Text style={instStyles.instInputTitle}>Instructor Role</Text>
               <View style={[instStyles.instStatusBadge, instStyles.instStatusBadgeNotVerified]}>
-                <Image source={instImgOcticonUnverified24} style={instStyles.instStatusBadgeIcon} />
+                <Image source={{ uri: instImgOcticonUnverified24 }} style={instStyles.instStatusBadgeIcon} />
                 <Text style={[instStyles.instStatusBadgeText, instStyles.instStatusBadgeTextNotVerified]}>Not verified</Text>
               </View>
             </View>
@@ -208,7 +209,7 @@ const Instructorinfo = () => {
                 )}
               </View>
               <View style={instStyles.instUploadButton}>
-                <Image source={instImgTablerUpload} style={instStyles.instUploadIcon} />
+                <Image source={{ uri: instImgTablerUpload }} style={instStyles.instUploadIcon} />
               </View>
             </View>
           </View>
@@ -218,7 +219,7 @@ const Instructorinfo = () => {
             <View style={instStyles.instInputTitleRow}>
               <Text style={instStyles.instInputTitle}>Total Instruction Hours</Text>
               <View style={[instStyles.instStatusBadge, instStyles.instStatusBadgeNotVerified]}>
-                <Image source={instImgOcticonUnverified24} style={instStyles.instStatusBadgeIcon} />
+                <Image source={{ uri: instImgOcticonUnverified24 }} style={instStyles.instStatusBadgeIcon} />
                 <Text style={[instStyles.instStatusBadgeText, instStyles.instStatusBadgeTextNotVerified]}>Not verified</Text>
               </View>
             </View>
@@ -227,7 +228,7 @@ const Instructorinfo = () => {
                 <Text style={instStyles.instInputText}>60 Hours</Text>
               </View>
               <View style={instStyles.instUploadButton}>
-                <Image source={instImgTablerUpload} style={instStyles.instUploadIcon} />
+                <Image source={{ uri: instImgTablerUpload }} style={instStyles.instUploadIcon} />
               </View>
             </View>
           </View>
@@ -239,7 +240,7 @@ const Instructorinfo = () => {
               <View style={[instStyles.instStatusBadge, instStyles.instStatusBadgeVerified]}>
                 <View style={instStyles.instVerificationIconContainerSmall}>
                   <View style={instStyles.instVerificationIconInnerSmall}>
-                    <Image source={instImgGroup} style={instStyles.instStatusBadgeIconVerified} />
+                    <Image source={{ uri: instImgGroup }} style={instStyles.instStatusBadgeIconVerified} />
                   </View>
                 </View>
                 <Text style={[instStyles.instStatusBadgeText, instStyles.instStatusBadgeTextVerified]}>Verified</Text>
@@ -250,7 +251,7 @@ const Instructorinfo = () => {
                 <Text style={instStyles.instInputText}>Medical Certificates</Text>
               </View>
               <View style={instStyles.instUploadButton}>
-                <Image source={instImgTablerUpload} style={instStyles.instUploadIcon} />
+                <Image source={{ uri: instImgTablerUpload }} style={instStyles.instUploadIcon} />
               </View>
             </View>
           </View>
@@ -371,18 +372,20 @@ const instStyles = StyleSheet.create({
   instVerificationIconContainer: {
     width: 16,
     height: 16,
-    overflow: 'hidden',
+    overflow: 'visible',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   instVerificationIconInner: {
-    position: 'absolute',
-    top: 1.76,
-    left: 1.75,
-    right: 1.75,
-    bottom: 1.75,
+    width: 16,
+    height: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   instVerificationIcon: {
-    width: '100%',
-    height: '100%',
+    width: 16,
+    height: 16,
+    tintColor: '#00485A',
   },
   instVerificationText: {
     fontFamily: 'Helvetica Neue',
@@ -467,20 +470,21 @@ const instStyles = StyleSheet.create({
     color: '#008f35',
   },
   instVerificationIconContainerSmall: {
-    width: 10,
-    height: 10,
-    overflow: 'hidden',
+    width: 8,
+    height: 8,
+    overflow: 'visible',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   instVerificationIconInnerSmall: {
-    position: 'absolute',
-    top: 1.1,
-    left: 1.09,
-    right: 1.09,
-    bottom: 1.09,
+    width: 8,
+    height: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   instStatusBadgeIconVerified: {
-    width: '100%',
-    height: '100%',
+    width: 8,
+    height: 8,
   },
   instInputRow: {
     flexDirection: 'row',

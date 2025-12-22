@@ -1033,3 +1033,6 @@ const AddLog = ({ onBack, onSave }: AddLogProps) => {
 
 export default AddLog;
 
+
+
+

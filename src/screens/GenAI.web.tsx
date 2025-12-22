@@ -4,14 +4,22 @@ import React from 'react';
 import './GenAI.css';
 
 // Image assets from Figma
-const imgAvatar = "https://www.figma.com/api/mcp/asset/149dcca3-2687-4066-ac2b-9e663711cbbb";
-const imgRectangle4257 = "https://www.figma.com/api/mcp/asset/9bc58d6f-311f-4853-99fa-76e29997ef29";
-const imgImage = "https://www.figma.com/api/mcp/asset/249c2f51-ed4e-4f1f-a730-42ae02d14929";
-const imgMobileSignal = "https://www.figma.com/api/mcp/asset/3212fe8e-fe2e-4c56-aa45-841d956a4e92";
-const imgWifi = "https://www.figma.com/api/mcp/asset/4958fcad-6268-4891-aef7-53d6350f1dfc";
-const imgBattery = "https://www.figma.com/api/mcp/asset/f0784d0d-769d-4225-9247-652250588126";
-const imgIconamoonSendFill = "https://www.figma.com/api/mcp/asset/4d000d7a-4c3e-483c-bfb2-34bfc097ee1e";
-const imgEllipse177 = "https://www.figma.com/api/mcp/asset/a20d394f-5673-4fee-abc2-6a1630aa62e7";
+import aiBg from '../assets/AI Bg.png?url';
+import logoImg from '../assets/logo img.png?url';
+import onlineDot from '../assets/online-dot.png?url';
+import sendIcon from '../assets/iconamoon_send-fill.svg?url';
+import mobileSignalIcon from '../../Mobile Signal.svg?url';
+import wifiIcon from '../../Wifi.svg?url';
+import statusBarBatteryIcon from '../../_StatusBar-battery.svg?url';
+
+const imgAvatar = logoImg;
+const imgRectangle4257 = aiBg;
+const imgImage = logoImg;
+const imgMobileSignal = mobileSignalIcon;
+const imgWifi = wifiIcon;
+const imgBattery = statusBarBatteryIcon;
+const imgIconamoonSendFill = sendIcon;
+const imgEllipse177 = onlineDot;
 
 const GenAI = () => {
   return (
@@ -29,9 +37,7 @@ const GenAI = () => {
             <img alt="" className="permission-wifi" src={imgWifi} />
           </div>
           <div className="permission-battery-container">
-            <div className="permission-battery">
-              <img alt="" style={{ display: 'block', maxWidth: 'none', width: '100%', height: '100%' }} src={imgBattery} />
-            </div>
+            <img alt="" className="permission-battery" src={imgBattery} />
           </div>
         </div>
       </div>

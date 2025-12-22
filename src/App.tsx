@@ -45,6 +45,7 @@ import Documents from './screens/documents.web';
 import AddDocuments from './screens/adddocuments.web';
 import AddLog from './screens/addlog.web';
 import Export from './screens/export.web';
+import Home from './screens/home.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -224,7 +225,8 @@ type ScreenKey =
   | 'documents'
   | 'adddocuments'
   | 'addlog'
-  | 'export';
+  | 'export'
+  | 'home';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -273,14 +275,15 @@ const VALID_SCREENS: ScreenKey[] = [
   'adddocuments',
   'addlog',
   'export',
+  'home',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
   if (typeof window === 'undefined') {
-    return 'messages';
+    return 'home';
   }
   const hash = window.location.hash.replace('#', '') as ScreenKey;
-  return VALID_SCREENS.includes(hash) ? hash : 'messages';
+  return VALID_SCREENS.includes(hash) ? hash : 'home';
 };
 
 const App = () => {
@@ -577,6 +580,8 @@ const App = () => {
         />
       ) : activeScreen === 'export' ? (
         <Export />
+      ) : activeScreen === 'home' ? (
+        <Home />
       ) : (
         <AllInOneChats
           chats={chats}

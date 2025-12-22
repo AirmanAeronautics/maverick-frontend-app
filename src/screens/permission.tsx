@@ -14,11 +14,11 @@ const DESIGN_WIDTH = 430.419;
 const APP_WIDTH = Math.min(screenWidth, DESIGN_WIDTH);
 const CONTINUE_BUTTON_LEFT = (DESIGN_WIDTH * 0.4) + 71;
 
-// Image assets from Figma
-const imgMobileSignal = 'https://www.figma.com/api/mcp/asset/1651ae52-0077-4ef6-9cd6-9d6890396c9a';
-const imgWifi = 'https://www.figma.com/api/mcp/asset/f8a0ee2e-0ff2-4918-a2a1-769a3c57c7ad';
-const imgBattery = 'https://www.figma.com/api/mcp/asset/1bfca9be-42ad-4adb-b5ba-94228bb72f6a';
-const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/597f51de-7c2b-491c-a8f4-c5ec727f58b6';
+// Local image assets
+const imgMobileSignal = Image.resolveAssetSource(require('../../Mobile Signal.svg')).uri;
+const imgWifi = Image.resolveAssetSource(require('../../Wifi.svg')).uri;
+const imgBattery = Image.resolveAssetSource(require('../../_StatusBar-battery.svg')).uri;
+const imgArrowArrowLeftMd = Image.resolveAssetSource(require('../../Arrow_Left_MD.svg')).uri;
 
 type PermissionProps = {
   onContinue?: () => void;

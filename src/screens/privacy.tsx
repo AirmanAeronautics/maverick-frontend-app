@@ -14,11 +14,41 @@ const privacyDESIGN_WIDTH = 430.419;
 const privacyAPP_WIDTH = Math.min(privacyScreenWidth, privacyDESIGN_WIDTH);
 const privacyCONTINUE_BUTTON_LEFT = (privacyDESIGN_WIDTH * 0.4) + 71;
 
-// Image assets from Figma
-const privacyImgMobileSignal = 'https://www.figma.com/api/mcp/asset/1651ae52-0077-4ef6-9cd6-9d6890396c9a';
-const privacyImgWifi = 'https://www.figma.com/api/mcp/asset/f8a0ee2e-0ff2-4918-a2a1-769a3c57c7ad';
-const privacyImgBattery = 'https://www.figma.com/api/mcp/asset/1bfca9be-42ad-4adb-b5ba-94228bb72f6a';
-const privacyImgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/e518b10a-4f88-4657-90dc-6ca2030cb0df';
+// Image assets from Figma (same as adddocuments screen)
+const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/210acb78-c53a-424d-84fb-a4668cd15385';
+const imgWifi = 'https://www.figma.com/api/mcp/asset/9a27aef4-7569-4ad7-a1d0-5c575f675496';
+const imgIconMobileSignal = 'https://www.figma.com/api/mcp/asset/d037c77c-91be-4f2a-8c8b-ea8b89ca2a85';
+const imgOutline = 'https://www.figma.com/api/mcp/asset/2cbf81d5-af1e-406c-8ac1-18ab97158cee';
+const imgBatteryEnd = 'https://www.figma.com/api/mcp/asset/ab5cdee7-0691-4f7c-947a-465723bf2f95';
+const imgFill = 'https://www.figma.com/api/mcp/asset/41ac1d0d-c06f-42f0-9fbb-f69491130d19';
+
+type StatusBarBatteryProps = {
+  darkMode?: 'False';
+  charge?: '100%';
+  charging?: 'False';
+  percentage?: 'False';
+};
+
+const StatusBarBattery = ({
+  darkMode = 'False',
+  charge = '100%',
+  charging = 'False',
+  percentage = 'False',
+}: StatusBarBatteryProps) => {
+  return (
+    <View style={privacyStyles.batteryContainer}>
+      <View style={privacyStyles.batteryOutline}>
+        <Image source={{ uri: imgOutline }} style={privacyStyles.batteryOutlineImage} />
+      </View>
+      <View style={privacyStyles.batteryEnd}>
+        <Image source={{ uri: imgBatteryEnd }} style={privacyStyles.batteryEndImage} />
+      </View>
+      <View style={privacyStyles.batteryFill}>
+        <Image source={{ uri: imgFill }} style={privacyStyles.batteryFillImage} />
+      </View>
+    </View>
+  );
+};
 
 type PrivacyProps = {
   onContinue?: () => void;
@@ -48,18 +78,16 @@ const Privacy = ({ onContinue: _onContinue }: PrivacyProps = {}) => {
       <View style={privacyStyles.privacyStatusBar}>
         <Text style={privacyStyles.privacyStatusBarTime}>9:41</Text>
         <View style={privacyStyles.privacyStatusBarRight}>
-          <Image source={{ uri: privacyImgMobileSignal }} style={privacyStyles.privacyStatusBarIcon} />
-          <Image source={{ uri: privacyImgWifi }} style={privacyStyles.privacyStatusBarWifi} />
-          <View style={privacyStyles.privacyBatteryContainer}>
-            <Image source={{ uri: privacyImgBattery }} style={privacyStyles.privacyBatteryImage} />
-          </View>
+          <Image source={{ uri: imgIconMobileSignal }} style={privacyStyles.privacyStatusBarIcon} />
+          <Image source={{ uri: imgWifi }} style={privacyStyles.privacyStatusBarWifi} />
+          <StatusBarBattery />
         </View>
       </View>
 
       {/* Header */}
       <View style={privacyStyles.privacyHeader}>
         <View style={privacyStyles.privacyBackButtonContainer}>
-          <Image source={{ uri: privacyImgArrowArrowLeftMd }} style={privacyStyles.privacyBackButtonIcon} />
+          <Image source={{ uri: imgArrowArrowLeftMd }} style={privacyStyles.privacyBackButtonIcon} />
         </View>
         <Text style={privacyStyles.privacyHeaderTitle}>Privacy & Discovery</Text>
         <Text style={privacyStyles.privacyHeaderSave}>Save</Text>
@@ -194,6 +222,47 @@ const privacyStyles = StyleSheet.create({
   privacyBatteryImage: {
     width: 30.965,
     height: 14.921,
+  },
+  batteryContainer: {
+    width: 27.401,
+    height: 13,
+    position: 'relative',
+  },
+  batteryOutline: {
+    position: 'absolute',
+    left: 0,
+    right: 2.4,
+    top: '50%',
+    transform: [{ translateY: -6.5 }],
+    height: 13,
+  },
+  batteryOutlineImage: {
+    width: '100%',
+    height: '100%',
+  },
+  batteryEnd: {
+    position: 'absolute',
+    right: 0,
+    top: '50%',
+    transform: [{ translateY: -2.11 }],
+    width: 1.401,
+    height: 4.22,
+  },
+  batteryEndImage: {
+    width: '100%',
+    height: '100%',
+  },
+  batteryFill: {
+    position: 'absolute',
+    left: 2,
+    right: 4.4,
+    top: '50%',
+    transform: [{ translateY: -4.5 }],
+    height: 9,
+  },
+  batteryFillImage: {
+    width: '100%',
+    height: '100%',
   },
   privacyHeader: {
     position: 'absolute',

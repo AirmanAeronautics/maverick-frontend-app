@@ -12,7 +12,7 @@ import infoIcon from '../../info-icon.svg?url';
 import chevronRightIcon from '../../arr.svg?url';
 
 // Image assets from Figma (keeping background images that may not have local equivalents)
-const imgBackgroundJet = 'https://www.figma.com/api/mcp/asset/c2097ca7-3958-4a28-a7de-2cab572d71b7';
+import imgBackgroundJet from '../../USER BG.png?url';
 // Use local profile image
 import imgProfilePicture from '../../prp.png?url';
 

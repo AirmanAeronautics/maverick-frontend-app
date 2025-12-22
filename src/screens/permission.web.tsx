@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import './permission.css';
 
-// Image assets from Figma
-const imgMobileSignal = 'https://www.figma.com/api/mcp/asset/1651ae52-0077-4ef6-9cd6-9d6890396c9a';
-const imgWifi = 'https://www.figma.com/api/mcp/asset/f8a0ee2e-0ff2-4918-a2a1-769a3c57c7ad';
-const imgBattery = 'https://www.figma.com/api/mcp/asset/1bfca9be-42ad-4adb-b5ba-94228bb72f6a';
-const imgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/597f51de-7c2b-491c-a8f4-c5ec727f58b6';
+// Local image assets - using Vite imports for proper processing
+import arrowLeftIcon from '../../Arrow_Left_MD.svg?url';
+import wifiIcon from '../../Wifi.svg?url';
+import mobileSignalIcon from '../../Mobile Signal.svg?url';
+import statusBarBatteryIcon from '../../_StatusBar-battery.svg?url';
+
+const imgMobileSignal = mobileSignalIcon;
+const imgWifi = wifiIcon;
+const imgBattery = statusBarBatteryIcon;
+const imgArrowArrowLeftMd = arrowLeftIcon;
 
 type PermissionProps = {
   onContinue?: () => void;

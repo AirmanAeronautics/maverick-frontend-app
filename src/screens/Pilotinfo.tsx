@@ -13,16 +13,15 @@ const { width: screenWidth } = Dimensions.get('window');
 const DESIGN_WIDTH = 430.419;
 const APP_WIDTH = Math.min(screenWidth, DESIGN_WIDTH);
 
-// Image assets
-const imgArrowArrowLeftMd = require('./PilotinfoAssets/arrow-left-md.png');
-const imgMobileSignal = require('./PilotinfoAssets/mobile-signal.png');
-const imgWifi = require('./PilotinfoAssets/wifi.png');
-const imgBattery = require('./PilotinfoAssets/battery.png');
-const imgOcticonUnverified24 = require('./PilotinfoAssets/unverified-icon.png');
-const imgTablerUpload = require('./PilotinfoAssets/upload-icon.png');
-const imgIconParkOutlineLoadingOne = require('./PilotinfoAssets/loading-icon.png');
-const imgGroup = require('./PilotinfoAssets/verified-icon.png');
-const imgGroup1 = require('./PilotinfoAssets/verified-icon-large.png');
+// Image assets - using same icons as adddocuments
+const imgArrowArrowLeftMd = Image.resolveAssetSource(require('../../Arrow_Left_MD.svg')).uri;
+const imgMobileSignal = Image.resolveAssetSource(require('../../Mobile Signal.svg')).uri;
+const imgWifi = Image.resolveAssetSource(require('../../Wifi.svg')).uri;
+const imgBattery = Image.resolveAssetSource(require('../../_StatusBar-battery.svg')).uri;
+const imgTablerUpload = Image.resolveAssetSource(require('../../tabler_upload.svg')).uri;
+const imgUnverifiedIcon = Image.resolveAssetSource(require('../../unverified.svg')).uri;
+const imgCircleTickIcon = Image.resolveAssetSource(require('../../circle-tick.svg')).uri;
+const imgLoadingIcon = Image.resolveAssetSource(require('../../loading.svg')).uri;
 
 const Pilotinfo = () => {
   return (
@@ -31,10 +30,10 @@ const Pilotinfo = () => {
       <View style={styles.statusBar}>
         <Text style={styles.statusBarTime}>9:41</Text>
         <View style={styles.statusBarRight}>
-          <Image source={imgMobileSignal} style={styles.statusBarIcon} />
-          <Image source={imgWifi} style={styles.statusBarWifi} />
+          <Image source={{ uri: imgMobileSignal }} style={styles.statusBarIcon} />
+          <Image source={{ uri: imgWifi }} style={styles.statusBarWifi} />
           <View style={styles.batteryContainer}>
-            <Image source={imgBattery} style={styles.batteryImage} />
+            <Image source={{ uri: imgBattery }} style={styles.batteryImage} />
           </View>
         </View>
       </View>
@@ -42,7 +41,7 @@ const Pilotinfo = () => {
       {/* Header */}
       <View style={styles.header}>
         <View style={styles.backButtonContainer}>
-          <Image source={imgArrowArrowLeftMd} style={styles.backButtonIcon} />
+          <Image source={{ uri: imgArrowArrowLeftMd }} style={styles.backButtonIcon} />
         </View>
         <Text style={styles.headerTitle}>Aviation Info</Text>
         <Text style={styles.headerSave}>Save</Text>
@@ -54,7 +53,7 @@ const Pilotinfo = () => {
           <View style={styles.verificationBannerRow}>
             <View style={styles.verificationIconContainer}>
               <View style={styles.verificationIconInner}>
-                <Image source={imgGroup1} style={styles.verificationIcon} />
+                <Image source={{ uri: imgCircleTickIcon }} style={styles.verificationIcon} />
               </View>
             </View>
             <Text style={styles.verificationText}>Upload required documents to verify</Text>
@@ -74,7 +73,7 @@ const Pilotinfo = () => {
             <View style={styles.inputTitleRow}>
               <Text style={styles.inputTitle}>License level</Text>
               <View style={[styles.statusBadge, styles.statusBadgeNotVerified]}>
-                <Image source={imgOcticonUnverified24} style={styles.statusBadgeIcon} />
+                <Image source={{ uri: imgUnverifiedIcon }} style={styles.statusBadgeIcon} />
                 <Text style={[styles.statusBadgeText, styles.statusBadgeTextNotVerified]}>Not verified</Text>
               </View>
             </View>
@@ -83,7 +82,7 @@ const Pilotinfo = () => {
                 <Text style={styles.inputText}>Commercial Pilot License</Text>
               </View>
               <View style={styles.uploadButton}>
-                <Image source={imgTablerUpload} style={styles.uploadIcon} />
+                <Image source={{ uri: imgTablerUpload }} style={styles.uploadIcon} />
               </View>
             </View>
           </View>
@@ -93,7 +92,7 @@ const Pilotinfo = () => {
             <View style={styles.inputTitleRow}>
               <Text style={styles.inputTitle}>Type Rating</Text>
               <View style={[styles.statusBadge, styles.statusBadgeInReview]}>
-                <Image source={imgIconParkOutlineLoadingOne} style={styles.statusBadgeIcon} />
+                <Image source={{ uri: imgLoadingIcon }} style={styles.statusBadgeIcon} />
                 <Text style={[styles.statusBadgeText, styles.statusBadgeTextInReview]}>In Review</Text>
               </View>
             </View>
@@ -105,7 +104,7 @@ const Pilotinfo = () => {
                 <Text style={styles.inputText}>Airbus A320</Text>
               </View>
               <View style={styles.uploadButton}>
-                <Image source={imgTablerUpload} style={styles.uploadIcon} />
+                <Image source={{ uri: imgTablerUpload }} style={styles.uploadIcon} />
               </View>
             </View>
           </View>
@@ -117,7 +116,7 @@ const Pilotinfo = () => {
               <View style={[styles.statusBadge, styles.statusBadgeVerified]}>
                 <View style={styles.verificationIconContainerSmall}>
                   <View style={styles.verificationIconInnerSmall}>
-                    <Image source={imgGroup} style={styles.statusBadgeIconVerified} />
+                    <Image source={{ uri: imgCircleTickIcon }} style={styles.statusBadgeIconVerified} />
                   </View>
                 </View>
                 <Text style={[styles.statusBadgeText, styles.statusBadgeTextVerified]}>Verified</Text>
@@ -128,7 +127,7 @@ const Pilotinfo = () => {
                 <Text style={styles.inputText}>Blue ray Aviation</Text>
               </View>
               <View style={styles.uploadButton}>
-                <Image source={imgTablerUpload} style={styles.uploadIcon} />
+                <Image source={{ uri: imgTablerUpload }} style={styles.uploadIcon} />
               </View>
             </View>
           </View>
@@ -138,6 +137,7 @@ const Pilotinfo = () => {
             <View style={styles.inputTitleRow}>
               <Text style={styles.inputTitle}>Total Flight Hours</Text>
               <View style={[styles.statusBadge, styles.statusBadgeNotVerified]}>
+                <Image source={{ uri: imgUnverifiedIcon }} style={styles.statusBadgeIcon} />
                 <Text style={[styles.statusBadgeText, styles.statusBadgeTextNotVerified]}>Not verified</Text>
               </View>
             </View>
@@ -146,7 +146,7 @@ const Pilotinfo = () => {
                 <Text style={styles.inputText}>60 Hours</Text>
               </View>
               <View style={styles.uploadButton}>
-                <Image source={imgTablerUpload} style={styles.uploadIcon} />
+                <Image source={{ uri: imgTablerUpload }} style={styles.uploadIcon} />
               </View>
             </View>
           </View>
@@ -158,7 +158,7 @@ const Pilotinfo = () => {
               <View style={[styles.statusBadge, styles.statusBadgeVerified]}>
                 <View style={styles.verificationIconContainerSmall}>
                   <View style={styles.verificationIconInnerSmall}>
-                    <Image source={imgGroup} style={styles.statusBadgeIconVerified} />
+                    <Image source={{ uri: imgCircleTickIcon }} style={styles.statusBadgeIconVerified} />
                   </View>
                 </View>
                 <Text style={[styles.statusBadgeText, styles.statusBadgeTextVerified]}>Verified</Text>
@@ -169,7 +169,7 @@ const Pilotinfo = () => {
                 <Text style={styles.inputText}>Medical Certificates</Text>
               </View>
               <View style={styles.uploadButton}>
-                <Image source={imgTablerUpload} style={styles.uploadIcon} />
+                <Image source={{ uri: imgTablerUpload }} style={styles.uploadIcon} />
               </View>
             </View>
           </View>
@@ -290,18 +290,20 @@ const styles = StyleSheet.create({
   verificationIconContainer: {
     width: 16,
     height: 16,
-    overflow: 'hidden',
+    overflow: 'visible',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   verificationIconInner: {
-    position: 'absolute',
-    top: 1.76,
-    left: 1.75,
-    right: 1.75,
-    bottom: 1.75,
+    width: 16,
+    height: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   verificationIcon: {
-    width: '100%',
-    height: '100%',
+    width: 16,
+    height: 16,
+    tintColor: '#00485A',
   },
   verificationText: {
     fontFamily: 'Helvetica Neue',
@@ -386,20 +388,21 @@ const styles = StyleSheet.create({
     color: '#008f35',
   },
   verificationIconContainerSmall: {
-    width: 10,
-    height: 10,
-    overflow: 'hidden',
+    width: 8,
+    height: 8,
+    overflow: 'visible',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   verificationIconInnerSmall: {
-    position: 'absolute',
-    top: 1.1,
-    left: 1.09,
-    right: 1.09,
-    bottom: 1.09,
+    width: 8,
+    height: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   statusBadgeIconVerified: {
-    width: '100%',
-    height: '100%',
+    width: 8,
+    height: 8,
   },
   inputRow: {
     flexDirection: 'row',

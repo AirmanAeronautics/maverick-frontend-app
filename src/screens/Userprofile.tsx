@@ -21,7 +21,7 @@ const imgWifi = 'https://www.figma.com/api/mcp/asset/772d34d4-9b2c-400b-ab37-ca5
 const imgOutline = 'https://www.figma.com/api/mcp/asset/f97911df-0450-47c9-9c82-c45beb4e0482';
 const imgBatteryEnd = 'https://www.figma.com/api/mcp/asset/940aa4a9-2c56-4287-94d3-2076992c7254';
 const imgFill = 'https://www.figma.com/api/mcp/asset/9c312083-ae1d-4792-872c-df2d36baf343';
-const imgBackgroundJet = 'https://www.figma.com/api/mcp/asset/c2097ca7-3958-4a28-a7de-2cab572d71b7';
+const imgBackgroundJet = Image.resolveAssetSource(require('../../USER BG.png')).uri;
 const imgEditBackground = 'https://www.figma.com/api/mcp/asset/5dbbfcaf-276b-4b4a-8c09-6cd596b6edcb';
 const imgProfilePicture = 'https://www.figma.com/api/mcp/asset/5dbbfcaf-276b-4b4a-8c09-6cd596b6edcb';
 const imgCameraIcon = 'https://www.figma.com/api/mcp/asset/0c0c65ec-6de7-4b54-bb1a-bcce626e6383';
@@ -557,6 +557,9 @@ const styles = StyleSheet.create({
 });
 
 export default Userprofile;
+
+
+
 
 
 

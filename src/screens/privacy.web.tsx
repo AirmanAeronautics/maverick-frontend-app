@@ -1,11 +1,31 @@
 import React, { useState } from 'react';
 import './privacy.css';
 
-// Image assets from Figma
-const privacyImgMobileSignal = 'https://www.figma.com/api/mcp/asset/1651ae52-0077-4ef6-9cd6-9d6890396c9a';
-const privacyImgWifi = 'https://www.figma.com/api/mcp/asset/f8a0ee2e-0ff2-4918-a2a1-769a3c57c7ad';
-const privacyImgBattery = 'https://www.figma.com/api/mcp/asset/1bfca9be-42ad-4adb-b5ba-94228bb72f6a';
-const privacyImgArrowArrowLeftMd = 'https://www.figma.com/api/mcp/asset/e518b10a-4f88-4657-90dc-6ca2030cb0df';
+// Local image assets - using Vite imports for proper processing (same as adddocuments screen)
+import arrowLeftIcon from '../../Arrow_Left_MD.svg?url';
+import wifiIcon from '../../Wifi.svg?url';
+import mobileSignalIcon from '../../Mobile Signal.svg?url';
+import statusBarBatteryIcon from '../../_StatusBar-battery.svg?url';
+
+type StatusBarBatteryProps = {
+  darkMode?: 'False';
+  charge?: '100%';
+  charging?: 'False';
+  percentage?: 'False';
+};
+
+const StatusBarBattery = ({
+  darkMode = 'False',
+  charge = '100%',
+  charging = 'False',
+  percentage = 'False',
+}: StatusBarBatteryProps) => {
+  return (
+    <div className="privacy-battery-container">
+      <img src={statusBarBatteryIcon} alt="Battery level" className="privacy-battery-image" />
+    </div>
+  );
+};
 
 type PrivacyProps = {
   onContinue?: () => void;
@@ -34,18 +54,16 @@ const Privacy = ({ onContinue: _onContinue }: PrivacyProps = {}) => {
       <div className="privacy-status-bar">
         <span className="privacy-status-bar-time">9:41</span>
         <div className="privacy-status-bar-right">
-          <img src={privacyImgMobileSignal} alt="Signal" className="privacy-status-bar-icon" />
-          <img src={privacyImgWifi} alt="WiFi" className="privacy-status-bar-wifi" />
-          <div className="privacy-battery-container">
-            <img src={privacyImgBattery} alt="Battery" className="privacy-battery-image" />
-          </div>
+          <img src={mobileSignalIcon} alt="Signal" className="privacy-status-bar-icon" />
+          <img src={wifiIcon} alt="WiFi" className="privacy-status-bar-wifi" />
+          <StatusBarBattery />
         </div>
       </div>
 
       {/* Header */}
       <div className="privacy-header">
         <div className="privacy-back-button-container">
-          <img src={privacyImgArrowArrowLeftMd} alt="Back" className="privacy-back-button-icon" />
+          <img src={arrowLeftIcon} alt="Back" className="privacy-back-button-icon" />
         </div>
         <p className="privacy-header-title">Privacy & Discovery</p>
         <p className="privacy-header-save">Save</p>

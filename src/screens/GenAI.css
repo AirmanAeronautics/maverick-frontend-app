@@ -8,6 +8,7 @@
   overflow: hidden;
   border-radius: 10.33px;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .permission-status-bar {
@@ -47,12 +48,14 @@
   height: 11.479px;
   width: 20.66px;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 .permission-wifi {
   height: 12.586px;
   width: 17.529px;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 .permission-battery-container {
@@ -66,13 +69,12 @@
 }
 
 .permission-battery {
-  grid-column: 1;
-  grid-row: 1;
   height: 14.921px;
-  margin-left: 0;
-  margin-top: calc(50% - 7.46px);
   width: 30.965px;
+  display: block;
+  filter: brightness(0) invert(1);
 }
+
 
 .permission-content-area {
   position: absolute;
@@ -83,8 +85,9 @@
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   top: 148px;
-  width: 430px;
+  width: 430.419px;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .permission-header-section {
@@ -96,8 +99,9 @@
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
   top: 148px;
-  width: 430px;
+  width: 430.419px;
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .permission-header-bg {
@@ -105,7 +109,7 @@
   height: 98px;
   left: 0;
   top: 0;
-  width: 430px;
+  width: 430.419px;
   z-index: 1;
   border-top-left-radius: 32px;
   border-top-right-radius: 32px;
@@ -131,7 +135,7 @@
   height: 1px;
   left: 50%;
   transform: translateX(-50%);
-  width: 430px;
+  width: 430.419px;
   border: 0;
   border-top: 1px solid #e9f1f9;
   z-index: 3;
@@ -228,7 +232,7 @@
   opacity: 0.8;
   border-radius: 5.966px;
   top: 52px;
-  width: 430px;
+  width: 430.419px;
   z-index: 0;
   pointer-events: none;
 }
@@ -415,7 +419,7 @@
   height: 1px;
   left: 50%;
   transform: translateX(-50%);
-  width: 430px;
+  width: 430.419px;
 }
 
 .permission-input-container {

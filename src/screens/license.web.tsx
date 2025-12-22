@@ -17,3 +17,6 @@ const License = ({ onBack, onAddLicense }: LicenseProps) => {
 
 export default License;
 
+
+
+
