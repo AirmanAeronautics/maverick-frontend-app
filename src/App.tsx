@@ -50,6 +50,9 @@ import NewUserHome from './screens/newuserhome.web';
 import StudyHome from './screens/studyhome.web';
 import StudyWays from './screens/studyways.web';
 import Quiz1 from './screens/Quiz1.web';
+import Quiz2 from './screens/Quiz2.web';
+import Flashcard1 from './screens/Flashcard1.web';
+import Flashcard2 from './screens/flashcard2.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -234,7 +237,10 @@ type ScreenKey =
   | 'newuserhome'
   | 'studyhome'
   | 'studyways'
-  | 'quiz1';
+  | 'quiz1'
+  | 'quiz2'
+  | 'flashcard1'
+  | 'flashcard2';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -288,6 +294,9 @@ const VALID_SCREENS: ScreenKey[] = [
   'studyhome',
   'studyways',
   'quiz1',
+  'quiz2',
+  'flashcard1',
+  'flashcard2',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -602,6 +611,12 @@ const App = () => {
         <StudyWays />
       ) : activeScreen === 'quiz1' ? (
         <Quiz1 />
+      ) : activeScreen === 'quiz2' ? (
+        <Quiz2 />
+      ) : activeScreen === 'flashcard1' ? (
+        <Flashcard1 />
+      ) : activeScreen === 'flashcard2' ? (
+        <Flashcard2 />
       ) : (
         <AllInOneChats
           chats={chats}
