@@ -49,6 +49,7 @@ import Home from './screens/home.web';
 import NewUserHome from './screens/newuserhome.web';
 import StudyHome from './screens/studyhome.web';
 import StudyWays from './screens/studyways.web';
+import Quiz1 from './screens/Quiz1.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -232,7 +233,8 @@ type ScreenKey =
   | 'home'
   | 'newuserhome'
   | 'studyhome'
-  | 'studyways';
+  | 'studyways'
+  | 'quiz1';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -285,6 +287,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'newuserhome',
   'studyhome',
   'studyways',
+  'quiz1',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -597,6 +600,8 @@ const App = () => {
         <StudyHome />
       ) : activeScreen === 'studyways' ? (
         <StudyWays />
+      ) : activeScreen === 'quiz1' ? (
+        <Quiz1 />
       ) : (
         <AllInOneChats
           chats={chats}
