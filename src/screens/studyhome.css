@@ -1,0 +1,547 @@
+/* DO NOT MODIFY OTHER FILES — studyhome SCREEN ONLY */
+/* Hide all scrollbars globally for studyhome screen */
+.studyhome-container * {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.studyhome-container *::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.studyhome-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.studyhome-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Bottom spacer */
+.studyhome-bottom-spacer {
+  position: absolute;
+  bottom: 0;
+  height: 62px;
+  left: 0;
+  width: 430px;
+}
+
+/* Title and Search Frame */
+.studyhome-title-search-frame {
+  position: absolute;
+  left: 24px;
+  top: 83px;
+  width: 382px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Main Title */
+.studyhome-title-container {
+  width: 376px;
+}
+
+.studyhome-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  font-style: normal;
+}
+
+/* Search Bar */
+.studyhome-search-container {
+  width: 382px;
+  height: 44px;
+}
+
+.studyhome-search-input {
+  background-color: #ffffff;
+  border: 1px solid #ececec;
+  border-radius: 8px;
+  padding: 10px 14px;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.studyhome-search-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 24px;
+}
+
+.studyhome-search-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.studyhome-search-text {
+  flex: 1;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #667085;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.studyhome-search-text::placeholder {
+  color: #667085;
+}
+
+/* Main Content */
+.studyhome-scroll-view {
+  margin-top: 187px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(100vh - 187px);
+}
+
+.studyhome-main-content {
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Continue Learning Card */
+.studyhome-continue-learning-card {
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  width: 382px;
+  box-sizing: border-box;
+}
+
+.studyhome-continue-learning-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 17px;
+  flex: 1;
+}
+
+.studyhome-progress-circle-wrapper {
+  position: relative;
+  width: 74px;
+  height: 74px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.studyhome-progress-percentage {
+  position: absolute;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 13.011px;
+  color: #168aad;
+  z-index: 1;
+  line-height: normal;
+}
+
+.studyhome-progress-circle {
+  width: 74px;
+  height: 74px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.studyhome-continue-learning-text {
+  flex: 1;
+  width: 218px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.studyhome-continue-learning-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom: 0;
+}
+
+.studyhome-continue-learning-subtitle {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #525252;
+  margin-bottom: 0;
+}
+
+.studyhome-continue-learning-chapters {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #525252;
+}
+
+.studyhome-continue-learning-arrow {
+  width: 27.52px;
+  height: 27.52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(180deg) scaleY(-1);
+  flex-shrink: 0;
+}
+
+.studyhome-arrow-image {
+  width: 100%;
+  height: 100%;
+}
+
+/* Achievements and Next Goal Frame */
+.studyhome-achievements-next-goal-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 382px;
+  padding-top: 0px;
+  padding-bottom: 12px;
+}
+
+/* Achievements Section */
+.studyhome-achievements-section {
+  width: 382px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.studyhome-achievements-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.studyhome-achievements-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+}
+
+.studyhome-achievements-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.studyhome-achievements-cards {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.studyhome-achievements-cards-content {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding-right: 12px;
+}
+
+.studyhome-achievement-card {
+  width: 85px;
+  height: 85px;
+  border-radius: 12px;
+  border: 1px solid;
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.studyhome-achievement-card-yellow {
+  border-color: #fee349;
+  background: linear-gradient(134.04deg, rgba(252, 190, 56, 1) 35.245%, rgba(250, 160, 42, 1) 90.289%);
+}
+
+.studyhome-achievement-card-blue {
+  border-color: #c3ceff;
+  background: linear-gradient(to bottom, #5d93f6, #5359e9);
+}
+
+.studyhome-achievement-card-green {
+  border-color: #b2ffd3;
+  background: linear-gradient(to bottom, #40d37d, #10a16d);
+}
+
+.studyhome-achievement-card-gray {
+  border-color: #dbdbdb;
+  background: linear-gradient(140.55deg, rgba(92, 92, 92, 1) 8.5069%, rgba(44, 44, 44, 1) 95.263%);
+}
+
+.studyhome-achievement-card-icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 6px;
+  flex-shrink: 0;
+}
+
+.studyhome-achievement-card-icon-large {
+  width: 28px;
+  height: 28px;
+  margin-bottom: 2px;
+  flex-shrink: 0;
+}
+
+.studyhome-achievement-card-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 0 2px;
+}
+
+.studyhome-achievement-card-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 8px;
+  line-height: 12.218px;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.studyhome-achievement-card-subtitle {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 6px;
+  line-height: 12.218px;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.studyhome-achievement-card-bg-icon {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  right: 0;
+  bottom: 0;
+}
+
+.studyhome-achievement-card-bg-icon-large {
+  position: absolute;
+  width: 38px;
+  height: 38px;
+  right: 0;
+  bottom: 0;
+}
+
+/* Next Goal Section */
+.studyhome-next-goal-section {
+  width: 382px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.studyhome-next-goal-title-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.studyhome-next-goal-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.studyhome-next-goal-progress {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 24px;
+  color: #535353;
+}
+
+.studyhome-next-goal-bar-container {
+  position: relative;
+  width: 382px;
+  height: 10px;
+}
+
+.studyhome-next-goal-bar-track {
+  position: absolute;
+  background-color: #e5e7eb;
+  height: 10px;
+  width: 382px;
+  border-radius: 100px;
+  top: 0;
+  left: 0;
+}
+
+.studyhome-next-goal-bar-fill {
+  position: absolute;
+  height: 10px;
+  width: 212px;
+  border-radius: 100px;
+  top: 0;
+  left: 1px;
+  background: linear-gradient(177.78deg, rgba(243, 91, 119, 1) 8.5069%, rgba(204, 51, 82, 1) 95.263%),
+              linear-gradient(177.21deg, rgba(252, 190, 56, 1) 35.245%, rgba(250, 160, 42, 1) 90.289%),
+              linear-gradient(90deg, rgba(247, 171, 14, 1) 0%, rgba(145, 100, 8, 1) 100%);
+}
+
+/* Subjects Section */
+.studyhome-subjects-section {
+  width: 380px;
+}
+
+.studyhome-subjects-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom: 16px;
+}
+
+.studyhome-subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 182px);
+  gap: 16px;
+  row-gap: 16px;
+  width: 100%;
+}
+
+.studyhome-subject-card {
+  width: 182px;
+  height: 179px;
+  border-radius: 14.648px;
+  overflow: hidden;
+  position: relative;
+  background-color: #ffffff;
+}
+
+.studyhome-subject-card-image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.studyhome-subject-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 71px;
+  background: linear-gradient(0.21deg, rgba(0, 0, 0, 0.95) 27.364%, rgba(0, 0, 0, 0) 99.538%);
+  opacity: 0.8;
+}
+
+.studyhome-subject-card-content {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: 79px;
+  font-family: 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.studyhome-subject-card-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 15.051px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.studyhome-subject-card-progress-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4.48px;
+}
+
+.studyhome-subject-card-progress {
+  position: relative;
+  width: 27px;
+  height: 3.509px;
+}
+
+.studyhome-subject-card-progress-track {
+  position: absolute;
+  width: 27px;
+  height: 3.509px;
+  background-color: #e5e7eb;
+  border-radius: 100px;
+  top: 0;
+  left: 0;
+}
+
+.studyhome-subject-card-progress-fill {
+  position: absolute;
+  width: 7px;
+  height: 3.51px;
+  background: linear-gradient(90deg, rgba(22, 173, 27, 1) 0%, rgba(22, 173, 27, 1) 100%),
+              linear-gradient(152.59deg, rgba(252, 190, 56, 1) 35.245%, rgba(250, 160, 42, 1) 90.289%),
+              linear-gradient(90deg, rgba(247, 171, 14, 1) 0%, rgba(145, 100, 8, 1) 100%);
+  border-radius: 100px;
+  top: 0;
+  left: 0;
+}
+
+.studyhome-subject-card-chapters {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 7px;
+  line-height: 10.714px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+

@@ -47,6 +47,7 @@ import AddLog from './screens/addlog.web';
 import Export from './screens/export.web';
 import Home from './screens/home.web';
 import NewUserHome from './screens/newuserhome.web';
+import StudyHome from './screens/studyhome.web';
 import { PEOPLE_NEAR_LOCATION, PEOPLE_FROM_SCHOOL } from './screens/PeopleList1.web';
 import type { ChatItem } from './screens/types';
 import { CHANNEL_CATEGORIES, CHANNEL_CATEGORY_MAP, type ChannelCategoryId } from './screens/exploreChannelData';
@@ -228,7 +229,8 @@ type ScreenKey =
   | 'addlog'
   | 'export'
   | 'home'
-  | 'newuserhome';
+  | 'newuserhome'
+  | 'studyhome';
 
 const VALID_SCREENS: ScreenKey[] = [
   'login',
@@ -279,6 +281,7 @@ const VALID_SCREENS: ScreenKey[] = [
   'export',
   'home',
   'newuserhome',
+  'studyhome',
 ];
 
 const getScreenFromHash = (): ScreenKey => {
@@ -587,6 +590,8 @@ const App = () => {
         <Home />
       ) : activeScreen === 'newuserhome' ? (
         <NewUserHome />
+      ) : activeScreen === 'studyhome' ? (
+        <StudyHome />
       ) : (
         <AllInOneChats
           chats={chats}
