@@ -1,0 +1,638 @@
+/* DO NOT MODIFY OTHER FILES — studyways SCREEN ONLY */
+/* Hide all scrollbars globally for studyways screen */
+.studyways-container * {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.studyways-container *::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.studyways-container {
+  position: relative;
+  width: 430px;
+  min-height: 100vh;
+  background-color: #ffffff;
+  margin: 0 auto;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.studyways-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.studyways-status-bar {
+  position: absolute;
+  background-color: #ffffff;
+  height: 47px;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  width: 430px;
+}
+
+.studyways-status-bar-left {
+  position: absolute;
+  left: calc(50% - 158px);
+  top: 14px;
+  transform: translateX(-50%);
+}
+
+.studyways-status-bar-time-container {
+  height: 21px;
+  border-radius: 24px;
+  width: 54px;
+}
+
+.studyways-status-bar-time {
+  position: absolute;
+  font-family: 'SF Pro Text', sans-serif;
+  font-weight: 600;
+  height: 20px;
+  left: 27px;
+  line-height: 21px;
+  font-size: 16px;
+  color: #000000;
+  text-align: center;
+  top: 1px;
+  transform: translateX(-50%);
+  width: 54px;
+  letter-spacing: -0.32px;
+}
+
+.studyways-status-bar-right {
+  position: absolute;
+  left: calc(50% + 145.7px);
+  top: 19px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.studyways-battery-container-style {
+  position: absolute;
+  left: calc(50% + 170.7px);
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.studyways-battery-container {
+  height: 13px;
+  position: relative;
+  width: 27.401px;
+}
+
+.studyways-battery-outline {
+  position: absolute;
+  height: 13px;
+  left: 0;
+  right: 2.4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.studyways-battery-outline-image {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.studyways-battery-end {
+  position: absolute;
+  height: 4.22px;
+  right: 0;
+  top: calc(50% + 0.61px);
+  transform: translateY(-50%);
+  width: 1.401px;
+}
+
+.studyways-battery-end-image {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.studyways-battery-fill {
+  position: absolute;
+  height: 9px;
+  left: 2px;
+  right: 4.4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.studyways-battery-fill-image {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.studyways-wifi-icon {
+  position: absolute;
+  height: 11.834px;
+  left: calc(50% + 141.5px);
+  top: 0;
+  transform: translateX(-50%);
+  width: 17px;
+}
+
+.studyways-wifi-icon img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.studyways-mobile-signal-icon {
+  position: absolute;
+  height: 12px;
+  left: calc(50% + 116px);
+  top: 0;
+  transform: translateX(-50%);
+  width: 18px;
+}
+
+.studyways-mobile-signal-icon img {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.studyways-header {
+  position: absolute;
+  background-color: #ffffff;
+  height: 66.507px;
+  left: 50%;
+  top: 63px;
+  transform: translateX(-50%);
+  width: 430px;
+}
+
+.studyways-header-content {
+  display: flex;
+  flex-direction: row;
+  gap: 21px;
+  align-items: center;
+  left: 19.93px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.studyways-arrow-container {
+  position: relative;
+  width: 27.52px;
+  height: 27.52px;
+  flex-shrink: 0;
+}
+
+.studyways-arrow-image {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.studyways-header-text-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 206.4px;
+  flex-shrink: 0;
+}
+
+.studyways-header-text {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  line-height: 22.933px;
+  font-size: 18px;
+  color: #000000;
+  width: 100%;
+  white-space: pre-wrap;
+}
+
+.studyways-scroll-view {
+  position: absolute;
+  top: 139px;
+  left: 25px;
+  width: 380px;
+  overflow-y: auto;
+  max-height: calc(100vh - 139px);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.studyways-scroll-view::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.studyways-content-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  padding-bottom: 24px;
+}
+
+.studyways-card {
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 14.648px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow: hidden;
+  padding: 24px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.studyways-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.studyways-card-title-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  width: 181px;
+}
+
+.studyways-card-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  line-height: 15.051px;
+  font-size: 16px;
+  color: #000000;
+  width: min-content;
+  white-space: nowrap;
+}
+
+.studyways-card-subtitle {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  line-height: 22.933px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 10px;
+  color: #272727;
+}
+
+.studyways-progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 9.11px;
+  height: 34.618px;
+  width: 100%;
+}
+
+.studyways-progress-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  line-height: 0;
+  font-size: 10.932px;
+}
+
+.studyways-progress-label {
+  display: flex;
+  flex-direction: column;
+  height: 13px;
+  justify-content: center;
+  color: #000000;
+  width: 45px;
+}
+
+.studyways-progress-value {
+  display: flex;
+  flex-direction: column;
+  height: 13px;
+  justify-content: center;
+  color: #535353;
+  text-align: right;
+  width: 45px;
+}
+
+.studyways-progress-bar-container {
+  position: relative;
+  width: 346.001px;
+  height: 9.11px;
+}
+
+.studyways-progress-bar-track {
+  position: absolute;
+  background-color: #e5e7eb;
+  height: 9.11px;
+  left: 0;
+  border-radius: 91.099px;
+  top: 0;
+  width: 346.001px;
+}
+
+.studyways-progress-bar-fill {
+  position: absolute;
+  height: 9.11px;
+  left: -0.09px;
+  border-radius: 91.099px;
+  top: 0;
+  width: 192.021px;
+  background: linear-gradient(90deg, rgba(22, 173, 27, 1) 0%, rgba(22, 173, 27, 1) 100%), linear-gradient(177.1912689012591deg, rgba(252, 190, 56, 1) 35.245%, rgba(250, 160, 42, 1) 90.289%), linear-gradient(90deg, rgba(247, 171, 14, 1) 0%, rgba(145, 100, 8, 1) 100%);
+}
+
+.studyways-card-footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.studyways-last-activity-container {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+  justify-content: center;
+}
+
+.studyways-clock-icon {
+  overflow: hidden;
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.studyways-clock-icon-image {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+.studyways-last-activity-text {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  line-height: 14px;
+  font-size: 9.11px;
+  color: #535353;
+  white-space: nowrap;
+}
+
+.studyways-streak-badge {
+  border: 0.526px solid #fee349;
+  height: 12.615px;
+  overflow: hidden;
+  border-radius: 6.308px;
+  width: 41px;
+  background: linear-gradient(162.3494785307895deg, rgba(252, 190, 56, 1) 35.245%, rgba(250, 160, 42, 1) 90.289%);
+}
+
+.studyways-streak-badge-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 6.31px;
+  gap: 1.05px;
+  position: relative;
+}
+
+.studyways-streak-icon {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+}
+
+.studyways-streak-text {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  line-height: 6.422px;
+  font-size: 6.308px;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.studyways-stats-container {
+  display: flex;
+  flex-direction: row;
+  gap: 31px;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.studyways-stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  width: 65px;
+  line-height: 14px;
+  flex-shrink: 0;
+}
+
+.studyways-stat-value {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: #168aad;
+  text-align: center;
+  width: 100%;
+}
+
+.studyways-stat-label {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  color: #272727;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.studyways-activity-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.studyways-activity-card {
+  border: 2.136px solid #e1e1e1;
+  border-radius: 25.637px;
+  overflow: hidden;
+  position: relative;
+  width: 181.593px;
+  height: 181.593px;
+  flex-shrink: 0;
+}
+
+.studyways-activity-card-header {
+  position: absolute;
+  height: 69px;
+  left: 50%;
+  overflow: hidden;
+  top: -2.14px;
+  transform: translateX(-50%);
+  width: 180px;
+}
+
+.studyways-activity-card-header-blue {
+  background-color: #0284c7;
+}
+
+.studyways-activity-card-header-teal {
+  background-color: #0d9488;
+  width: 181px;
+  left: calc(50% + 0.11px);
+}
+
+.studyways-activity-card-header-purple {
+  background-color: #4f46e5;
+  left: calc(50% - 0.8px);
+}
+
+.studyways-activity-card-header-dark-purple {
+  background-color: #9333ea;
+  width: 183px;
+  left: calc(50% - 0.89px);
+}
+
+.studyways-activity-card-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 50%;
+  opacity: 0.6;
+  pointer-events: none;
+  mix-blend-mode: lighten;
+}
+
+.studyways-activity-card-icon-container {
+  position: absolute;
+  left: 64.86px;
+  width: 45px;
+  height: 45px;
+  top: 43.86px;
+}
+
+.studyways-activity-card-icon {
+  position: absolute;
+  top: -35.56%;
+  left: -44.44%;
+  right: -44.44%;
+  bottom: -53.33%;
+  display: block;
+  max-width: none;
+  width: calc(100% + 88.88%);
+  height: calc(100% + 88.89%);
+  z-index: 1;
+}
+
+.studyways-activity-card-icon-badge {
+  position: absolute;
+  background-color: #f0fffe;
+  width: 24px;
+  height: 24px;
+  top: 12.73px;
+  left: 12.95px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.studyways-activity-card-icon-badge-icon {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: relative;
+  z-index: 11;
+}
+
+.studyways-activity-card-flash-icon {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  max-width: none;
+  z-index: 10;
+}
+
+.studyways-activity-card-content {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: center;
+  left: 33.86px;
+  line-height: 0;
+  top: 98.86px;
+  width: 109.25px;
+}
+
+.studyways-activity-card-title {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 23.418px;
+  font-size: 15.333px;
+  color: #000000;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.studyways-activity-card-description {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-weight: 400;
+  justify-content: center;
+  line-height: 16px;
+  font-size: 11.5px;
+  color: #535353;
+  text-align: center;
+  width: 100%;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.studyways-flash-cards-description {
+  width: 121px;
+  max-height: 32px;
+  overflow: hidden;
+}
+
